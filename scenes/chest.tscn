@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xxf58m2orfmx"]
+
+[ext_resource type="Texture2D" uid="uid://nmnrd1d573x3" path="res://textures/chest_front.png" id="1_a4ako"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2erad"]
+size = Vector2(16, 16)
+
+[node name="chest" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a4ako")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+shape = SubResource("RectangleShape2D_2erad")

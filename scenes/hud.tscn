@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=9 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
 [ext_resource type="Texture2D" uid="uid://d0b7jsewalcs8" path="res://textures/wood_sword.png" id="2_8pig6"]
 [ext_resource type="Texture2D" uid="uid://djbciuntjwqon" path="res://textures/wood_pickaxe.png" id="3_n0kfr"]
 [ext_resource type="Texture2D" uid="uid://cfcvvscnq63vy" path="res://textures/actionbar_selected.png" id="3_xvcdo"]
+[ext_resource type="Texture2D" uid="uid://bvdfovqli1tq8" path="res://textures/wood_axe.png" id="6_ntcx5"]
+[ext_resource type="Texture2D" uid="uid://c3l4loc8tiocc" path="res://textures/wood_hoe.png" id="7_273vg"]
+[ext_resource type="Texture2D" uid="uid://fbtpy46j35f" path="res://textures/wood_shovel.png" id="8_6sis5"]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_afl1v")
@@ -71,6 +74,170 @@ layout_mode = 2
 texture = ExtResource("3_n0kfr")
 
 [node name="SlotSelected" type="Sprite2D" parent="Slot2"]
+visible = false
+position = Vector2(7.59998, 7.99995)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_xvcdo")
+
+[node name="Slot3" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -139.0
+offset_top = -53.9999
+offset_right = -123.0
+offset_bottom = -37.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="Slot3"]
+layout_mode = 2
+texture = ExtResource("6_ntcx5")
+
+[node name="SlotSelected" type="Sprite2D" parent="Slot3"]
+visible = false
+position = Vector2(7.59998, 7.99995)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_xvcdo")
+
+[node name="Slot4" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -53.9999
+offset_right = -64.0
+offset_bottom = -37.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="Slot4"]
+layout_mode = 2
+texture = ExtResource("7_273vg")
+
+[node name="SlotSelected" type="Sprite2D" parent="Slot4"]
+visible = false
+position = Vector2(7.59998, 7.99995)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_xvcdo")
+
+[node name="Slot5" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.9999
+offset_top = -53.9999
+offset_right = -3.99994
+offset_bottom = -37.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="Slot5"]
+layout_mode = 2
+texture = ExtResource("8_6sis5")
+
+[node name="SlotSelected" type="Sprite2D" parent="Slot5"]
+visible = false
+position = Vector2(7.59998, 7.99995)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_xvcdo")
+
+[node name="Slot6" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 40.0001
+offset_top = -53.9999
+offset_right = 56.0001
+offset_bottom = -37.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="Slot6"]
+layout_mode = 2
+
+[node name="SlotSelected" type="Sprite2D" parent="Slot6"]
+visible = false
+position = Vector2(7.59998, 7.99995)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_xvcdo")
+
+[node name="Slot7" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = -53.9999
+offset_right = 117.0
+offset_bottom = -37.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="Slot7"]
+layout_mode = 2
+
+[node name="SlotSelected" type="Sprite2D" parent="Slot7"]
+visible = false
+position = Vector2(7.59998, 7.99995)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_xvcdo")
+
+[node name="Slot8" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = -53.9999
+offset_right = 176.0
+offset_bottom = -37.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="Slot8"]
+layout_mode = 2
+
+[node name="SlotSelected" type="Sprite2D" parent="Slot8"]
+visible = false
+position = Vector2(7.59998, 7.99995)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_xvcdo")
+
+[node name="Slot9" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = -53.9999
+offset_right = 236.0
+offset_bottom = -37.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="Slot9"]
+layout_mode = 2
+
+[node name="SlotSelected" type="Sprite2D" parent="Slot9"]
 visible = false
 position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
