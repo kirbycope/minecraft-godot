@@ -293,8 +293,6 @@ shape = SubResource("RectangleShape2D_5hobf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_c6rdv")
