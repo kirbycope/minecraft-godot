@@ -18,6 +18,16 @@ func _input(event):
 				$Inventory/ChestClosed.play()
 				$ActionBar.visible = true
 				$Inventory.visible = false
+		# Inventory - Crafting Table, show
+		if $CraftingTable.visible == false:
+			if Global.player_on_crafting_table and event.is_action_pressed("ui_select"):
+				$ActionBar.visible = false
+				$CraftingTable.visible = true
+		# Inventory - Crafting Table, hide
+		else:
+			if Global.player_on_crafting_table == false or event.is_action_pressed("ui_cancel"):
+				$ActionBar.visible = true
+				$CraftingTable.visible = false
 		# Determine selected slot
 		clear_slot_selection()
 		if event.is_action_pressed("Slot_1"):

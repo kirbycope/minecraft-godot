@@ -23,7 +23,6 @@ func _physics_process(delta):
 
 
 func _input(event):
-	# 🅱
 	if event.is_action_pressed("ui_select"):
 		is_attacking = true
 		attack_timer = 0.0
@@ -31,7 +30,6 @@ func _input(event):
 
 
 func update_animation():
-	# 🅱
 	if is_attacking:
 		if last_direction.y < 0:
 			#$AnimatedSprite2D.play("attack_up")
@@ -48,24 +46,19 @@ func update_animation():
 		velocity.x = velocity.x/1.25
 		velocity.y = velocity.y/1.25
 		return
-	# ⬇⬅➡⬆
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * speed
 	if direction != Vector2.ZERO:
 		last_direction = direction.normalized()
-	# ⬇
 	if Input.is_action_pressed("ui_down"):
 		velocity.y = speed
 		#$AnimatedSprite2D.play("walk_down")
-	# ⬅
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 		$AnimatedSprite2D.play("walk_left")
-	# ➡
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  speed
 		$AnimatedSprite2D.play("walk_right")
-	# ⬆
 	elif Input.is_action_pressed("ui_up"):
 		velocity.y = -speed
 		#$AnimatedSprite2D.play("walk_up")

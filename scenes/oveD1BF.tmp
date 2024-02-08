@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://b6g881s4tt6gt" path="res://scenes/crafting_table.tscn" id="30_5n4v8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3dd8"]
-resource_name = "cobblestone"
 texture = ExtResource("1_d5i5w")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -40,28 +39,24 @@ texture = ExtResource("1_d5i5w")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ponck"]
-resource_name = "dirt"
 texture = ExtResource("2_tj2e3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8x0me"]
-resource_name = "double_grass"
 texture = ExtResource("3_qfnw6")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pads8"]
-resource_name = "tall_grass"
 texture = ExtResource("4_cq8xw")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2x5by"]
-resource_name = "chest"
 texture = ExtResource("5_812x5")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -69,7 +64,6 @@ texture = ExtResource("5_812x5")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 0.875, 8, 0.875, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u18qx"]
-resource_name = "bed_feet"
 texture = ExtResource("6_qln2f")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -77,7 +71,6 @@ texture = ExtResource("6_qln2f")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -3.97299, 8, -4.06128, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uxoua"]
-resource_name = "bed_head"
 texture = ExtResource("7_32yk1")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -85,28 +78,24 @@ texture = ExtResource("7_32yk1")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -3.97299, 8, -3.97299, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnydt"]
-resource_name = "leaves_oak"
 texture = ExtResource("9_gwl1d")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grpj4"]
-resource_name = "flower_rose_red"
 texture = ExtResource("10_p8lsv")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r41jb"]
-resource_name = "flower_rose_blue"
 texture = ExtResource("11_6oy32")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_luvj3"]
-resource_name = "crafting_table"
 texture = ExtResource("8_ky8je")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -114,49 +103,42 @@ texture = ExtResource("8_ky8je")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01pdb"]
-resource_name = "grass"
 texture = ExtResource("3_d4p2w")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lcgp"]
-resource_name = "farmland_wet"
 texture = ExtResource("10_e1ntr")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f2vs"]
-resource_name = "farmland_dry"
 texture = ExtResource("11_nb78s")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_todkm"]
-resource_name = "wheat_1"
 texture = ExtResource("12_cnrdx")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwph2"]
-resource_name = "wheat_7"
 texture = ExtResource("13_ng4kd")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fsp1"]
-resource_name = "water"
 texture = ExtResource("14_653mn")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tq83j"]
-resource_name = "grass_side"
 texture = ExtResource("4_7jjr1")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -171,7 +153,6 @@ texture = ExtResource("5_rwgvr")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxhpe"]
-resource_name = "log_oak"
 texture = ExtResource("6_g85ql")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -179,7 +160,6 @@ texture = ExtResource("6_g85ql")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnj43"]
-resource_name = "log_oak_top"
 texture = ExtResource("7_nf0w3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -187,21 +167,18 @@ texture = ExtResource("7_nf0w3")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dbrt"]
-resource_name = "planks_oak"
 texture = ExtResource("8_aofo1")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7q53"]
-resource_name = "grass_path"
 texture = ExtResource("9_u3c17")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw0mx"]
-resource_name = "sappling_oak"
 texture = ExtResource("10_383pc")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)

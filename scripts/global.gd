@@ -2,6 +2,7 @@ extends Node
 
 
 var player_on_chest = false
+var player_on_crafting_table = false
 var player_position = Vector2(0, 0)
 
 
