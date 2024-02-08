@@ -7,9 +7,38 @@ var is_attacking = false
 var attack_timer = 0.0
 var attack_duration = 0.5
 
+func setup_test():
+	# Give player "wood_axe"
+	var item = {}
+	item.id = "wood_axe"
+	item.texture = "res://textures/wood_axe.png"
+	Global.add_item_to_inventory(item)
+	# Give player "wood_hoe"
+	item = {}
+	item.id = "wood_hoe"
+	item.texture = "res://textures/wood_hoe.png"
+	Global.add_item_to_inventory(item)
+	# Give player "wood_pickaxe"
+	item = {}
+	item.id = "wood_pickaxe"
+	item.texture = "res://textures/wood_pickaxe.png"
+	Global.add_item_to_inventory(item)
+	# Give player "wood_shovel"
+	item = {}
+	item.id = "wood_shovel"
+	item.texture = "res://textures/wood_shovel.png"
+	Global.add_item_to_inventory(item)
+	# Give player "wood_sword"
+	item = {}
+	item.id = "wood_sword"
+	item.texture = "res://textures/wood_sword.png"
+	Global.add_item_to_inventory(item)
+	var hud_node = $hud
+	hud_node.show_actionbar_items()
 
 func _ready():
 	add_to_group("Player")
+	setup_test()
 
 
 func _physics_process(delta):
@@ -39,10 +68,10 @@ func update_animation():
 			pass
 		elif last_direction.x > 0:
 			$AnimatedSprite2D.play("attack_right")
-			$AttackRight.play("wooden_sword")
+			$AttackRight.play("wood_sword")
 		elif last_direction.x < 0:
 			$AnimatedSprite2D.play("attack_left")
-			$AttackLeft.play("wooden_sword")
+			$AttackLeft.play("wood_sword")
 		velocity.x = velocity.x/1.25
 		velocity.y = velocity.y/1.25
 		return

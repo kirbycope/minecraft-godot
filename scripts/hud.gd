@@ -2,7 +2,9 @@ extends CanvasLayer
 
 
 var selected_slot = 1
-
+var action_bar_slots = [null, null, null, null, null, null, null, null, null]
+@onready var action_bar_slot_images = [$ActionBar/Slot1/SlotTexture, $ActionBar/Slot2/SlotTexture, $ActionBar/Slot3/SlotTexture, $ActionBar/Slot4/SlotTexture,
+	$ActionBar/Slot5/SlotTexture, $ActionBar/Slot6/SlotTexture, $ActionBar/Slot7/SlotTexture, $ActionBar/Slot8/SlotTexture, $ActionBar/Slot9/SlotTexture]
 
 # Called when an input event is triggered
 func _input(event):
@@ -56,13 +58,14 @@ func _input(event):
 			selected_slot += 1
 			if selected_slot > 9:
 				selected_slot = selected_slot - 9
-		draw_slot_selection()
+		show_slot_selection()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clear_slot_selection()
-	draw_slot_selection()
+	show_slot_selection()
+	show_actionbar_items()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,22 +85,57 @@ func clear_slot_selection():
 	$ActionBar/Slot9/SlotSelected.visible = false
 
 
-func draw_slot_selection():
+func show_slot_selection():
 	if selected_slot == 1:
 		$ActionBar/Slot1/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot1/SlotTexture)
 	elif selected_slot == 2:
 		$ActionBar/Slot2/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot2/SlotTexture)
 	elif selected_slot == 3:
 		$ActionBar/Slot3/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot3/SlotTexture)
 	elif selected_slot == 4:
 		$ActionBar/Slot4/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot4/SlotTexture)
 	elif selected_slot == 5:
 		$ActionBar/Slot5/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot5/SlotTexture)
 	elif selected_slot == 6:
 		$ActionBar/Slot6/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot6/SlotTexture)
 	elif selected_slot == 7:
 		$ActionBar/Slot7/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot7/SlotTexture)
 	elif selected_slot == 8:
 		$ActionBar/Slot8/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot8/SlotTexture)
 	elif selected_slot == 9:
 		$ActionBar/Slot9/SlotSelected.visible = true
+		assign_selected_item($ActionBar/Slot9/SlotTexture)
+
+
+func show_actionbar_items():
+	action_bar_slots = Global.get_inventory()
+	action_bar_slots = action_bar_slots.slice(0,9)
+	for i in range(len(action_bar_slots)):
+		if action_bar_slots[i] != null:
+			action_bar_slot_images[i].texture = load(action_bar_slots[i].texture)
+			print(action_bar_slots[i])
+
+
+func assign_selected_item(texture_rect):
+	var texture = texture_rect.texture
+	if texture:
+		var resource_path = texture.resource_path
+		if resource_path == "res://textures/wood_axe.png":
+			Global.selected_item = "wood_axe"
+		elif resource_path == "res://textures/wood_hoe.png":
+			Global.selected_item = "wood_hoe"
+		elif resource_path == "res://textures/wood_pickaxe.png":
+			Global.selected_item = "wood_pickaxe"
+		elif resource_path == "res://textures/wood_shovel.png":
+			Global.selected_item = "wood_shovel"
+		elif resource_path == "res://textures/wood_sword.png":
+			Global.selected_item = "wood_sword"
+		print(Global.selected_item)
