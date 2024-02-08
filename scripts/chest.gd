@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,3 +10,12 @@ func _ready():
 func _process(delta):
 	pass
 
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("Player"):
+		Global.player_on_chest = true
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("Player"):
+		Global.player_on_chest = false

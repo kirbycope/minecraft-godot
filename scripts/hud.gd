@@ -6,6 +6,19 @@ var selected_slot = 1
 
 # Called when an input event is triggered
 func _input(event):
+		# Inventory - Chest, show
+		if $Inventory.visible == false:
+			if Global.player_on_chest and event.is_action_pressed("ui_select"):
+				$Inventory/ChestOpen.play()
+				$ActionBar.visible = false
+				$Inventory.visible = true
+		# Inventory - Chest, hide
+		else:
+			if Global.player_on_chest == false or event.is_action_pressed("ui_cancel"):
+				$Inventory/ChestClosed.play()
+				$ActionBar.visible = true
+				$Inventory.visible = false
+		# Determine selected slot
 		clear_slot_selection()
 		if event.is_action_pressed("Slot_1"):
 			selected_slot = 1
@@ -48,33 +61,33 @@ func _process(delta):
 
 
 func clear_slot_selection():
-	$Slot1/SlotSelected.visible = false
-	$Slot2/SlotSelected.visible = false
-	$Slot3/SlotSelected.visible = false
-	$Slot4/SlotSelected.visible = false
-	$Slot5/SlotSelected.visible = false
-	$Slot6/SlotSelected.visible = false
-	$Slot7/SlotSelected.visible = false
-	$Slot8/SlotSelected.visible = false
-	$Slot9/SlotSelected.visible = false
+	$ActionBar/Slot1/SlotSelected.visible = false
+	$ActionBar/Slot2/SlotSelected.visible = false
+	$ActionBar/Slot3/SlotSelected.visible = false
+	$ActionBar/Slot4/SlotSelected.visible = false
+	$ActionBar/Slot5/SlotSelected.visible = false
+	$ActionBar/Slot6/SlotSelected.visible = false
+	$ActionBar/Slot7/SlotSelected.visible = false
+	$ActionBar/Slot8/SlotSelected.visible = false
+	$ActionBar/Slot9/SlotSelected.visible = false
 
 
 func draw_slot_selection():
 	if selected_slot == 1:
-		$Slot1/SlotSelected.visible = true
+		$ActionBar/Slot1/SlotSelected.visible = true
 	elif selected_slot == 2:
-		$Slot2/SlotSelected.visible = true
+		$ActionBar/Slot2/SlotSelected.visible = true
 	elif selected_slot == 3:
-		$Slot3/SlotSelected.visible = true
+		$ActionBar/Slot3/SlotSelected.visible = true
 	elif selected_slot == 4:
-		$Slot4/SlotSelected.visible = true
+		$ActionBar/Slot4/SlotSelected.visible = true
 	elif selected_slot == 5:
-		$Slot5/SlotSelected.visible = true
+		$ActionBar/Slot5/SlotSelected.visible = true
 	elif selected_slot == 6:
-		$Slot6/SlotSelected.visible = true
+		$ActionBar/Slot6/SlotSelected.visible = true
 	elif selected_slot == 7:
-		$Slot7/SlotSelected.visible = true
+		$ActionBar/Slot7/SlotSelected.visible = true
 	elif selected_slot == 8:
-		$Slot8/SlotSelected.visible = true
+		$ActionBar/Slot8/SlotSelected.visible = true
 	elif selected_slot == 9:
-		$Slot9/SlotSelected.visible = true
+		$ActionBar/Slot9/SlotSelected.visible = true
