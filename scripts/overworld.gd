@@ -4,17 +4,21 @@ extends Node2D
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		var source_id = get_cell_source_id()
-		# Grass/Path -> Farmland
+		# Use "wood_hoe" to make "farmland_dry"
 		if Global.selected_item == "wood_hoe":
-			if source_id == 2: # Source ID 2: "grass"
-				set_cell("farmland_dry")
-			elif source_id == 8: # Source ID 8: "grass_path"
-				set_cell("farmland_dry")
-		# Grass -> Path
+			if (source_id == 2 # Source ID 2: "grass"
+			or source_id == 8): # Source ID 8: "grass_path"
+				set_cell(1, "farmland_dry")
+		# Use "wood_shovel" to make "grass_path"
 		if Global.selected_item == "wood_shovel":
-			if source_id == 2: # Source ID 2: "grass"
-				set_cell("grass_path")
-		
+			if(source_id == 2 # Source ID 2: "grass"
+			or source_id == 21): # Source ID 21: "farmland_dry"
+				set_cell(1, "grass_path")
+		# Use "seeds_wheat" on "farmland_(dry/wet)" to plant "wheat"
+		if Global.selected_item == "seeds_wheat":
+			if(source_id == 20 # Source ID 20: "farmland_wet"
+			or source_id == 21): # Source ID 21: "farmland_dry"
+				set_cell(2,"wheat_1")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -89,12 +93,17 @@ func get_tile_name(source_id):
 
 
 # Set the tile at the player's position.
-func set_cell(tile_name):
+func set_cell(layer, tile_name):
 	var player = $TileMap/player
 	var tilemap = $TileMap
 	var player_position = player.position
 	var map_position = tilemap.local_to_map(player_position)
 	if tile_name == "farmland_dry": # Source ID: 21
-		tilemap.set_cell(1, map_position, 21, Vector2i(0, 0), 0)
+		tilemap.set_cell(layer, map_position, 21, Vector2i(0, 0), 0)
+		$TileMap/player/dig_grass.play()
 	elif tile_name == "grass_path": # Source ID: 8
-		tilemap.set_cell(1, map_position, 8, Vector2i(0, 0), 0)
+		tilemap.set_cell(layer, map_position, 8, Vector2i(0, 0), 0)
+		$TileMap/player/step_grass.play()
+	elif tile_name == "wheat_1": # Source ID: 22
+		tilemap.set_cell(layer, map_position, 22, Vector2i(0, 0), 0)
+		#$TileMap/player/dig_grass.play()

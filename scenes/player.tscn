@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://t8b4xbx6qgtr"]
+[gd_scene load_steps=42 format=3 uid="uid://t8b4xbx6qgtr"]
 
 [ext_resource type="Texture2D" uid="uid://ceh6kcvkydlps" path="res://textures/joao-francisco-tanini-figueiredo-steve-minecraft-player-3.png" id="1_jstyl"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xd0mi"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://ckfc7dxhskp6x" path="res://textures/wood_hoe_h.png" id="8_bgipp"]
 [ext_resource type="Texture2D" uid="uid://cy846yvqr2wdh" path="res://textures/wood_pickaxe_h.png" id="9_xl3lj"]
 [ext_resource type="Texture2D" uid="uid://begocnjbjsfqd" path="res://textures/wood_shovel_h.png" id="10_r8bys"]
+[ext_resource type="AudioStream" uid="uid://3jdk7daw3b3f" path="res://sounds/dig/grass1.wav" id="14_k4g40"]
+[ext_resource type="AudioStream" uid="uid://dlohla1d0x07x" path="res://sounds/step/grass1.wav" id="15_2iofg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6ouw"]
 animations = [{
@@ -371,7 +373,7 @@ autoplay = "idle"
 sprite_frames = SubResource("SpriteFrames_n3lvr")
 animation = &"attack_right"
 autoplay = "idle_left"
-frame_progress = 0.802909
+frame_progress = 0.580349
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.38419e-06, 90)
@@ -381,6 +383,15 @@ shape = SubResource("RectangleShape2D_5hobf")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="strong1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_c6rdv")
 volume_db = -10.0
+
+[node name="dig_grass" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("14_k4g40")
+volume_db = -10.0
+
+[node name="step_grass" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("15_2iofg")

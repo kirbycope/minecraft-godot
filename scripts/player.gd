@@ -33,6 +33,11 @@ func setup_test():
 	item.id = "wood_sword"
 	item.texture = "res://textures/wood_sword.png"	
 	Global.add_item_to_inventory(item)
+	# Give the player "seeds_wheat"
+	item = {}
+	item.id = "seeds_wheat"
+	item.texture = "res://textures/seeds_wheat.png"	
+	Global.add_item_to_inventory(item)
 	# Update the UI
 	var hud_node = $hud
 	hud_node.show_actionbar_items()
@@ -59,7 +64,7 @@ func _input(event):
 	if event.is_action_pressed("ui_select"):
 		is_attacking = true
 		attack_timer = 0.0
-		$AudioStreamPlayer2D.play()
+		$strong1.play()
 
 
 func update_animation():

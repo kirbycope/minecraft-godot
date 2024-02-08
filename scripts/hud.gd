@@ -157,16 +157,9 @@ func assign_selected_item(texture_rect):
 	var texture = texture_rect.texture
 	if texture:
 		var resource_path = texture.resource_path
-		if resource_path == "res://textures/wood_axe.png":
-			Global.selected_item = "wood_axe"
-		elif resource_path == "res://textures/wood_hoe.png":
-			Global.selected_item = "wood_hoe"
-		elif resource_path == "res://textures/wood_pickaxe.png":
-			Global.selected_item = "wood_pickaxe"
-		elif resource_path == "res://textures/wood_shovel.png":
-			Global.selected_item = "wood_shovel"
-		elif resource_path == "res://textures/wood_sword.png":
-			Global.selected_item = "wood_sword"
+		resource_path = resource_path.replace("res://textures/", "")
+		resource_path = resource_path.replace(".png", "")
+		Global.selected_item = resource_path
 	else:
 		Global.selected_item = ""
 	#print(Global.selected_item) # DEBUGGING
