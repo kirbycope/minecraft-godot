@@ -6,10 +6,14 @@ var selected_slot = 1
 	$ActionBar/Slot5/SlotTexture, $ActionBar/Slot6/SlotTexture, $ActionBar/Slot7/SlotTexture, $ActionBar/Slot8/SlotTexture, $ActionBar/Slot9/SlotTexture
 ]
 @onready var crafting_table_slot_images = [$CraftingTable/Slot1/SlotTexture, $CraftingTable/Slot2/SlotTexture, $CraftingTable/Slot3/SlotTexture, $CraftingTable/Slot4/SlotTexture,
-	$CraftingTable/Slot5/SlotTexture, $CraftingTable/Slot6/SlotTexture, $CraftingTable/Slot7/SlotTexture, $CraftingTable/Slot8/SlotTexture, $CraftingTable/Slot9/SlotTexture
+	$CraftingTable/Slot5/SlotTexture, $CraftingTable/Slot6/SlotTexture, $CraftingTable/Slot7/SlotTexture, $CraftingTable/Slot8/SlotTexture, $CraftingTable/Slot9/SlotTexture,
+	$CraftingTable/Slot10/SlotTexture, $CraftingTable/Slot11/SlotTexture, $CraftingTable/Slot12/SlotTexture, $CraftingTable/Slot13/SlotTexture, $CraftingTable/Slot14/SlotTexture,
+	$CraftingTable/Slot15/SlotTexture, $CraftingTable/Slot16/SlotTexture, $CraftingTable/Slot17/SlotTexture, $CraftingTable/Slot18/SlotTexture
 ]
 @onready var single_chest_slot_images = [$SingleChest/Slot1/SlotTexture, $SingleChest/Slot2/SlotTexture, $SingleChest/Slot3/SlotTexture, $SingleChest/Slot4/SlotTexture,
-	$SingleChest/Slot5/SlotTexture, $SingleChest/Slot6/SlotTexture, $SingleChest/Slot7/SlotTexture, $SingleChest/Slot8/SlotTexture, $SingleChest/Slot9/SlotTexture
+	$SingleChest/Slot5/SlotTexture, $SingleChest/Slot6/SlotTexture, $SingleChest/Slot7/SlotTexture, $SingleChest/Slot8/SlotTexture, $SingleChest/Slot9/SlotTexture,
+	$SingleChest/Slot10/SlotTexture, $SingleChest/Slot11/SlotTexture, $SingleChest/Slot12/SlotTexture, $SingleChest/Slot13/SlotTexture, $SingleChest/Slot14/SlotTexture,
+	$SingleChest/Slot15/SlotTexture, $SingleChest/Slot16/SlotTexture, $SingleChest/Slot17/SlotTexture, $SingleChest/Slot18/SlotTexture
 ]
 
 
