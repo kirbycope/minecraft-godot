@@ -31,10 +31,14 @@ func setup_test():
 	# Give player "wood_sword"
 	item = {}
 	item.id = "wood_sword"
-	item.texture = "res://textures/wood_sword.png"
+	item.texture = "res://textures/wood_sword.png"	
 	Global.add_item_to_inventory(item)
+	# Update the UI
 	var hud_node = $hud
 	hud_node.show_actionbar_items()
+	hud_node.show_crafting_table_items()
+	hud_node.show_single_chest_items()
+
 
 func _ready():
 	add_to_group("Player")
@@ -68,10 +72,18 @@ func update_animation():
 			pass
 		elif last_direction.x > 0:
 			$AnimatedSprite2D.play("attack_right")
-			$AttackRight.play("wood_sword")
+			if Global.selected_item == "wood_axe": $AttackRight.play("wood_axe")
+			if Global.selected_item == "wood_hoe": $AttackRight.play("wood_hoe")
+			if Global.selected_item == "wood_pickaxe": $AttackRight.play("wood_pickaxe")
+			if Global.selected_item == "wood_shovel": $AttackRight.play("wood_shovel")
+			if Global.selected_item == "wood_sword": $AttackRight.play("wood_sword")
 		elif last_direction.x < 0:
 			$AnimatedSprite2D.play("attack_left")
-			$AttackLeft.play("wood_sword")
+			if Global.selected_item == "wood_axe": $AttackLeft.play("wood_axe")
+			if Global.selected_item == "wood_hoe": $AttackLeft.play("wood_hoe")
+			if Global.selected_item == "wood_pickaxe": $AttackLeft.play("wood_pickaxe")
+			if Global.selected_item == "wood_shovel": $AttackLeft.play("wood_shovel")
+			if Global.selected_item == "wood_sword": $AttackLeft.play("wood_sword")
 		velocity.x = velocity.x/1.25
 		velocity.y = velocity.y/1.25
 		return

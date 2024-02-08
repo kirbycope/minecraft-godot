@@ -243,8 +243,17 @@ position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
-[node name="Inventory" type="CenterContainer" parent="."]
+[node name="CraftingTable" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
+[node name="Frame" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -252,27 +261,232 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ChestSingle" type="Sprite2D" parent="Inventory"]
 scale = Vector2(3, 3)
-texture = ExtResource("9_du2qu")
 
-[node name="ChestOpen" type="AudioStreamPlayer2D" parent="Inventory"]
+[node name="Sprite2D" type="Sprite2D" parent="CraftingTable/Frame"]
+texture = ExtResource("12_l5npx")
+
+[node name="Slot1" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = -236.0
+offset_top = 181.0
+offset_right = -220.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot1"]
+layout_mode = 2
+
+[node name="Slot2" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = -182.0
+offset_top = 181.0
+offset_right = -166.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot2"]
+layout_mode = 2
+
+[node name="Slot3" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = -128.0
+offset_top = 181.0
+offset_right = -112.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot3"]
+layout_mode = 2
+
+[node name="Slot4" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = -74.0
+offset_top = 181.0
+offset_right = -58.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot4"]
+layout_mode = 2
+
+[node name="Slot5" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 181.0
+offset_right = -4.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot5"]
+layout_mode = 2
+
+[node name="Slot6" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 181.0
+offset_right = 49.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot6"]
+layout_mode = 2
+
+[node name="Slot7" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 181.0
+offset_right = 104.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot7"]
+layout_mode = 2
+
+[node name="Slot8" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 181.0
+offset_right = 158.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot8"]
+layout_mode = 2
+
+[node name="Slot9" type="CenterContainer" parent="CraftingTable"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 181.0
+offset_right = 212.0
+offset_bottom = 197.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="CraftingTable/Slot9"]
+layout_mode = 2
+
+[node name="SingleChest" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChestOpen" type="AudioStreamPlayer2D" parent="SingleChest"]
+position = Vector2(576, 324)
 stream = ExtResource("10_u71ey")
 
-[node name="ChestClosed" type="AudioStreamPlayer2D" parent="Inventory"]
+[node name="ChestClosed" type="AudioStreamPlayer2D" parent="SingleChest"]
+position = Vector2(576, 324)
 stream = ExtResource("11_ot7if")
 
-[node name="CraftingTable" type="CenterContainer" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Frame" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 75.0
+offset_right = 488.0
+offset_bottom = 241.0
 scale = Vector2(3, 3)
 
-[node name="Sprite2D" type="Sprite2D" parent="CraftingTable"]
-texture = ExtResource("12_l5npx")
+[node name="TextureRect" type="TextureRect" parent="SingleChest/Frame"]
+layout_mode = 2
+texture = ExtResource("9_du2qu")
+
+[node name="Slot1" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 505.0
+offset_right = 356.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot1"]
+layout_mode = 2
+
+[node name="Slot2" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 505.0
+offset_right = 410.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot2"]
+layout_mode = 2
+
+[node name="Slot3" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 505.0
+offset_right = 464.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot3"]
+layout_mode = 2
+
+[node name="Slot4" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 505.0
+offset_right = 518.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot4"]
+layout_mode = 2
+
+[node name="Slot5" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 505.0
+offset_right = 572.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot5"]
+layout_mode = 2
+
+[node name="Slot6" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 505.0
+offset_right = 626.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot6"]
+layout_mode = 2
+
+[node name="Slot7" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 505.0
+offset_right = 680.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot7"]
+layout_mode = 2
+
+[node name="Slot8" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 505.0
+offset_right = 733.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot8"]
+layout_mode = 2
+
+[node name="Slot9" type="CenterContainer" parent="SingleChest"]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 505.0
+offset_right = 788.0
+offset_bottom = 521.0
+scale = Vector2(2.5, 2.5)
+
+[node name="SlotTexture" type="TextureRect" parent="SingleChest/Slot9"]
+layout_mode = 2
