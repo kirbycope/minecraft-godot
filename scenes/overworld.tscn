@@ -235,7 +235,6 @@ autoplay = true
 
 [node name="chest" parent="." instance=ExtResource("26_hbcrn")]
 position = Vector2(24, 24)
-scale = Vector2(1, 1)
 
 [node name="chest2" parent="." instance=ExtResource("26_hbcrn")]
 position = Vector2(471, 120)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=13 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://coxhuuv4vur00" path="res://textures/chest_single.png" id="9_du2qu"]
 [ext_resource type="AudioStream" uid="uid://bjkej00teylr8" path="res://sounds/chestopen.wav" id="10_u71ey"]
 [ext_resource type="AudioStream" uid="uid://bsj5pvjpjhb3o" path="res://sounds/chestclosed.wav" id="11_ot7if"]
+[ext_resource type="Texture2D" uid="uid://q6pwd5w2yqlp" path="res://textures/crafting_table.png" id="12_l5npx"]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_afl1v")
@@ -271,3 +272,17 @@ stream = ExtResource("10_u71ey")
 
 [node name="ChestClosed" type="AudioStreamPlayer2D" parent="Inventory"]
 stream = ExtResource("11_ot7if")
+
+[node name="CraftingTable" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="CraftingTable"]
+texture = ExtResource("12_l5npx")
