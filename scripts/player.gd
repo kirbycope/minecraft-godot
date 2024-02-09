@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const speed = 100
-var last_direction = Vector2.RIGHT
+
 var is_attacking = false
 var attack_timer = 0.0
 var attack_duration = 0.5
@@ -70,20 +70,20 @@ func _input(event):
 
 func update_animation():
 	if is_attacking:
-		if last_direction.y < 0:
+		if Global.last_direction.y < 0:
 			#$AnimatedSprite2D.play("attack_up")
 			pass
-		elif last_direction.y > 0:
+		elif Global.last_direction.y > 0:
 			#$AnimatedSprite2D.play("attack_down")
 			pass
-		elif last_direction.x > 0:
+		elif Global.last_direction.x > 0:
 			$AnimatedSprite2D.play("attack_right")
 			if Global.selected_item == "wood_axe": $AttackRight.play("wood_axe")
 			if Global.selected_item == "wood_hoe": $AttackRight.play("wood_hoe")
 			if Global.selected_item == "wood_pickaxe": $AttackRight.play("wood_pickaxe")
 			if Global.selected_item == "wood_shovel": $AttackRight.play("wood_shovel")
 			if Global.selected_item == "wood_sword": $AttackRight.play("wood_sword")
-		elif last_direction.x < 0:
+		elif Global.last_direction.x < 0:
 			$AnimatedSprite2D.play("attack_left")
 			if Global.selected_item == "wood_axe": $AttackLeft.play("wood_axe")
 			if Global.selected_item == "wood_hoe": $AttackLeft.play("wood_hoe")
@@ -96,7 +96,7 @@ func update_animation():
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * speed
 	if direction != Vector2.ZERO:
-		last_direction = direction.normalized()
+		Global.last_direction = direction.normalized()
 	if Input.is_action_pressed("ui_down"):
 		velocity.y = speed
 		#$AnimatedSprite2D.play("walk_down")
@@ -112,13 +112,13 @@ func update_animation():
 	elif direction == Vector2.ZERO:
 		$AttackLeft.play("idle")
 		$AttackRight.play("idle")
-		if last_direction.y > 0:
+		if Global.last_direction.y > 0:
 			#$AnimatedSprite2D.play("idle_down")
 			pass
-		elif last_direction.x < 0:
+		elif Global.last_direction.x < 0:
 			$AnimatedSprite2D.play("idle_left")
-		elif last_direction.x > 0:
+		elif Global.last_direction.x > 0:
 			$AnimatedSprite2D.play("idle_right")
-		elif last_direction.y < 0:
+		elif Global.last_direction.y < 0:
 			#$AnimatedSprite2D.play("idle_up")
 			pass

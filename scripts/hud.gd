@@ -66,12 +66,7 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	clear_slot_selection()
-	show_slot_selection()
-	show_actionbar_items()
-	show_crafting_table_items()
-	show_inventory_items()
-	show_single_chest_items()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

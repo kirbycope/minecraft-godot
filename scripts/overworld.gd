@@ -4,7 +4,7 @@ extends Node2D
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		# Get cell at "Base Layer" of TileMap
-		var source_id = get_cell_source_id(1)
+		var source_id = $TileMap.get_cell_source_id(1, get_map_position())
 		
 		# Use "wood_hoe" to make "farmland_dry"
 		if Global.selected_item == "wood_hoe":
@@ -32,12 +32,38 @@ func _input(event):
 			or source_id == 21): 				# Source ID 21: "farmland_dry"
 				set_cell(2, 9) 					# Source ID 9: "sappling_oak"
 		
+		# Use "cobblestone" to place "cobblestone"
+		if Global.selected_item == "cobblestone":
+			if(source_id == 2 					# Source ID 2: "grass",
+			or source_id == 8 					# Source ID 8: "grass_path"
+			or source_id == 20 					# Source ID 20: "farmland_wet"
+			or source_id == 21): 				# Source ID 21: "farmland_dry"
+				set_cell(2, 0) 					# Source ID 0: "cobblestone"
+		
 	if event.is_action_pressed("ui_select"):
 		# Get cell at "Breakable Layer" of TileMap
-		var source_id = get_cell_source_id(2)
+		var source_id = $TileMap.get_cell_source_id(2, get_map_position())
+		
+		# Pick up "sappling_oak" and add to inventory
 		if source_id == 9: # Source ID 9: "sappling_oak"
 			$TileMap.erase_cell(2, get_map_position())
 			give_item("sapling_oak")
+		
+		# Use "wood_axe" to mine "cobblestone"
+		if Global.selected_item == "wood_pickaxe":
+			# Check to the right, if facing right
+			if Global.last_direction == Vector2.RIGHT:
+				var tile_to_right = get_map_position(Vector2(16,0))
+				var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
+				if (right_source_id == 0): 		# Source ID 0: "cobblestone"
+					$TileMap.erase_cell(2, tile_to_right)
+					give_item("cobblestone")
+			else:
+				var tile_to_left = get_map_position(Vector2(-16,0))
+				var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
+				if (left_source_id == 0): 		# Source ID 0: "cobblestone"
+					$TileMap.erase_cell(2, tile_to_left)
+					give_item("cobblestone")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,17 +77,12 @@ func _process(delta):
 
 
 # Gets the player's current map position
-func get_map_position():
+func get_map_position(offset=Vector2(0,0)):
 	var player = $TileMap/player
 	var tilemap = $TileMap
-	var player_position = player.position
+	var player_position = player.position + offset
 	var map_position = tilemap.local_to_map(player_position)
 	return map_position
-
-
-# Get the ID of the cell the player is standing on (see TileMap > TileSet > Tiles).
-func get_cell_source_id(layer):
-	return $TileMap.get_cell_source_id(layer, get_map_position())
 
 
 # Get the friendly name of the given tile Source ID.

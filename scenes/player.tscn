@@ -388,10 +388,8 @@ stream = ExtResource("5_c6rdv")
 volume_db = -10.0
 
 [node name="dig_grass" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("14_k4g40")
 volume_db = -10.0
 
 [node name="step_grass" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("15_2iofg")
