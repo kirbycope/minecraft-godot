@@ -125,6 +125,7 @@ func give_item(item_name):
 	var hud_node = $TileMap/player/hud
 	hud_node.show_actionbar_items()
 	hud_node.show_crafting_table_items()
+	hud_node.show_inventory_items()
 	hud_node.show_single_chest_items()
 
 

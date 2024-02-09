@@ -10,6 +10,11 @@ var selected_slot = 1
 	$CraftingTable/Slot10/SlotTexture, $CraftingTable/Slot11/SlotTexture, $CraftingTable/Slot12/SlotTexture, $CraftingTable/Slot13/SlotTexture, $CraftingTable/Slot14/SlotTexture,
 	$CraftingTable/Slot15/SlotTexture, $CraftingTable/Slot16/SlotTexture, $CraftingTable/Slot17/SlotTexture, $CraftingTable/Slot18/SlotTexture
 ]
+@onready var inventory_slot_images = [$Inventory/Slot1/SlotTexture, $Inventory/Slot2/SlotTexture, $Inventory/Slot3/SlotTexture, $Inventory/Slot4/SlotTexture,
+	$Inventory/Slot5/SlotTexture, $Inventory/Slot6/SlotTexture, $Inventory/Slot7/SlotTexture, $Inventory/Slot8/SlotTexture, $Inventory/Slot9/SlotTexture,
+	$Inventory/Slot10/SlotTexture, $Inventory/Slot11/SlotTexture, $Inventory/Slot12/SlotTexture, $Inventory/Slot13/SlotTexture, $Inventory/Slot14/SlotTexture,
+	$Inventory/Slot15/SlotTexture, $Inventory/Slot16/SlotTexture, $Inventory/Slot17/SlotTexture, $Inventory/Slot18/SlotTexture
+]
 @onready var single_chest_slot_images = [$SingleChest/Slot1/SlotTexture, $SingleChest/Slot2/SlotTexture, $SingleChest/Slot3/SlotTexture, $SingleChest/Slot4/SlotTexture,
 	$SingleChest/Slot5/SlotTexture, $SingleChest/Slot6/SlotTexture, $SingleChest/Slot7/SlotTexture, $SingleChest/Slot8/SlotTexture, $SingleChest/Slot9/SlotTexture,
 	$SingleChest/Slot10/SlotTexture, $SingleChest/Slot11/SlotTexture, $SingleChest/Slot12/SlotTexture, $SingleChest/Slot13/SlotTexture, $SingleChest/Slot14/SlotTexture,
@@ -24,6 +29,7 @@ func _input(event):
 			if Global.player_on_chest and event.is_action_pressed("ui_select"):
 				$SingleChest/ChestOpen.play()
 				$ActionBar.visible = false
+				$Inventory.visible = false
 				$SingleChest.visible = true
 		# Inventory - Chest, hide
 		else:
@@ -36,11 +42,22 @@ func _input(event):
 			if Global.player_on_crafting_table and event.is_action_pressed("ui_select"):
 				$ActionBar.visible = false
 				$CraftingTable.visible = true
+				$Inventory.visible = false
 		# Inventory - Crafting Table, hide
 		else:
 			if Global.player_on_crafting_table == false or event.is_action_pressed("ui_cancel"):
 				$ActionBar.visible = true
 				$CraftingTable.visible = false
+		# Inventory - Inventory, show
+		if $CraftingTable.visible == false and $SingleChest.visible == false:
+			if $Inventory.visible == false:
+				if event.is_action_pressed("ui_accept"):
+					$ActionBar.visible = false
+					$Inventory.visible = true
+			else:
+				if event.is_action_pressed("ui_accept"):
+					$ActionBar.visible = true
+					$Inventory.visible = false
 		# Highlight selected slot
 		clear_slot_selection()
 		determine_slot_selection(event)
@@ -53,6 +70,7 @@ func _ready():
 	show_slot_selection()
 	show_actionbar_items()
 	show_crafting_table_items()
+	show_inventory_items()
 	show_single_chest_items()
 
 
@@ -146,6 +164,14 @@ func show_crafting_table_items():
 	for i in range(len(inventory)):
 		if inventory[i] != null:
 			crafting_table_slot_images[i].texture = load(inventory[i].texture)
+			#print(inventory[i]) # DEBUGGING
+
+
+func show_inventory_items():
+	var inventory = Global.get_inventory()
+	for i in range(len(inventory)):
+		if inventory[i] != null:
+			inventory_slot_images[i].texture = load(inventory[i].texture)
 			#print(inventory[i]) # DEBUGGING
 
 

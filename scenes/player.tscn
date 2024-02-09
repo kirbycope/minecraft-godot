@@ -373,7 +373,7 @@ autoplay = "idle"
 sprite_frames = SubResource("SpriteFrames_n3lvr")
 animation = &"attack_right"
 autoplay = "idle_left"
-frame_progress = 0.599368
+frame_progress = 0.908285
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.38419e-06, 90)

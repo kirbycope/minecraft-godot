@@ -42,6 +42,7 @@ func setup_test():
 	var hud_node = $hud
 	hud_node.show_actionbar_items()
 	hud_node.show_crafting_table_items()
+	hud_node.show_inventory_items()
 	hud_node.show_single_chest_items()
 
 
