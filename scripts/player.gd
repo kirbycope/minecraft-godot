@@ -11,39 +11,49 @@ func setup_test():
 	# Give player "wood_axe"
 	var item = {}
 	item.id = "wood_axe"
+	item.stack_size = 1
+	item.quantity = 1
 	item.texture = "res://textures/wood_axe.png"
 	Global.add_item_to_inventory(item)
 	# Give player "wood_hoe"
 	item = {}
 	item.id = "wood_hoe"
+	item.stack_size = 1
+	item.quantity = 1
 	item.texture = "res://textures/wood_hoe.png"
 	Global.add_item_to_inventory(item)
 	# Give player "wood_pickaxe"
 	item = {}
 	item.id = "wood_pickaxe"
+	item.stack_size = 1
+	item.quantity = 1
 	item.texture = "res://textures/wood_pickaxe.png"
 	Global.add_item_to_inventory(item)
 	# Give player "wood_shovel"
 	item = {}
 	item.id = "wood_shovel"
+	item.stack_size = 1
+	item.quantity = 1
 	item.texture = "res://textures/wood_shovel.png"
 	Global.add_item_to_inventory(item)
 	# Give player "wood_sword"
 	item = {}
 	item.id = "wood_sword"
+	item.stack_size = 1
+	item.quantity = 1
 	item.texture = "res://textures/wood_sword.png"	
 	Global.add_item_to_inventory(item)
 	# Give the player "seeds_wheat"
 	item = {}
 	item.id = "seeds_wheat"
+	item.stack_size = 1
+	item.quantity = 1
 	item.texture = "res://textures/seeds_wheat.png"	
 	Global.add_item_to_inventory(item)
 	# Update the UI
 	var hud_node = $hud
 	hud_node.show_actionbar_items()
-	hud_node.show_crafting_table_items()
 	hud_node.show_inventory_items()
-	hud_node.show_single_chest_items()
 
 
 func _ready():

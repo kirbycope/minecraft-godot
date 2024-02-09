@@ -47,7 +47,7 @@ func _input(event):
 		# Pick up "sappling_oak" and add to inventory
 		if source_id == 9: # Source ID 9: "sappling_oak"
 			$TileMap.erase_cell(2, get_map_position())
-			give_item("sapling_oak")
+			give_item("sapling_oak", 64)
 		
 		# Use "wood_axe" to mine "cobblestone"
 		if Global.selected_item == "wood_pickaxe":
@@ -57,13 +57,13 @@ func _input(event):
 				var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
 				if (right_source_id == 0): 		# Source ID 0: "cobblestone"
 					$TileMap.erase_cell(2, tile_to_right)
-					give_item("cobblestone")
+					give_item("cobblestone", 64)
 			else:
 				var tile_to_left = get_map_position(Vector2(-16,0))
 				var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
 				if (left_source_id == 0): 		# Source ID 0: "cobblestone"
 					$TileMap.erase_cell(2, tile_to_left)
-					give_item("cobblestone")
+					give_item("cobblestone", 64)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -137,17 +137,18 @@ func get_tile_name(source_id):
 		return "water"
 
 
-func give_item(item_name):
+# Adds the item to the player's inventory.
+func give_item(item_name, stack_size = 1):
 	var item = {}
 	item.id = item_name
+	item.stack_size = stack_size
+	item.quantity = 1
 	item.texture = "res://textures/" + item_name + ".png"
 	Global.add_item_to_inventory(item)
 	# Update the UI
 	var hud_node = $TileMap/player/hud
 	hud_node.show_actionbar_items()
-	hud_node.show_crafting_table_items()
 	hud_node.show_inventory_items()
-	hud_node.show_single_chest_items()
 
 
 # Set the tile at the player's position.
