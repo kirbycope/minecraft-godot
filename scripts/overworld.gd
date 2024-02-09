@@ -34,15 +34,15 @@ func _input(event):
 		
 		# Use "cobblestone" to place "cobblestone"
 		if Global.selected_item == "cobblestone":
-			set_cell(2, 0) 					# Source ID 0: "cobblestone"
+			set_cell(2, 0) 						# Source ID 0: "cobblestone"
 		
 		# Use "log_oak" to place "log_oak"
 		if Global.selected_item == "log_oak":
-			set_cell(2, 5) 					# Source ID 5: "log_oak"
+			set_cell(2, 5) 						# Source ID 5: "log_oak"
 		
 		# Use "log_oak" to place "log_oak_top"
 		if Global.selected_item == "log_oak_top":
-			set_cell(2, 6) 					# Source ID 6: "log_oak_top"
+			set_cell(2, 6) 						# Source ID 6: "log_oak_top"
 		
 		# Use "log_oak" to place "planks_oak"
 		if Global.selected_item == "planks_oak":
@@ -52,10 +52,21 @@ func _input(event):
 		# Get cell at "Breakable Layer" of TileMap
 		var source_id = $TileMap.get_cell_source_id(2, get_map_position())
 		
+		# Pick up "(double/tall)_grass" and add "seeds_wheat" to inventory
+		if (source_id == 10						# Source ID : "double_grass"
+		or source_id == 11):					# Source ID : "tall_grass"
+			$TileMap.erase_cell(2, get_map_position())
+			give_item("seeds_wheat", 64)
+		
 		# Pick up "sappling_oak" and add to inventory
-		if source_id == 9: # Source ID 9: "sappling_oak"
+		if source_id == 9: 						# Source ID 9: "sappling_oak"
 			$TileMap.erase_cell(2, get_map_position())
 			give_item("sapling_oak", 64)
+		
+		# Pick up "wheat_7" and add "wheat" to inventory
+		if source_id == 23: 					# Source ID 23: "wheat_7"
+			$TileMap.erase_cell(2, get_map_position())
+			give_item("wheat", 1)
 		
 		# Use "wood_axe" to cut "log_oak", "log_oak_top", and "planks_oak"
 		if Global.selected_item == "wood_axe":
@@ -66,10 +77,10 @@ func _input(event):
 				if (right_source_id == 5): 		# Source ID 5: "log_oak"
 					$TileMap.erase_cell(2, tile_to_right)
 					give_item("log_oak", 64)
-				elif (right_source_id == 6): 		# Source ID 6: "log_oak_top"
+				elif (right_source_id == 6): 	# Source ID 6: "log_oak_top"
 					$TileMap.erase_cell(2, tile_to_right)
 					give_item("log_oak_top", 64)
-				elif (right_source_id == 7): 		# Source ID 7: "planks_oak"
+				elif (right_source_id == 7): 	# Source ID 7: "planks_oak"
 					$TileMap.erase_cell(2, tile_to_right)
 					give_item("planks_oak", 64)
 			# Check to the left, if facing left
@@ -79,10 +90,10 @@ func _input(event):
 				if (left_source_id == 5): 		# Source ID 5: "log_oak"
 					$TileMap.erase_cell(2, tile_to_left)
 					give_item("log_oak", 64)
-				elif (left_source_id == 6): 		# Source ID 6: "log_oak_top"
+				elif (left_source_id == 6): 	# Source ID 6: "log_oak_top"
 					$TileMap.erase_cell(2, tile_to_left)
 					give_item("log_oak_top", 64)
-				elif (left_source_id == 7): 		# Source ID 7: "planks_oak"
+				elif (left_source_id == 7): 	# Source ID 7: "planks_oak"
 					$TileMap.erase_cell(2, tile_to_left)
 					give_item("planks_oak", 64)
 		# Use "wood_pickaxe" to mine "cobblestone"

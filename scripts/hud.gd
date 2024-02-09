@@ -24,41 +24,59 @@ func _input(event):
 			if Global.player_on_chest and event.is_action_pressed("ui_select"):
 				$SingleChest/ChestOpen.play()
 				$ActionBar.visible = false
+				$Food.visible = false
+				$Hearts.visible = false
 				$Inventory.visible = false
 				$SingleChest.visible = true
 				$Slots.visible = true
+				$XPBar.visible = false
 		# Inventory - Chest, hide
 		else:
 			if Global.player_on_chest == false or event.is_action_pressed("ui_cancel"):
 				$SingleChest/ChestClosed.play()
 				$ActionBar.visible = true
+				$Food.visible = true
+				$Hearts.visible = true
 				$SingleChest.visible = false
 				$Slots.visible = false
+				$XPBar.visible = true
 		# Inventory - Crafting Table, show
 		if $CraftingTable.visible == false:
 			if Global.player_on_crafting_table and event.is_action_pressed("ui_select"):
 				$ActionBar.visible = false
 				$CraftingTable.visible = true
+				$Food.visible = false
+				$Hearts.visible = false
 				$Inventory.visible = false
 				$Slots.visible = true
+				$XPBar.visible = false
 		# Inventory - Crafting Table, hide
 		else:
 			if Global.player_on_crafting_table == false or event.is_action_pressed("ui_cancel"):
 				$ActionBar.visible = true
 				$CraftingTable.visible = false
+				$Food.visible = true
+				$Hearts.visible = true
 				$Slots.visible = false
+				$XPBar.visible = true
 		# Inventory - Inventory, show
 		if $CraftingTable.visible == false and $SingleChest.visible == false:
 			if $Inventory.visible == false:
 				if event.is_action_pressed("ui_accept"):
 					$ActionBar.visible = false
 					$Inventory.visible = true
+					$Food.visible = false
+					$Hearts.visible = false
 					$Slots.visible = true
+					$XPBar.visible = false
 			else:
 				if event.is_action_pressed("ui_accept"):
 					$ActionBar.visible = true
+					$Food.visible = true
+					$Hearts.visible = true
 					$Inventory.visible = false
 					$Slots.visible = false
+					$XPBar.visible = true
 		# Highlight selected slot
 		clear_slot_selection()
 		determine_slot_selection(event)

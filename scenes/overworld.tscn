@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c8ugfx8rxs617"]
+[gd_scene load_steps=57 format=3 uid="uid://c8ugfx8rxs617"]
 
 [ext_resource type="Script" path="res://scripts/overworld.gd" id="1_531ot"]
 [ext_resource type="Texture2D" uid="uid://b7q18ca7g7ihl" path="res://textures/cobblestone.png" id="1_d5i5w"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://11axa2tanodl" path="res://textures/water_placeholder.png" id="14_653mn"]
 [ext_resource type="PackedScene" uid="uid://xxf58m2orfmx" path="res://scenes/chest.tscn" id="26_hbcrn"]
 [ext_resource type="PackedScene" uid="uid://b6g881s4tt6gt" path="res://scenes/crafting_table.tscn" id="30_5n4v8"]
+[ext_resource type="PackedScene" uid="uid://cohl4jmdhy8fr" path="res://scenes/zombie.tscn" id="31_h2kno"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3dd8"]
 resource_name = "cobblestone"
@@ -265,3 +266,6 @@ position = Vector2(471, 120)
 
 [node name="crafting_table" parent="." instance=ExtResource("30_5n4v8")]
 position = Vector2(8, 88)
+
+[node name="zombie" parent="." instance=ExtResource("31_h2kno")]
+position = Vector2(216, 69)

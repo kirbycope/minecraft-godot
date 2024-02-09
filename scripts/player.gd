@@ -44,12 +44,12 @@ func setup_test():
 	item.texture = "res://textures/wood_sword.png"	
 	Global.add_item_to_inventory(item)
 	# Give the player "seeds_wheat"
-	item = {}
-	item.id = "seeds_wheat"
-	item.stack_size = 1
-	item.quantity = 1
-	item.texture = "res://textures/seeds_wheat.png"	
-	Global.add_item_to_inventory(item)
+	#item = {}
+	#item.id = "seeds_wheat"
+	#item.stack_size = 1
+	#item.quantity = 1
+	#tem.texture = "res://textures/seeds_wheat.png"	
+	#Global.add_item_to_inventory(item)
 	# Update the UI
 	var hud_node = $hud
 	hud_node.show_actionbar_items()

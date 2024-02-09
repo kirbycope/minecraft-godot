@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://t8b4xbx6qgtr"]
+[gd_scene load_steps=48 format=3 uid="uid://t8b4xbx6qgtr"]
 
 [ext_resource type="Texture2D" uid="uid://ceh6kcvkydlps" path="res://textures/joao-francisco-tanini-figueiredo-steve-minecraft-player-3.png" id="1_jstyl"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xd0mi"]
@@ -33,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_eupn7")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_axe",
 "speed": 5.0
 }, {
@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_i3up7")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_hoe",
 "speed": 5.0
 }, {
@@ -55,7 +55,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_so2ea")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_pickaxe",
 "speed": 5.0
 }, {
@@ -66,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_0j3ri")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_shovel",
 "speed": 5.0
 }, {
@@ -99,7 +99,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_aybyg")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_axe",
 "speed": 5.0
 }, {
@@ -110,7 +110,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_bgipp")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_hoe",
 "speed": 5.0
 }, {
@@ -121,7 +121,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_xl3lj")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_pickaxe",
 "speed": 5.0
 }, {
@@ -132,7 +132,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_r8bys")
 }],
-"loop": true,
+"loop": false,
 "name": &"wood_shovel",
 "speed": 5.0
 }, {
@@ -163,6 +163,30 @@ region = Rect2(768, 870, 384, 435)
 [sub_resource type="AtlasTexture" id="AtlasTexture_novgk"]
 atlas = ExtResource("1_jstyl")
 region = Rect2(384, 1305, 384, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6khi"]
+atlas = ExtResource("1_jstyl")
+region = Rect2(1152, 1305, 384, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh1cu"]
+atlas = ExtResource("1_jstyl")
+region = Rect2(1536, 1305, 384, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk1b8"]
+atlas = ExtResource("1_jstyl")
+region = Rect2(0, 0, 384, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snt3t"]
+atlas = ExtResource("1_jstyl")
+region = Rect2(384, 1305, 384, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6ub5"]
+atlas = ExtResource("1_jstyl")
+region = Rect2(768, 1305, 384, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp72s"]
+atlas = ExtResource("1_jstyl")
+region = Rect2(1152, 435, 384, 435)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5kmka"]
 atlas = ExtResource("1_jstyl")
@@ -251,7 +275,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sa5xy")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_left",
 "speed": 5.0
 }, {
@@ -268,8 +292,36 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sowph")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6khi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh1cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk1b8")
+}],
+"loop": false,
+"name": &"hurt_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snt3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6ub5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp72s")
+}],
+"loop": false,
+"name": &"hurt_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -313,9 +365,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_81cd6")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_left",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -342,9 +394,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3e5p2")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_right",
-"speed": 12.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hobf"]
@@ -359,7 +411,7 @@ script = ExtResource("1_xd0mi")
 position = Vector2(220, 20)
 scale = Vector2(14, 14)
 sprite_frames = SubResource("SpriteFrames_d6ouw")
-animation = &"wood_axe"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="AttackLeft" type="AnimatedSprite2D" parent="."]
@@ -371,9 +423,8 @@ autoplay = "idle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n3lvr")
-animation = &"attack_right"
+animation = &"walk_right"
 autoplay = "idle_left"
-frame_progress = 0.908285
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.38419e-06, 90)

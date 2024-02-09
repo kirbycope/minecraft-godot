@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=24 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -6,9 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://ceh6kcvkydlps" path="res://textures/joao-francisco-tanini-figueiredo-steve-minecraft-player-3.png" id="6_0rp0o"]
 [ext_resource type="Texture2D" uid="uid://b52nqyujlx5mb" path="res://textures/inventory.png" id="8_l6hej"]
 [ext_resource type="Texture2D" uid="uid://coxhuuv4vur00" path="res://textures/chest_single.png" id="9_du2qu"]
+[ext_resource type="Texture2D" uid="uid://muv7iick1vf0" path="res://textures/xp_bar.png" id="10_ad4sl"]
 [ext_resource type="AudioStream" uid="uid://bjkej00teylr8" path="res://sounds/chestopen.wav" id="10_u71ey"]
+[ext_resource type="Texture2D" uid="uid://dyopmfcl8atjq" path="res://textures/heart_empty.png" id="11_013jg"]
 [ext_resource type="AudioStream" uid="uid://bsj5pvjpjhb3o" path="res://sounds/chestclosed.wav" id="11_ot7if"]
 [ext_resource type="Texture2D" uid="uid://q6pwd5w2yqlp" path="res://textures/crafting_table.png" id="12_l5npx"]
+[ext_resource type="Texture2D" uid="uid://2hu755ftk2v3" path="res://textures/heart_full.png" id="12_r3bsj"]
+[ext_resource type="Texture2D" uid="uid://bjb5p101nl47k" path="res://textures/food_empty.png" id="13_t43r7"]
+[ext_resource type="Texture2D" uid="uid://dbm1ose8rtkfc" path="res://textures/food_full.png" id="14_uqryb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg5ns"]
 atlas = ExtResource("6_0rp0o")
@@ -598,6 +603,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot19" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 340.0
 offset_top = 385.0
 offset_right = 356.0
@@ -608,6 +614,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot20" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 394.0
 offset_top = 385.0
 offset_right = 410.0
@@ -618,6 +625,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot21" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 385.0
 offset_right = 464.0
@@ -628,6 +636,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot22" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 502.0
 offset_top = 385.0
 offset_right = 518.0
@@ -638,6 +647,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot23" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 556.0
 offset_top = 385.0
 offset_right = 572.0
@@ -648,6 +658,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot24" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 610.0
 offset_top = 385.0
 offset_right = 626.0
@@ -658,6 +669,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot25" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 664.0
 offset_top = 385.0
 offset_right = 680.0
@@ -668,6 +680,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot26" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 718.0
 offset_top = 385.0
 offset_right = 734.0
@@ -678,6 +691,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot27" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 772.0
 offset_top = 385.0
 offset_right = 788.0
@@ -688,6 +702,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot28" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 340.0
 offset_top = 439.0
 offset_right = 356.0
@@ -698,6 +713,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot29" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 394.0
 offset_top = 439.0
 offset_right = 410.0
@@ -708,6 +724,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot30" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 439.0
 offset_right = 464.0
@@ -718,6 +735,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot31" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 502.0
 offset_top = 439.0
 offset_right = 518.0
@@ -728,6 +746,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot32" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 556.0
 offset_top = 439.0
 offset_right = 572.0
@@ -738,6 +757,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot33" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 610.0
 offset_top = 439.0
 offset_right = 626.0
@@ -748,6 +768,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot34" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 664.0
 offset_top = 439.0
 offset_right = 680.0
@@ -758,6 +779,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot35" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 718.0
 offset_top = 439.0
 offset_right = 734.0
@@ -768,6 +790,7 @@ scale = Vector2(2.5, 2.5)
 layout_mode = 2
 
 [node name="Slot36" type="CenterContainer" parent="Slots"]
+layout_mode = 0
 offset_left = 772.0
 offset_top = 439.0
 offset_right = 788.0
@@ -776,3 +799,397 @@ scale = Vector2(2.5, 2.5)
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot36"]
 layout_mode = 2
+
+[node name="XPBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Frame" type="CenterContainer" parent="XPBar"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 557.0
+offset_right = 485.0
+offset_bottom = 562.0
+scale = Vector2(3, 3)
+
+[node name="TextureRect" type="TextureRect" parent="XPBar/Frame"]
+layout_mode = 2
+texture = ExtResource("10_ad4sl")
+
+[node name="Hearts" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -2.0
+offset_right = 40.0
+offset_bottom = 38.0
+
+[node name="Heart1" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 530.0
+offset_right = 312.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart1"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart1/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart2" type="CenterContainer" parent="Hearts"]
+offset_left = 327.0
+offset_top = 530.0
+offset_right = 336.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart2"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart2/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart3" type="CenterContainer" parent="Hearts"]
+offset_left = 351.0
+offset_top = 530.0
+offset_right = 360.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart3"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart3/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart4" type="CenterContainer" parent="Hearts"]
+offset_left = 375.0
+offset_top = 530.0
+offset_right = 384.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart4"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart4/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart5" type="CenterContainer" parent="Hearts"]
+offset_left = 399.0
+offset_top = 530.0
+offset_right = 408.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart5"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart5/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart6" type="CenterContainer" parent="Hearts"]
+offset_left = 423.0
+offset_top = 530.0
+offset_right = 432.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart6"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart6/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart7" type="CenterContainer" parent="Hearts"]
+offset_left = 447.0
+offset_top = 530.0
+offset_right = 456.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart7"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart7/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart8" type="CenterContainer" parent="Hearts"]
+offset_left = 471.0
+offset_top = 530.0
+offset_right = 480.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart8"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart8/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart9" type="CenterContainer" parent="Hearts"]
+offset_left = 495.0
+offset_top = 530.0
+offset_right = 504.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart9"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart9/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Heart10" type="CenterContainer" parent="Hearts"]
+offset_left = 519.0
+offset_top = 530.0
+offset_right = 528.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="HeartContainer" type="TextureRect" parent="Hearts/Heart10"]
+layout_mode = 2
+texture = ExtResource("11_013jg")
+
+[node name="TextureRect" type="TextureRect" parent="Hearts/Heart10/HeartContainer"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.999997
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("12_r3bsj")
+
+[node name="Food" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -2.0
+offset_right = 40.0
+offset_bottom = 38.0
+
+[node name="Food1" type="CenterContainer" parent="Food"]
+layout_mode = 0
+offset_left = 822.0
+offset_top = 530.0
+offset_right = 831.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food1"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food1/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food2" type="CenterContainer" parent="Food"]
+offset_left = 798.0
+offset_top = 530.0
+offset_right = 807.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food2"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food2/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food3" type="CenterContainer" parent="Food"]
+offset_left = 774.0
+offset_top = 530.0
+offset_right = 783.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food3"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food3/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food4" type="CenterContainer" parent="Food"]
+offset_left = 750.0
+offset_top = 530.0
+offset_right = 759.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food4"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food4/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food5" type="CenterContainer" parent="Food"]
+offset_left = 726.0
+offset_top = 530.0
+offset_right = 735.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food5"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food5/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food6" type="CenterContainer" parent="Food"]
+offset_left = 702.0
+offset_top = 530.0
+offset_right = 711.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food6"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food6/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food7" type="CenterContainer" parent="Food"]
+offset_left = 678.0
+offset_top = 530.0
+offset_right = 687.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food7"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food7/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food8" type="CenterContainer" parent="Food"]
+offset_left = 654.0
+offset_top = 530.0
+offset_right = 663.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food8"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food8/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food9" type="CenterContainer" parent="Food"]
+offset_left = 630.0
+offset_top = 530.0
+offset_right = 639.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food9"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food9/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
+
+[node name="Food10" type="CenterContainer" parent="Food"]
+offset_left = 606.0
+offset_top = 530.0
+offset_right = 615.0
+offset_bottom = 539.0
+scale = Vector2(3, 3)
+
+[node name="FoodContainer" type="TextureRect" parent="Food/Food10"]
+layout_mode = 2
+texture = ExtResource("13_t43r7")
+
+[node name="TextureRect" type="TextureRect" parent="Food/Food10/FoodContainer"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("14_uqryb")
