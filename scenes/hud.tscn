@@ -846,6 +846,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart2" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 327.0
 offset_top = 530.0
 offset_right = 336.0
@@ -865,6 +866,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart3" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 351.0
 offset_top = 530.0
 offset_right = 360.0
@@ -884,6 +886,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart4" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 375.0
 offset_top = 530.0
 offset_right = 384.0
@@ -903,6 +906,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart5" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 399.0
 offset_top = 530.0
 offset_right = 408.0
@@ -922,6 +926,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart6" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 423.0
 offset_top = 530.0
 offset_right = 432.0
@@ -941,6 +946,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart7" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 447.0
 offset_top = 530.0
 offset_right = 456.0
@@ -960,6 +966,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart8" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 471.0
 offset_top = 530.0
 offset_right = 480.0
@@ -979,6 +986,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart9" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 495.0
 offset_top = 530.0
 offset_right = 504.0
@@ -998,6 +1006,7 @@ offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
 
 [node name="Heart10" type="CenterContainer" parent="Hearts"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 530.0
 offset_right = 528.0
@@ -1042,6 +1051,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food2" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 798.0
 offset_top = 530.0
 offset_right = 807.0
@@ -1059,6 +1069,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food3" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 774.0
 offset_top = 530.0
 offset_right = 783.0
@@ -1076,6 +1087,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food4" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 750.0
 offset_top = 530.0
 offset_right = 759.0
@@ -1093,6 +1105,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food5" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 726.0
 offset_top = 530.0
 offset_right = 735.0
@@ -1110,6 +1123,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food6" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 702.0
 offset_top = 530.0
 offset_right = 711.0
@@ -1127,6 +1141,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food7" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 678.0
 offset_top = 530.0
 offset_right = 687.0
@@ -1144,6 +1159,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food8" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 654.0
 offset_top = 530.0
 offset_right = 663.0
@@ -1161,6 +1177,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food9" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 630.0
 offset_top = 530.0
 offset_right = 639.0
@@ -1178,6 +1195,7 @@ offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
 [node name="Food10" type="CenterContainer" parent="Food"]
+layout_mode = 0
 offset_left = 606.0
 offset_top = 530.0
 offset_right = 615.0

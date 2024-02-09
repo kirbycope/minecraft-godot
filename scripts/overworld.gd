@@ -96,20 +96,20 @@ func _input(event):
 				elif (left_source_id == 7): 	# Source ID 7: "planks_oak"
 					$TileMap.erase_cell(2, tile_to_left)
 					give_item("planks_oak", 64)
-		# Use "wood_pickaxe" to mine "cobblestone"
+		# Use "wood_pickaxe" to mine "stone"
 		if Global.selected_item == "wood_pickaxe":
 			# Check to the right, if facing right
 			if Global.last_direction == Vector2.RIGHT:
 				var tile_to_right = get_map_position(Vector2(16,0))
 				var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
-				if (right_source_id == 0): 		# Source ID 0: "cobblestone"
+				if (right_source_id == 18): 		# Source ID 18: "stone"
 					$TileMap.erase_cell(2, tile_to_right)
 					give_item("cobblestone", 64)
 			# Check to the left, if facing left
 			else:
 				var tile_to_left = get_map_position(Vector2(-16,0))
 				var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
-				if (left_source_id == 0): 		# Source ID 0: "cobblestone"
+				if (left_source_id == 18): 		# Source ID 18: "stone"
 					$TileMap.erase_cell(2, tile_to_left)
 					give_item("cobblestone", 64)
 
@@ -171,6 +171,8 @@ func get_tile_name(source_id):
 		return "flower_rose_red"
 	elif (source_id == 17):
 		return "flower_rose_blue"
+	elif (source_id == 18):
+		return "stone"
 	elif (source_id == 19):
 		return "crafting_table"
 	elif (source_id == 20):
