@@ -1,9 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://cohl4jmdhy8fr"]
+[gd_scene load_steps=32 format=3 uid="uid://cohl4jmdhy8fr"]
 
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_adyb8"]
 [ext_resource type="Texture2D" uid="uid://c32m0n4e3lj6h" path="res://textures/joao-francisco-tanini-figueiredo-zombie-minecraft.png" id="1_y5ygc"]
 [ext_resource type="AudioStream" uid="uid://buvh3uvsflch7" path="res://sounds/zombie/say1.wav" id="3_gh5y8"]
-[ext_resource type="AudioStream" uid="uid://rm5004x0kcqe" path="res://sounds/zombie/death.wav" id="4_2trhg"]
 [ext_resource type="AudioStream" uid="uid://bxi2323mm2n44" path="res://sounds/zombie/hurt1.wav" id="4_8jbih"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nw12"]
@@ -231,9 +230,6 @@ shape = SubResource("CircleShape2D_kotos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="territory"]
 shape = SubResource("CircleShape2D_fthh3")
-
-[node name="Death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_2trhg")
 
 [node name="Hurt1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8jbih")

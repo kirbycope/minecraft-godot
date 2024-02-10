@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://t8b4xbx6qgtr"]
+[gd_scene load_steps=54 format=3 uid="uid://t8b4xbx6qgtr"]
 
 [ext_resource type="Texture2D" uid="uid://ceh6kcvkydlps" path="res://textures/joao-francisco-tanini-figueiredo-steve-minecraft-player-3.png" id="1_jstyl"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xd0mi"]
@@ -13,8 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://ckfc7dxhskp6x" path="res://textures/wood_hoe_h.png" id="8_bgipp"]
 [ext_resource type="Texture2D" uid="uid://cy846yvqr2wdh" path="res://textures/wood_pickaxe_h.png" id="9_xl3lj"]
 [ext_resource type="Texture2D" uid="uid://begocnjbjsfqd" path="res://textures/wood_shovel_h.png" id="10_r8bys"]
+[ext_resource type="AudioStream" uid="uid://rm5004x0kcqe" path="res://sounds/zombie/death.wav" id="13_3b5dp"]
 [ext_resource type="AudioStream" uid="uid://3jdk7daw3b3f" path="res://sounds/dig/grass1.wav" id="14_k4g40"]
 [ext_resource type="AudioStream" uid="uid://dlohla1d0x07x" path="res://sounds/step/grass1.wav" id="15_2iofg"]
+[ext_resource type="AudioStream" uid="uid://b6bmusyrvj2t0" path="res://sounds/dig/wood1.wav" id="15_4ke51"]
+[ext_resource type="AudioStream" uid="uid://duxryi7uwjw0w" path="res://sounds/dig/stone1.wav" id="16_iggqj"]
+[ext_resource type="AudioStream" uid="uid://bnamgttqvolgd" path="res://sounds/step/stone1.wav" id="17_ifedi"]
+[ext_resource type="AudioStream" uid="uid://dl80tikxeoh0e" path="res://sounds/pop.wav" id="17_rdk4m"]
+[ext_resource type="AudioStream" uid="uid://b1kkve24dnbbe" path="res://sounds/step/wood1.wav" id="18_jewba"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6ouw"]
 animations = [{
@@ -434,13 +440,38 @@ shape = SubResource("RectangleShape2D_5hobf")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="strong1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_c6rdv")
-volume_db = -10.0
+[node name="death_zombie" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("13_3b5dp")
 
 [node name="dig_grass" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_k4g40")
 volume_db = -10.0
 
+[node name="dig_stone" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("16_iggqj")
+
+[node name="dig_wood" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("15_4ke51")
+
+[node name="pop" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("17_rdk4m")
+
 [node name="step_grass" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_2iofg")
+
+[node name="step_stone" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("17_ifedi")
+
+[node name="step_wood" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("18_jewba")
+
+[node name="strong1" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("5_c6rdv")
+volume_db = -10.0

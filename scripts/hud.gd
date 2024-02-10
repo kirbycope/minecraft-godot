@@ -63,6 +63,7 @@ func _input(event):
 		if $CraftingTable.visible == false and $SingleChest.visible == false:
 			if $Inventory.visible == false:
 				if event.is_action_pressed("ui_accept"):
+					get_tree().paused = true
 					$ActionBar.visible = false
 					$Inventory.visible = true
 					$Food.visible = false
@@ -71,6 +72,7 @@ func _input(event):
 					$XPBar.visible = false
 			else:
 				if event.is_action_pressed("ui_accept"):
+					get_tree().paused = false
 					$ActionBar.visible = true
 					$Food.visible = true
 					$Hearts.visible = true
@@ -85,6 +87,7 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	pass
 
 
