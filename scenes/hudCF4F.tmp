@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=25 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://2hu755ftk2v3" path="res://textures/heart_full.png" id="12_r3bsj"]
 [ext_resource type="Texture2D" uid="uid://bjb5p101nl47k" path="res://textures/food_empty.png" id="13_t43r7"]
 [ext_resource type="Texture2D" uid="uid://dbm1ose8rtkfc" path="res://textures/food_full.png" id="14_uqryb"]
-[ext_resource type="AudioStream" uid="uid://boja336j1lyyj" path="res://sounds/calm1.mp3" id="16_rakr5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg5ns"]
 atlas = ExtResource("6_0rp0o")
@@ -1399,7 +1398,3 @@ layout_mode = 0
 offset_right = 9.0
 offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
-
-[node name="Calm1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_rakr5")
-autoplay = true

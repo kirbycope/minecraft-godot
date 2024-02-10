@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 
+var highlighted_slot = 0
 var selected_slot = 1
 @onready var action_bar_slot_images = [$ActionBar/Slot1/SlotTexture, $ActionBar/Slot2/SlotTexture, $ActionBar/Slot3/SlotTexture, $ActionBar/Slot4/SlotTexture,
 	$ActionBar/Slot5/SlotTexture, $ActionBar/Slot6/SlotTexture, $ActionBar/Slot7/SlotTexture, $ActionBar/Slot8/SlotTexture, $ActionBar/Slot9/SlotTexture
@@ -14,7 +15,6 @@ var selected_slot = 1
 	$Slots/Slot30/SlotTexture, $Slots/Slot31/SlotTexture, $Slots/Slot32/SlotTexture, $Slots/Slot33/SlotTexture, $Slots/Slot34/SlotTexture,
 	$Slots/Slot35/SlotTexture, $Slots/Slot36/SlotTexture
 ]
-
 
 
 # Called when an input event is triggered
@@ -70,6 +70,7 @@ func _input(event):
 					$Hearts.visible = false
 					$Slots.visible = true
 					$XPBar.visible = false
+					
 			else:
 				if event.is_action_pressed("ui_accept"):
 					get_tree().paused = false
@@ -79,11 +80,17 @@ func _input(event):
 					$Inventory.visible = false
 					$Slots.visible = false
 					$XPBar.visible = true
-		# Highlight selected slot
-		clear_slot_selection()
-		determine_slot_selection(event)
-		show_slot_selection()
-
+		
+		if $Slots.visible:
+			# Highlight inventory active slot
+			clear_inventory_highlight()
+			show_inventory_highlight()
+		else:
+			# Highlight ActionBar selected slot
+			clear_slot_selection()
+			determine_slot_selection(event)
+			show_slot_selection()
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -200,3 +207,37 @@ func show_inventory_items():
 		if inventory[i] != null:
 			inventory_slot_images[i].texture = load(inventory[i].texture)
 			#print(inventory[i]) # DEBUGGING
+
+
+# Clears the highlight in the inventory
+func clear_inventory_highlight():
+	var slot_range = 35
+	for i in slot_range:
+		var slot_number = i + 1
+		var node_path = "Slots/Slot" + str(slot_number) + "/SlotHighlighted"
+		var node = get_node(node_path)
+		node.visible = false
+
+
+# Highlights the active inventory slot
+func show_inventory_highlight():
+	if highlighted_slot == 0:
+		if selected_slot == 1:
+			$Slots/Slot1/SlotHighlighted.visible = true
+		elif selected_slot == 2:
+			$Slots/Slot2/SlotHighlighted.visible = true
+		elif selected_slot == 3:
+			$Slots/Slot3/SlotHighlighted.visible = true
+		elif selected_slot == 4:
+			$Slots/Slot4/SlotHighlighted.visible = true
+		elif selected_slot == 5:
+			$Slots/Slot5/SlotHighlighted.visible = true
+		elif selected_slot == 6:
+			$Slots/Slot6/SlotHighlighted.visible = true
+		elif selected_slot == 7:
+			$Slots/Slot7/SlotHighlighted.visible = true
+		elif selected_slot == 8:
+			$Slots/Slot8/SlotHighlighted.visible = true
+		elif selected_slot == 9:
+			$Slots/Slot9/SlotHighlighted.visible = true
+		highlighted_slot == selected_slot

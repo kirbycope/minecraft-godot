@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c8ugfx8rxs617"]
+[gd_scene load_steps=58 format=3 uid="uid://c8ugfx8rxs617"]
 
 [ext_resource type="Script" path="res://scripts/overworld.gd" id="1_531ot"]
 [ext_resource type="Texture2D" uid="uid://b7q18ca7g7ihl" path="res://textures/cobblestone.png" id="1_d5i5w"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://nmnrd1d573x3" path="res://textures/chest_front.png" id="5_812x5"]
 [ext_resource type="PackedScene" uid="uid://t8b4xbx6qgtr" path="res://scenes/player.tscn" id="5_kdvt4"]
 [ext_resource type="Texture2D" uid="uid://b2g4ccsspp0wt" path="res://textures/bedrock.png" id="5_rwgvr"]
-[ext_resource type="AudioStream" uid="uid://boja336j1lyyj" path="res://sounds/calm1.mp3" id="6_2yngg"]
 [ext_resource type="Texture2D" uid="uid://b5bd6of4h3r87" path="res://textures/log_oak.png" id="6_g85ql"]
 [ext_resource type="Texture2D" uid="uid://0yvv8g3kexr0" path="res://textures/bed_feet_top.png" id="6_qln2f"]
 [ext_resource type="PackedScene" uid="uid://cwr65be7sraem" path="res://scenes/hud.tscn" id="6_wr14p"]
@@ -263,10 +262,6 @@ position = Vector2(128, 65)
 
 [node name="hud" parent="TileMap/player" instance=ExtResource("6_wr14p")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_2yngg")
-autoplay = true
-
 [node name="chest" parent="." instance=ExtResource("26_hbcrn")]
 position = Vector2(24, 24)
 
@@ -278,4 +273,3 @@ position = Vector2(8, 88)
 
 [node name="zombie" parent="." instance=ExtResource("31_h2kno")]
 position = Vector2(266, 21)
-scale = Vector2(0.05, 0.05)
