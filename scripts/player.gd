@@ -103,6 +103,7 @@ func update_animation():
 			if Global.selected_item == "wood_pickaxe": $AttackLeft.play("wood_pickaxe")
 			if Global.selected_item == "wood_shovel": $AttackLeft.play("wood_shovel")
 			if Global.selected_item == "wood_sword": $AttackLeft.play("wood_sword")
+		return
 	if Global.is_falling:
 		velocity.x = velocity.x/1.25
 		velocity.y = velocity.y/1.25
