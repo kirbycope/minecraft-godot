@@ -1,3 +1,5 @@
+# overworld.md
+
 extends Node2D
 
 
@@ -26,6 +28,7 @@ func _input(event):
 			or source_id == 21): 				# Source ID 21: "farmland_dry"
 				$TileMap/player/step_grass.play()
 				set_cell(2, 22) 				# Source ID 22: "wheat"
+				take_item("seeds_wheat")
 		
 		# Use "sapling_oak" on grass/path/farmland to plant "sapling_oak"
 		if Global.selected_item == "sapling_oak":
@@ -35,26 +38,31 @@ func _input(event):
 			or source_id == 21): 				# Source ID 21: "farmland_dry"
 				$TileMap/player/step_grass.play()
 				set_cell(2, 9) 					# Source ID 9: "sappling_oak"
+				take_item("sapling_oak")
 		
 		# Use "cobblestone" to place "cobblestone"
 		if Global.selected_item == "cobblestone":
 			$TileMap/player/step_stone.play()
 			set_cell(2, 0) 						# Source ID 0: "cobblestone"
+			take_item("cobblestone")
 		
 		# Use "log_oak" to place "log_oak"
 		if Global.selected_item == "log_oak":
 			$TileMap/player/step_wood.play()
 			set_cell(2, 5) 						# Source ID 5: "log_oak"
+			take_item("log_oak")
 		
 		# Use "log_oak_top" to place "log_oak_top"
 		if Global.selected_item == "log_oak_top":
 			$TileMap/player/step_wood.play()
 			set_cell(2, 6) 						# Source ID 6: "log_oak_top"
+			take_item("log_oak_top")
 		
 		# Use "planks_oak" to place "planks_oak"
 		if Global.selected_item == "planks_oak":
 			$TileMap/player/step_wood.play()
 			set_cell(2, 7) 					# Source ID 7: "planks_oak"
+			take_item("planks_oak")
 	
 	var inventory_visible = $TileMap/player/hud/Slots.visible
 	if event.is_action_pressed("ui_select") and inventory_visible == false:
@@ -154,7 +162,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass # Replace with function body.
 
 
 func _physics_process(delta):
@@ -188,6 +196,15 @@ func give_item(item_name, stack_size = 1):
 	item.quantity = 1
 	item.texture = "res://textures/" + item_name + ".png"
 	Global.add_item_to_inventory(item)
+	# Update the UI
+	var hud_node = $TileMap/player/hud
+	hud_node.show_actionbar_items()
+	hud_node.show_inventory_items()
+
+
+# Removes the item from the player's inventory
+func take_item(item_name):
+	Global.remove_item_from_inventory(item_name)
 	# Update the UI
 	var hud_node = $TileMap/player/hud
 	hud_node.show_actionbar_items()

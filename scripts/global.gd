@@ -1,7 +1,12 @@
+# global.gd
+
 extends Node
 
 
-var inventory = []
+var inventory = [null, null, null, null, null, null, null, null, null, null,
+	null, null, null, null, null, null, null, null, null, null,
+	null, null, null, null, null, null, null, null, null, null,
+	null, null, null, null, null, null]
 var is_falling = false
 var last_direction = Vector2.RIGHT
 var player_on_chest = false
@@ -17,44 +22,67 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass # Replace with function body.
 
 
+# Add item to player's inventory.
 func add_item_to_inventory(item):
-	var array_of_objects = inventory
-	var search_value = item.id
-	var property_to_check = "id"
 	# Add existing item
-	if arrayContainsObjectWithPropertyValue(array_of_objects, property_to_check, search_value):
-		var object_name = search_value
-		var property_name = "id"
-		var value_to_add = item.quantity
-		addToProperty(array_of_objects, property_name, object_name, value_to_add)
+	if inventory_contains_item(item.id):
+		change_item_quantity(item.id, 1)
 	# Add new item
 	else:
-		item.slot = len(inventory)
-		inventory.append(item)
+		var slot = get_first_empty_slot_number()
+		item.slot = slot
+		inventory[slot] = item
 
 
-func get_inventory():
-	return inventory
+# Change the given item's quantity to the player's inventory.
+func change_item_quantity(item_id, change = 0) -> int:
+	for item in inventory:
+		if item != null:
+			if item.has("id"):
+				if item.id == item_id:
+					item.quantity += change
+					return item.quantity
+	return -1
 
 
-# Function to check if the array contains an object with the given property value
-func arrayContainsObjectWithPropertyValue(array_to_check: Array, property_name: String, property_value: String) -> bool:
-	for obj in array_to_check:
-		# Check if the object has the property and if its value matches the given string
-		if obj.has(property_name) and obj[property_name] == property_value:
-			return true
+# Get the first empty slot of the player's inventory.
+func get_first_empty_slot_number():
+	var index = -1
+	for i in range(len(inventory)):
+		if inventory[i] == null:
+			return i
+	return index
+
+
+# Get the slot number of the given item in the player's inventory.
+func get_inventory_slot_number(item_id) -> int:
+	for item in inventory:
+		if item != null:
+			if item.has("id"):
+				if item.id == item_id:
+					return item.slot
+	return -1
+
+
+# Check if the player's inventory contains the given item
+func inventory_contains_item(item_id: String) -> bool:
+	for item in inventory:
+		if item != null:
+			if item.has("id"):
+				if item.id == item_id:
+					return true
 	return false
 
 
-# Function to add a value to a property of an object in the array
-func addToProperty(array_to_modify: Array, property_name: String, object_name: String, value_to_add: int) -> bool:
-	for obj in array_to_modify:
-		if obj.has(property_name):
-			var obj_property_name = obj[property_name]
-			if obj_property_name == object_name:
-				obj["quantity"] += value_to_add
-				return true
-	return false
+# Remove item from player's inventory.
+func remove_item_from_inventory(item_id):
+	# Remove existing item
+	if inventory_contains_item(item_id):
+		var quantity = change_item_quantity(item_id, -1)
+		# Clear slot if none left
+		if quantity == 0:
+			var item_slot = get_inventory_slot_number(item_id)
+			inventory[item_slot] = null

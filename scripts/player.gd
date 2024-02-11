@@ -1,3 +1,5 @@
+# player.gd
+
 extends CharacterBody2D
 
 
@@ -51,7 +53,7 @@ func setup_test():
 	hud_node.show_actionbar_items()
 	hud_node.show_inventory_items()
 
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Player")
 	setup_test()

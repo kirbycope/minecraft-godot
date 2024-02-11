@@ -1,3 +1,5 @@
+# hud.gd
+
 extends CanvasLayer
 
 
@@ -124,12 +126,11 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass # Replace with function body.
 
 
 # Clears the selected slot on the ActionBar.
@@ -185,7 +186,6 @@ func set_selected_item(texture_rect):
 		Global.selected_item = resource_path
 	else:
 		Global.selected_item = ""
-	#print(Global.selected_item) # DEBUGGING
 
 
 # Shows a frame on the selected slot on the ActionBar.
@@ -221,21 +221,25 @@ func show_slot_selection():
 
 # Sets the textures for each item in the ActionBar.
 func show_actionbar_items():
-	var inventory = Global.get_inventory()
+	var inventory = Global.inventory
 	inventory = inventory.slice(0,9)
 	for i in range(len(inventory)):
 		if inventory[i] != null:
 			action_bar_slot_images[i].texture = load(inventory[i].texture)
-			# print(inventory[i]) # DEBUGGING
+		else:
+			action_bar_slot_images[i].texture = null
 
 
 # Sets the textures for each item in the Inventory.
 func show_inventory_items():
-	var inventory = Global.get_inventory()
+	var inventory = Global.inventory
+	inventory = inventory.slice(0,36)
 	for i in range(len(inventory)):
 		if inventory[i] != null:
-			inventory_slot_images[i].texture = load(inventory[i].texture)
-			#print(inventory[i]) # DEBUGGING
+			if inventory[i].texture != null:
+				inventory_slot_images[i].texture = load(inventory[i].texture)
+		else:
+			inventory_slot_images[i].texture = null
 
 
 # Clears the highlight in the inventory
@@ -255,7 +259,5 @@ func show_inventory_highlight():
 	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
 	var node = get_node(node_path)
 	node.visible = true
-	# todo print the selected item
-	var inventory = Global.get_inventory()
+	var inventory = Global.inventory
 	var inventory_slot = highlighted_slot - 1
-	print(inventory[inventory_slot])

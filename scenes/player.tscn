@@ -470,6 +470,3 @@ stream = ExtResource("18_jewba")
 [node name="strong1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_c6rdv")
 volume_db = -10.0
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 10)
