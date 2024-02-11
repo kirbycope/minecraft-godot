@@ -1,2 +1,23 @@
+![Minecraft Godot](/minecraft-godot.png)
+
 # minecraft-godot
 A demake of Minecraft using the Godot Game Engine.
+[Minecraft](https://www.minecraft.net/en-us) is a 2011 sandbox game developed by Mojang Studios and originally released in 2009.
+</br>
+[Godot](https://godotengine.org/) is a cross-platform, free and open-source game engine released under the permissive MIT license.
+
+## Getting started
+1. Clone this repo
+1. Install Godot
+    - This project was made with version `4.2` as seen in [/project.godot](/project.godot) > "Application" > "config/feature"
+1. Import the root folder of the repo (which contains "project.godot") as a Project in Godot
+1. Select the "2D" tab at the top, near the middle
+1. In the FileSystem pane, double-click on "scenes/overworld.tscn" to open it
+1. Click the "Scripts" tab at the top. You might have to File > Open the script if you don't see it.
+1. (Optional) open the root folder as a workspace in VS Code
+    - Install [godot-tools](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools)
+
+## Building for Web
+1. Select "Project" > "Export..."
+1. Select the "Web (Runnable)" preset
+1. Select "Export Project"
