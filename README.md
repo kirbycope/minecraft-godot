@@ -22,7 +22,8 @@ A demake of Minecraft using the Godot Game Engine.
 1. Select "Project" > "Export..."
 1. Select the "Web (Runnable)" preset
 1. Select "Export Project"
-1. Select the "Web" folder
+1. Select the "docs" folder
+    - The GitHub Pages config points to the `main` branch and /`docs` directory
 1. Enter `index.html`
 1. Select "Save"
 
