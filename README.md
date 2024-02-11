@@ -18,7 +18,14 @@ A demake of Minecraft using the Godot Game Engine.
 1. (Optional) Open the root folder using [VS Code](https://code.visualstudio.com/)
     - Install [godot-tools](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools)
 
-## Building for Web
+### Setting Up GitHub Pages
+Note: This only needs to be done once.
+1. Go to the "Settings" tab of the repo
+1. Select "Pages" from left-nav
+1. Select `main` branch and `/docs` directory, then select "Save"
+1. A GitHub Action will deploy your website
+
+## Building for Web Using Godot GUI
 1. Select "Project" > "Export..."
 1. Select the "Web (Runnable)" preset
 1. Select "Export Project"
