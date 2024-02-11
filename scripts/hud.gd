@@ -255,3 +255,7 @@ func show_inventory_highlight():
 	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
 	var node = get_node(node_path)
 	node.visible = true
+	# todo print the selected item
+	var inventory = Global.get_inventory()
+	var inventory_slot = highlighted_slot - 1
+	print(inventory[inventory_slot])
