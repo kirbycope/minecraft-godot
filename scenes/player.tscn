@@ -429,7 +429,7 @@ autoplay = "idle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n3lvr")
-animation = &"walk_right"
+animation = &"hurt_left"
 autoplay = "idle_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -441,7 +441,6 @@ shape = SubResource("RectangleShape2D_5hobf")
 zoom = Vector2(4, 4)
 
 [node name="death_zombie" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("13_3b5dp")
 
 [node name="dig_grass" type="AudioStreamPlayer2D" parent="."]
@@ -449,29 +448,26 @@ stream = ExtResource("14_k4g40")
 volume_db = -10.0
 
 [node name="dig_stone" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("16_iggqj")
 
 [node name="dig_wood" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("15_4ke51")
 
 [node name="pop" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("17_rdk4m")
 
 [node name="step_grass" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_2iofg")
 
 [node name="step_stone" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("17_ifedi")
 
 [node name="step_wood" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("18_jewba")
 
 [node name="strong1" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("5_c6rdv")
 volume_db = -10.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)

@@ -5,7 +5,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		# Get cell at "Base Layer" of TileMap
 		var source_id = $TileMap.get_cell_source_id(1, get_map_position())
-		
+
 		# Use "wood_hoe" to make "farmland_dry"
 		if Global.selected_item == "wood_hoe":
 			if (source_id == 2 					# Source ID 2: "grass"
@@ -55,8 +55,9 @@ func _input(event):
 		if Global.selected_item == "planks_oak":
 			$TileMap/player/step_wood.play()
 			set_cell(2, 7) 					# Source ID 7: "planks_oak"
-		
-	if event.is_action_pressed("ui_select"):
+	
+	var inventory_visible = $TileMap/player/hud/Slots.visible
+	if event.is_action_pressed("ui_select") and inventory_visible == false:
 		# Get cell at "Breakable Layer" of TileMap
 		var source_id = $TileMap.get_cell_source_id(2, get_map_position())
 		
@@ -153,7 +154,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# If nothing under the player, they will fall
+	if $TileMap.get_cell_source_id(0, get_map_position()) == -1:
+		print("ded")
+		$TileMap/player/AnimatedSprite2D.play("hurt_right")
 
 
 # Gets the player's current map position
@@ -163,60 +167,6 @@ func get_map_position(offset=Vector2(0,0)):
 	var player_position = player.position + offset
 	var map_position = tilemap.local_to_map(player_position)
 	return map_position
-
-
-# Get the friendly name of the given tile Source ID.
-func get_tile_name(source_id):
-	if (source_id == 0):
-		return "cobblestone"
-	elif (source_id == 1):
-		return "dirt"
-	elif (source_id == 2):
-		return "grass"
-	elif (source_id == 3):
-		return "grass_side"
-	elif (source_id == 4):
-		return "bedrock"
-	elif (source_id == 5):
-		return "log_oak"
-	elif (source_id == 6):
-		return "oak_log_top"
-	elif (source_id == 7):
-		return "planks_oak"
-	elif (source_id == 8):
-		return "grass_path"
-	elif (source_id == 9):
-		return "sappling_oak"
-	elif (source_id == 10):
-		return "double_grass"
-	elif (source_id == 11):
-		return "tall_grass"
-	elif (source_id == 12):
-		return "chest"
-	elif (source_id == 13):
-		return "bed_feet"
-	elif (source_id == 14):
-		return "bed_head"
-	elif (source_id == 15):
-		return "leaves_oak"
-	elif (source_id == 16):
-		return "flower_rose_red"
-	elif (source_id == 17):
-		return "flower_rose_blue"
-	elif (source_id == 18):
-		return "stone"
-	elif (source_id == 19):
-		return "crafting_table"
-	elif (source_id == 20):
-		return "farmland_wet"
-	elif (source_id == 21):
-		return "farmland_dry"
-	elif (source_id == 22):
-		return "wheat_1"
-	elif (source_id == 23):
-		return "wheat_7"
-	elif (source_id == 24):
-		return "water"
 
 
 # Adds the item to the player's inventory.

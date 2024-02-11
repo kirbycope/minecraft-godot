@@ -59,8 +59,9 @@ func _input(event):
 				$Hearts.visible = true
 				$Slots.visible = false
 				$XPBar.visible = true
-		# Inventory - Inventory, show
+		# Inventory - Player
 		if $CraftingTable.visible == false and $SingleChest.visible == false:
+			# Show
 			if $Inventory.visible == false:
 				if event.is_action_pressed("ui_accept"):
 					get_tree().paused = true
@@ -70,17 +71,45 @@ func _input(event):
 					$Hearts.visible = false
 					$Slots.visible = true
 					$XPBar.visible = false
-					
 			else:
+				# Navigate
+				if event.is_action_pressed("ui_down"):
+					if highlighted_slot >= 28:
+						highlighted_slot -= 27
+					elif highlighted_slot >= 1:
+						highlighted_slot += 9
+				if event.is_action_pressed("ui_left"):
+					if (highlighted_slot == 1
+					or highlighted_slot == 10
+					or highlighted_slot == 19
+					or highlighted_slot == 28):
+						highlighted_slot += 8
+					else:
+						highlighted_slot -= 1
+				if event.is_action_pressed("ui_right"):
+					if (highlighted_slot == 9
+					or highlighted_slot == 18
+					or highlighted_slot == 27
+					or highlighted_slot == 36):
+						highlighted_slot -= 8
+					else:
+						highlighted_slot += 1
+				if event.is_action_pressed("ui_up"):
+					if highlighted_slot < 10:
+						highlighted_slot += 27
+					else:
+						highlighted_slot -= 9
+				highlighted_slot = clamp(highlighted_slot, 1, 36)
+				# Hide
 				if event.is_action_pressed("ui_accept"):
 					get_tree().paused = false
+					highlighted_slot = 0
 					$ActionBar.visible = true
 					$Food.visible = true
 					$Hearts.visible = true
 					$Inventory.visible = false
 					$Slots.visible = false
 					$XPBar.visible = true
-		
 		if $Slots.visible:
 			# Highlight inventory active slot
 			clear_inventory_highlight()
@@ -90,7 +119,7 @@ func _input(event):
 			clear_slot_selection()
 			determine_slot_selection(event)
 			show_slot_selection()
-		
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -211,7 +240,7 @@ func show_inventory_items():
 
 # Clears the highlight in the inventory
 func clear_inventory_highlight():
-	var slot_range = 35
+	var slot_range = 36
 	for i in slot_range:
 		var slot_number = i + 1
 		var node_path = "Slots/Slot" + str(slot_number) + "/SlotHighlighted"
@@ -222,22 +251,7 @@ func clear_inventory_highlight():
 # Highlights the active inventory slot
 func show_inventory_highlight():
 	if highlighted_slot == 0:
-		if selected_slot == 1:
-			$Slots/Slot1/SlotHighlighted.visible = true
-		elif selected_slot == 2:
-			$Slots/Slot2/SlotHighlighted.visible = true
-		elif selected_slot == 3:
-			$Slots/Slot3/SlotHighlighted.visible = true
-		elif selected_slot == 4:
-			$Slots/Slot4/SlotHighlighted.visible = true
-		elif selected_slot == 5:
-			$Slots/Slot5/SlotHighlighted.visible = true
-		elif selected_slot == 6:
-			$Slots/Slot6/SlotHighlighted.visible = true
-		elif selected_slot == 7:
-			$Slots/Slot7/SlotHighlighted.visible = true
-		elif selected_slot == 8:
-			$Slots/Slot8/SlotHighlighted.visible = true
-		elif selected_slot == 9:
-			$Slots/Slot9/SlotHighlighted.visible = true
-		highlighted_slot == selected_slot
+		highlighted_slot = selected_slot
+	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
+	var node = get_node(node_path)
+	node.visible = true
