@@ -39,7 +39,7 @@ Note: This only needs to be done once.
     - If you use GitHub Desktop, select the "Open in Visual Studio" button
 1. Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
 1. Enter `cd web`
-1. Enter `npx local-web-server --https --cors.embedder-policy "require-corp" --cors.opener-policy "same-origin" --directory "./web"`
+1. Enter `npx local-web-server --https --cors.embedder-policy "require-corp" --cors.opener-policy "same-origin" --directory "./docs"`
     1. Enter `y` if prompted
 1. In your browser navigate to [https://127.0.0.1:8000/](https://127.0.0.1:8000/)
 1. In terminal press [Ctrl]+[C] to stop the web process
