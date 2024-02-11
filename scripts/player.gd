@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 
-var attack_timer = 0.0
 var attack_duration = 0.5
+var attack_timer = 0.0
+var falling_duration = 1.0
+var falling_timer = 0.0
 var is_attacking = false
+var is_dead = false
 var speed = 100
 
 
@@ -62,6 +65,11 @@ func _physics_process(delta):
 		if attack_timer >= attack_duration:
 			is_attacking = false
 			attack_timer = 0.0
+	if Global.is_falling:
+		falling_timer += delta
+		if falling_timer >= falling_duration:
+			falling_timer = 0.0
+			position = Vector2(25, 25)
 
 
 func _input(event):
@@ -73,6 +81,8 @@ func _input(event):
 
 func update_animation():
 	if is_attacking:
+		velocity.x = velocity.x/1.25
+		velocity.y = velocity.y/1.25
 		if Global.last_direction.y < 0:
 			#$AnimatedSprite2D.play("attack_up")
 			pass
@@ -93,8 +103,14 @@ func update_animation():
 			if Global.selected_item == "wood_pickaxe": $AttackLeft.play("wood_pickaxe")
 			if Global.selected_item == "wood_shovel": $AttackLeft.play("wood_shovel")
 			if Global.selected_item == "wood_sword": $AttackLeft.play("wood_sword")
+	if Global.is_falling:
 		velocity.x = velocity.x/1.25
 		velocity.y = velocity.y/1.25
+		if Global.last_direction == Vector2.LEFT:
+			$AnimatedSprite2D.play("hurt_left")
+		elif Global.last_direction == Vector2.RIGHT:
+			$AnimatedSprite2D.play("hurt_right")
+		return
 	else:
 		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		velocity = direction * speed

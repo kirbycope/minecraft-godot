@@ -154,10 +154,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# If nothing under the player, they will fall
-	if $TileMap.get_cell_source_id(0, get_map_position()) == -1:
-		print("ded")
-		$TileMap/player/AnimatedSprite2D.play("hurt_right")
+	pass
+
+
+func _physics_process(delta):
+	# Check if player has fallen into the void
+	var tilemap = $TileMap
+	var source_id_layer_0 = tilemap.get_cell_source_id(0, get_map_position())
+	var source_id_layer_1 = tilemap.get_cell_source_id(1, get_map_position())
+	var source_id_layer_2 = tilemap.get_cell_source_id(2, get_map_position())
+	if (source_id_layer_0 == -1
+		and source_id_layer_1 == -1
+		and source_id_layer_2 == -1):
+			Global.is_falling = true
+	else:
+		Global.is_falling = false
 
 
 # Gets the player's current map position
