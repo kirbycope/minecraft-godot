@@ -23,7 +23,9 @@ Note: This only needs to be done once.
 1. Go to the "Settings" tab of the repo
 1. Select "Pages" from left-nav
 1. Select `main` branch and `/docs` directory, then select "Save"
-1. A GitHub Action will deploy your website
+    - A GitHub Action will deploy your website
+1. On the main page of the GitHub repo, click the gear icon next to "About"
+1. Select "Use your GitHub Pages website", then select "Save changes"
 
 ## Building for Web Using Godot GUI
 1. Select "Project" > "Export..."
@@ -36,6 +38,7 @@ Note: This only needs to be done once.
     - The GitHub Pages config points to the `main` branch and `/docs` directory
 1. Enter `index.html`
 1. Select "Save"
+1. Commit the code to trigger a GitHub Pages deployment (above), or run the code locally (below)
 
 ### Running the web server locally
 1. Open the root folder using [VS Code](https://code.visualstudio.com/)
