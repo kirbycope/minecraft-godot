@@ -28,8 +28,10 @@ Note: This only needs to be done once.
 ## Building for Web Using Godot GUI
 1. Select "Project" > "Export..."
     - If you see errors, click the link for "Manage Export Templates" and then click "Download and Install"
-1. Select the "Web (Runnable)" preset
-1. Select "Export Project"
+1. Select the preset "Web (Runnable)"
+1. (One Time Setup) Download [coi.js](https://github.com/gzuidhof/coi-serviceworker/raw/master/coi-serviceworker.js) and add it to the `/docs` directory
+1. (One Time Setup) Enter "Head Include" `<script src="coi-serviceworker.js"></script>`
+1. Select "Export Project..."
 1. Select the "docs" folder
     - The GitHub Pages config points to the `main` branch and /`docs` directory
 1. Enter `index.html`
