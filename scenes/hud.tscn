@@ -1576,3 +1576,4 @@ texture = ExtResource("23_ajg6i")
 [node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonSelect"]
 position = Vector2(7.66667, 3)
 shape = SubResource("RectangleShape2D_hf27x")
+action = "Slot_Up"

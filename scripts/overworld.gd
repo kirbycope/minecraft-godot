@@ -131,6 +131,7 @@ func _input(event):
 					$TileMap/player/dig_wood.play()
 					$TileMap.erase_cell(2, tile_to_left)
 					give_item("planks_oak", 64)
+		
 		# Use "wood_pickaxe" to mine "cobblestone" and "stone"
 		if Global.selected_item == "wood_pickaxe":
 			# Check to the right, if facing right
