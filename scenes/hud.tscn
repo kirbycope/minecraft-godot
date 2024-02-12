@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=38 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://c1amqn3ycrois" path="res://textures/dpad_right.png" id="20_6c3t8"]
 [ext_resource type="Texture2D" uid="uid://dk0b58o1hxcon" path="res://textures/dpad_up.png" id="21_huagj"]
 [ext_resource type="Texture2D" uid="uid://b74vkuwip3uv3" path="res://textures/button_pill.png" id="23_ajg6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o1vr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg5ns"]
 atlas = ExtResource("6_0rp0o")
@@ -150,6 +152,11 @@ position = Vector2(7.99999, 7.59995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot1"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_1"
+
 [node name="Slot2" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
 anchor_left = 0.5
@@ -172,6 +179,11 @@ visible = false
 position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot2"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_2"
 
 [node name="Slot3" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
@@ -196,6 +208,11 @@ position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot3"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_3"
+
 [node name="Slot4" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
 anchor_left = 0.5
@@ -218,6 +235,11 @@ visible = false
 position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot4"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_4"
 
 [node name="Slot5" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
@@ -242,6 +264,11 @@ position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot5"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_5"
+
 [node name="Slot6" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
 anchor_left = 0.5
@@ -264,6 +291,11 @@ visible = false
 position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot6"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_6"
 
 [node name="Slot7" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
@@ -288,6 +320,11 @@ position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot7"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_7"
+
 [node name="Slot8" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
 anchor_left = 0.5
@@ -311,6 +348,11 @@ position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot8"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_8"
+
 [node name="Slot9" type="CenterContainer" parent="ActionBar"]
 layout_mode = 2
 anchor_left = 0.5
@@ -333,6 +375,11 @@ visible = false
 position = Vector2(7.59998, 7.99995)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot9"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1o1vr")
+action = "Slot_9"
 
 [node name="CraftingTable" type="Control" parent="."]
 visible = false
