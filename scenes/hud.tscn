@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=36 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://cm5cmrqhuw4qv" path="res://textures/dpad_left.png" id="19_7pcp8"]
 [ext_resource type="Texture2D" uid="uid://c1amqn3ycrois" path="res://textures/dpad_right.png" id="20_6c3t8"]
 [ext_resource type="Texture2D" uid="uid://dk0b58o1hxcon" path="res://textures/dpad_up.png" id="21_huagj"]
-[ext_resource type="Texture2D" uid="uid://b74vkuwip3uv3" path="res://textures/button_pill.png" id="23_ajg6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o1vr"]
 
@@ -97,8 +96,6 @@ size = Vector2(13, 26)
 size = Vector2(26, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgidu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf27x"]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_afl1v")
@@ -1545,21 +1542,25 @@ texture = ExtResource("21_huagj")
 [node name="Down2" type="TouchScreenButton" parent="DPad"]
 position = Vector2(20, 39.6667)
 shape = SubResource("RectangleShape2D_vondw")
+passby_press = true
 action = "ui_down"
 
 [node name="Left2" type="TouchScreenButton" parent="DPad"]
 position = Vector2(0.333334, 20)
 shape = SubResource("RectangleShape2D_uijkt")
+passby_press = true
 action = "ui_left"
 
 [node name="Right2" type="TouchScreenButton" parent="DPad"]
 position = Vector2(39.6667, 20)
 shape = SubResource("RectangleShape2D_uijkt")
+passby_press = true
 action = "ui_right"
 
 [node name="Up2" type="TouchScreenButton" parent="DPad"]
 position = Vector2(20, 0.333313)
 shape = SubResource("RectangleShape2D_vondw")
+passby_press = true
 action = "ui_up"
 
 [node name="ButtonA" type="Control" parent="."]
@@ -1603,23 +1604,3 @@ position = Vector2(20, 20)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_vgidu")
 action = "ui_cancel"
-
-[node name="ButtonSelect" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 251.0
-offset_top = 603.0
-offset_right = 266.0
-offset_bottom = 609.0
-scale = Vector2(3, 3)
-
-[node name="Select" type="TextureRect" parent="ButtonSelect"]
-layout_mode = 0
-offset_right = 15.0
-offset_bottom = 6.0
-texture = ExtResource("23_ajg6i")
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonSelect"]
-position = Vector2(7.66667, 3)
-shape = SubResource("RectangleShape2D_hf27x")
-action = "Slot_Up"
