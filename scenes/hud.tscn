@@ -1456,11 +1456,11 @@ autoplay = true
 [node name="DPad" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 93.0
-offset_top = 505.0
-offset_right = 133.0
-offset_bottom = 545.0
-scale = Vector2(3, 3)
+offset_left = 51.0
+offset_top = 437.0
+offset_right = 91.0
+offset_bottom = 477.0
+scale = Vector2(4, 4)
 
 [node name="Base" type="TextureRect" parent="DPad"]
 layout_mode = 0
