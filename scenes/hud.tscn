@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=51 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -18,10 +18,16 @@
 [ext_resource type="AudioStream" uid="uid://boja336j1lyyj" path="res://sounds/calm1.mp3" id="16_rakr5"]
 [ext_resource type="Texture2D" uid="uid://ctvbu5ln8v2wp" path="res://textures/dpad_base.png" id="17_o5e4m"]
 [ext_resource type="Texture2D" uid="uid://77hxoh43l1p2" path="res://textures/dpad_down.png" id="18_0mqnm"]
-[ext_resource type="Texture2D" uid="uid://brtb6negkla2e" path="res://textures/button_base.png" id="18_1st0s"]
+[ext_resource type="Texture2D" uid="uid://brtb6negkla2e" path="res://textures/button_red.png" id="18_1st0s"]
 [ext_resource type="Texture2D" uid="uid://cm5cmrqhuw4qv" path="res://textures/dpad_left.png" id="19_7pcp8"]
 [ext_resource type="Texture2D" uid="uid://c1amqn3ycrois" path="res://textures/dpad_right.png" id="20_6c3t8"]
 [ext_resource type="Texture2D" uid="uid://dk0b58o1hxcon" path="res://textures/dpad_up.png" id="21_huagj"]
+[ext_resource type="Texture2D" uid="uid://bbdb0yv0b3w4y" path="res://textures/button_gray.png" id="23_1k6qc"]
+[ext_resource type="Texture2D" uid="uid://bf8ueubh5fnwx" path="res://textures/button_yellow.png" id="23_he4qc"]
+[ext_resource type="Texture2D" uid="uid://dtalfnj31twwc" path="res://textures/button_blue.png" id="24_yem7f"]
+[ext_resource type="Texture2D" uid="uid://2gpuxv5hy78i" path="res://textures/button_green.png" id="25_7e06i"]
+[ext_resource type="Texture2D" uid="uid://dvkfce4mygul0" path="res://textures/button_l.png" id="27_0m8ok"]
+[ext_resource type="Texture2D" uid="uid://bjit5embfdkl1" path="res://textures/button_r.png" id="28_x6iea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o1vr"]
 
@@ -89,13 +95,47 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vondw"]
-size = Vector2(13, 26)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_3doud"]
+points = PackedVector2Array(20, 20, -13, 53, 53, 53)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uijkt"]
-size = Vector2(26, 13)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_oy8jv"]
+points = PackedVector2Array(20, 20, 53, -13, 53, 53)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vgidu"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_dgkem"]
+points = PackedVector2Array(20, 20, 53, -13, -13, -13)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6ws33"]
+points = PackedVector2Array(20, 20, -13, -13, -13, 53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0cku"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rn0o"]
+radius = 44.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tra33"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtgqo"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h8d1f"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbx4x"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2svr"]
+size = Vector2(80, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2y2p3"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_afl1v")
@@ -1539,68 +1579,221 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("21_huagj")
 
-[node name="Down2" type="TouchScreenButton" parent="DPad"]
-position = Vector2(20, 39.6667)
-shape = SubResource("RectangleShape2D_vondw")
+[node name="TouchScreenButtonDown" type="TouchScreenButton" parent="DPad"]
+shape = SubResource("ConvexPolygonShape2D_3doud")
 passby_press = true
 action = "ui_down"
 
-[node name="Left2" type="TouchScreenButton" parent="DPad"]
-position = Vector2(0.333334, 20)
-shape = SubResource("RectangleShape2D_uijkt")
-passby_press = true
-action = "ui_left"
-
-[node name="Right2" type="TouchScreenButton" parent="DPad"]
-position = Vector2(39.6667, 20)
-shape = SubResource("RectangleShape2D_uijkt")
+[node name="TouchScreenButtonRight" type="TouchScreenButton" parent="DPad"]
+shape = SubResource("ConvexPolygonShape2D_oy8jv")
 passby_press = true
 action = "ui_right"
 
-[node name="Up2" type="TouchScreenButton" parent="DPad"]
-position = Vector2(20, 0.333313)
-shape = SubResource("RectangleShape2D_vondw")
+[node name="TouchScreenButtonUp" type="TouchScreenButton" parent="DPad"]
+shape = SubResource("ConvexPolygonShape2D_dgkem")
 passby_press = true
 action = "ui_up"
 
-[node name="ButtonA" type="Control" parent="."]
+[node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="DPad"]
+shape = SubResource("ConvexPolygonShape2D_6ws33")
+passby_press = true
+action = "ui_left"
+
+[node name="TouchControls" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1016.0
-offset_top = 513.0
-offset_right = 1056.0
-offset_bottom = 553.0
-scale = Vector2(2.5, 2.5)
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Base" type="TextureRect" parent="ButtonA"]
+[node name="ButtonA" type="Control" parent="TouchControls"]
+anchors_preset = 0
+offset_left = 1035.0
+offset_top = 501.0
+offset_right = 1075.0
+offset_bottom = 541.0
+
+[node name="Unpressed" type="TextureRect" parent="TouchControls/ButtonA"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("18_1st0s")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonA"]
-position = Vector2(20, 20)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_vgidu")
+[node name="Pressed" type="TextureRect" parent="TouchControls/ButtonA"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_1k6qc")
+
+[node name="Label" type="Label" parent="TouchControls/ButtonA"]
+offset_left = 5.00012
+offset_top = 18.0001
+offset_right = 55.0001
+offset_bottom = 41.0001
+text = "Attack"
+label_settings = SubResource("LabelSettings_w0cku")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TouchControls/ButtonA"]
+position = Vector2(30.0001, 30.0001)
+shape = SubResource("CircleShape2D_7rn0o")
 action = "ui_select"
 
-[node name="ButtonB" type="Control" parent="."]
-layout_mode = 3
+[node name="ButtonB" type="Control" parent="TouchControls"]
 anchors_preset = 0
-offset_left = 884.0
-offset_top = 513.0
-offset_right = 924.0
-offset_bottom = 553.0
-scale = Vector2(2.5, 2.5)
+offset_left = 972.0
+offset_top = 563.0
+offset_right = 1012.0
+offset_bottom = 603.0
 
-[node name="Base" type="TextureRect" parent="ButtonB"]
+[node name="Unpressed" type="TextureRect" parent="TouchControls/ButtonB"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("18_1st0s")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_he4qc")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonB"]
-position = Vector2(20, 20)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_vgidu")
+[node name="Pressed" type="TextureRect" parent="TouchControls/ButtonB"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_1k6qc")
+
+[node name="Label" type="Label" parent="TouchControls/ButtonB"]
+offset_left = 16.0
+offset_top = 17.9999
+offset_right = 45.0
+offset_bottom = 40.9999
+text = "Use"
+label_settings = SubResource("LabelSettings_tra33")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TouchControls/ButtonB"]
+position = Vector2(29, 28.9999)
+shape = SubResource("CircleShape2D_7rn0o")
 action = "ui_cancel"
+
+[node name="ButtonX" type="Control" parent="TouchControls"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 972.0
+offset_top = 439.0
+offset_right = 1012.0
+offset_bottom = 479.0
+
+[node name="Unpressed" type="TextureRect" parent="TouchControls/ButtonX"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("24_yem7f")
+
+[node name="Pressed" type="TextureRect" parent="TouchControls/ButtonX"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_1k6qc")
+
+[node name="Label" type="Label" parent="TouchControls/ButtonX"]
+offset_left = -8.0
+offset_top = 17.9999
+offset_right = 67.0
+offset_bottom = 40.9999
+text = "Inventory"
+label_settings = SubResource("LabelSettings_vtgqo")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TouchControls/ButtonX"]
+position = Vector2(29, 30)
+shape = SubResource("CircleShape2D_7rn0o")
+action = "ui_accept"
+
+[node name="ButtonY" type="Control" parent="TouchControls"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 907.0
+offset_top = 501.0
+offset_right = 947.0
+offset_bottom = 541.0
+
+[node name="Unpressed" type="TextureRect" parent="TouchControls/ButtonY"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("25_7e06i")
+
+[node name="Pressed" type="TextureRect" parent="TouchControls/ButtonY"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_1k6qc")
+
+[node name="Label" type="Label" parent="TouchControls/ButtonY"]
+offset_left = 10.0
+offset_top = 18.0
+offset_right = 49.0
+offset_bottom = 41.0
+text = "Craft"
+label_settings = SubResource("LabelSettings_h8d1f")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TouchControls/ButtonY"]
+position = Vector2(31, 30)
+shape = SubResource("CircleShape2D_7rn0o")
+
+[node name="ButtonL" type="Control" parent="TouchControls"]
+visible = false
+anchors_preset = 0
+offset_left = 303.0
+offset_top = 484.0
+offset_right = 343.0
+offset_bottom = 524.0
+
+[node name="TextureRect" type="TextureRect" parent="TouchControls/ButtonL"]
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 13.0
+scale = Vector2(3, 3)
+texture = ExtResource("27_0m8ok")
+
+[node name="Label" type="Label" parent="TouchControls/ButtonL"]
+offset_left = 25.0
+offset_top = 7.99997
+offset_right = 54.0
+offset_bottom = 31.0
+text = "Use"
+label_settings = SubResource("LabelSettings_cbx4x")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TouchControls/ButtonL"]
+position = Vector2(37, 20)
+shape = SubResource("RectangleShape2D_i2svr")
+
+[node name="ButtonR" type="Control" parent="TouchControls"]
+visible = false
+anchors_preset = 0
+offset_left = 774.0
+offset_top = 485.0
+offset_right = 814.0
+offset_bottom = 525.0
+
+[node name="TextureRect" type="TextureRect" parent="TouchControls/ButtonR"]
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 13.0
+scale = Vector2(3, 3)
+texture = ExtResource("28_x6iea")
+
+[node name="Label" type="Label" parent="TouchControls/ButtonR"]
+layout_mode = 0
+offset_left = 8.99997
+offset_top = 8.0
+offset_right = 59.0
+offset_bottom = 31.0
+text = "Attack"
+label_settings = SubResource("LabelSettings_2y2p3")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TouchControls/ButtonR"]
+position = Vector2(37, 20)
+shape = SubResource("RectangleShape2D_i2svr")
