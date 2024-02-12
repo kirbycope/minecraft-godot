@@ -4,7 +4,7 @@ extends Node2D
 
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("Use"):
 		# Get cell at "Base Layer" of TileMap
 		var source_id = $TileMap.get_cell_source_id(1, get_map_position())
 
@@ -65,7 +65,7 @@ func _input(event):
 			take_item("planks_oak")
 	
 	var inventory_visible = $TileMap/player/hud/Slots.visible
-	if event.is_action_pressed("ui_select") and inventory_visible == false:
+	if event.is_action_pressed("Attack") and inventory_visible == false:
 		# Get cell at "Breakable Layer" of TileMap
 		var source_id = $TileMap.get_cell_source_id(2, get_map_position())
 		

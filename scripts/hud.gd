@@ -21,106 +21,122 @@ var selected_slot = 1
 
 # Called when an input event is triggered
 func _input(event):
-		# Inventory - Chest, show
-		if $SingleChest.visible == false:
-			if Global.player_on_chest and event.is_action_pressed("ui_select"):
-				$SingleChest/ChestOpen.play()
+	# Display controls based on input type
+	if event is InputEventScreenTouch:
+		$DPad.visible = true;
+		$NES.visible = true;
+		$SNES.visible = false;
+		$WASD.visible = false;
+	elif event is InputEventJoypadMotion or event is InputEventJoypadButton:
+		$DPad.visible = true;
+		$NES.visible = true;
+		$SNES.visible = false;
+		$WASD.visible = false;
+	elif event is InputEventKey:
+		$DPad.visible = false;
+		$NES.visible = false;
+		$SNES.visible = false;
+		$WASD.visible = true;
+	# Inventory - Chest, show
+	if $SingleChest.visible == false:
+		if Global.player_on_chest and event.is_action_pressed("Attack"):
+			$SingleChest/ChestOpen.play()
+			$ActionBar.visible = false
+			$Food.visible = false
+			$Hearts.visible = false
+			$Inventory.visible = false
+			$SingleChest.visible = true
+			$Slots.visible = true
+			$XPBar.visible = false
+	# Inventory - Chest, hide
+	else:
+		if Global.player_on_chest == false or event.is_action_pressed("ui_cancel"):
+			$SingleChest/ChestClosed.play()
+			$ActionBar.visible = true
+			$Food.visible = true
+			$Hearts.visible = true
+			$SingleChest.visible = false
+			$Slots.visible = false
+			$XPBar.visible = true
+	# Inventory - Crafting Table, show
+	if $CraftingTable.visible == false:
+		if Global.player_on_crafting_table and event.is_action_pressed("Attack"):
+			$ActionBar.visible = false
+			$CraftingTable.visible = true
+			$Food.visible = false
+			$Hearts.visible = false
+			$Inventory.visible = false
+			$Slots.visible = true
+			$XPBar.visible = false
+	# Inventory - Crafting Table, hide
+	else:
+		if Global.player_on_crafting_table == false or event.is_action_pressed("ui_cancel"):
+			$ActionBar.visible = true
+			$CraftingTable.visible = false
+			$Food.visible = true
+			$Hearts.visible = true
+			$Slots.visible = false
+			$XPBar.visible = true
+	# Inventory - Player
+	if $CraftingTable.visible == false and $SingleChest.visible == false:
+		# Show
+		if $Inventory.visible == false:
+			if event.is_action_pressed("Inventory"):
+				get_tree().paused = true
 				$ActionBar.visible = false
+				$Inventory.visible = true
 				$Food.visible = false
 				$Hearts.visible = false
-				$Inventory.visible = false
-				$SingleChest.visible = true
 				$Slots.visible = true
 				$XPBar.visible = false
-		# Inventory - Chest, hide
 		else:
-			if Global.player_on_chest == false or event.is_action_pressed("ui_cancel"):
-				$SingleChest/ChestClosed.play()
+			# Navigate
+			if event.is_action_pressed("ui_down"):
+				if highlighted_slot >= 28:
+					highlighted_slot -= 27
+				elif highlighted_slot >= 1:
+					highlighted_slot += 9
+			if event.is_action_pressed("ui_left"):
+				if (highlighted_slot == 1
+				or highlighted_slot == 10
+				or highlighted_slot == 19
+				or highlighted_slot == 28):
+					highlighted_slot += 8
+				else:
+					highlighted_slot -= 1
+			if event.is_action_pressed("ui_right"):
+				if (highlighted_slot == 9
+				or highlighted_slot == 18
+				or highlighted_slot == 27
+				or highlighted_slot == 36):
+					highlighted_slot -= 8
+				else:
+					highlighted_slot += 1
+			if event.is_action_pressed("ui_up"):
+				if highlighted_slot < 10:
+					highlighted_slot += 27
+				else:
+					highlighted_slot -= 9
+			highlighted_slot = clamp(highlighted_slot, 1, 36)
+			# Hide
+			if event.is_action_pressed("Inventory"):
+				get_tree().paused = false
+				highlighted_slot = 0
 				$ActionBar.visible = true
 				$Food.visible = true
 				$Hearts.visible = true
-				$SingleChest.visible = false
-				$Slots.visible = false
-				$XPBar.visible = true
-		# Inventory - Crafting Table, show
-		if $CraftingTable.visible == false:
-			if Global.player_on_crafting_table and event.is_action_pressed("ui_select"):
-				$ActionBar.visible = false
-				$CraftingTable.visible = true
-				$Food.visible = false
-				$Hearts.visible = false
 				$Inventory.visible = false
-				$Slots.visible = true
-				$XPBar.visible = false
-		# Inventory - Crafting Table, hide
-		else:
-			if Global.player_on_crafting_table == false or event.is_action_pressed("ui_cancel"):
-				$ActionBar.visible = true
-				$CraftingTable.visible = false
-				$Food.visible = true
-				$Hearts.visible = true
 				$Slots.visible = false
 				$XPBar.visible = true
-		# Inventory - Player
-		if $CraftingTable.visible == false and $SingleChest.visible == false:
-			# Show
-			if $Inventory.visible == false:
-				if event.is_action_pressed("ui_accept"):
-					get_tree().paused = true
-					$ActionBar.visible = false
-					$Inventory.visible = true
-					$Food.visible = false
-					$Hearts.visible = false
-					$Slots.visible = true
-					$XPBar.visible = false
-			else:
-				# Navigate
-				if event.is_action_pressed("ui_down"):
-					if highlighted_slot >= 28:
-						highlighted_slot -= 27
-					elif highlighted_slot >= 1:
-						highlighted_slot += 9
-				if event.is_action_pressed("ui_left"):
-					if (highlighted_slot == 1
-					or highlighted_slot == 10
-					or highlighted_slot == 19
-					or highlighted_slot == 28):
-						highlighted_slot += 8
-					else:
-						highlighted_slot -= 1
-				if event.is_action_pressed("ui_right"):
-					if (highlighted_slot == 9
-					or highlighted_slot == 18
-					or highlighted_slot == 27
-					or highlighted_slot == 36):
-						highlighted_slot -= 8
-					else:
-						highlighted_slot += 1
-				if event.is_action_pressed("ui_up"):
-					if highlighted_slot < 10:
-						highlighted_slot += 27
-					else:
-						highlighted_slot -= 9
-				highlighted_slot = clamp(highlighted_slot, 1, 36)
-				# Hide
-				if event.is_action_pressed("ui_accept"):
-					get_tree().paused = false
-					highlighted_slot = 0
-					$ActionBar.visible = true
-					$Food.visible = true
-					$Hearts.visible = true
-					$Inventory.visible = false
-					$Slots.visible = false
-					$XPBar.visible = true
-		if $Slots.visible:
-			# Highlight inventory active slot
-			clear_inventory_highlight()
-			show_inventory_highlight()
-		else:
-			# Highlight ActionBar selected slot
-			clear_slot_selection()
-			determine_slot_selection(event)
-			show_slot_selection()
+	if $Slots.visible:
+		# Highlight inventory active slot
+		clear_inventory_highlight()
+		show_inventory_highlight()
+	else:
+		# Highlight ActionBar selected slot
+		clear_slot_selection()
+		determine_slot_selection(event)
+		show_slot_selection()
 
 
 # Called when the node enters the scene tree for the first time.

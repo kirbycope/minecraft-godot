@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=63 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -29,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://dvkfce4mygul0" path="res://textures/button_l.png" id="27_0m8ok"]
 [ext_resource type="Texture2D" uid="uid://bjit5embfdkl1" path="res://textures/button_r.png" id="28_x6iea"]
 [ext_resource type="Texture2D" uid="uid://b74vkuwip3uv3" path="res://textures/button_pill.png" id="29_j4ckb"]
+[ext_resource type="Texture2D" uid="uid://dfvmdk6smiobq" path="res://textures/button_keycap.png" id="30_q8rxm"]
+[ext_resource type="Texture2D" uid="uid://c7n5d7oqhdakq" path="res://textures/button_keycap_double.png" id="31_xyeyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o1vr"]
 
@@ -108,6 +110,14 @@ points = PackedVector2Array(20, 20, 53, -13, -13, -13)
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6ws33"]
 points = PackedVector2Array(20, 20, -13, -13, -13, 53)
 
+[sub_resource type="LabelSettings" id="LabelSettings_g2787"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nyv0j"]
+radius = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_digys"]
+size = Vector2(100, 50)
+
 [sub_resource type="LabelSettings" id="LabelSettings_w0cku"]
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
@@ -141,13 +151,21 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ktdt"]
 size = Vector2(100, 50)
 
-[sub_resource type="LabelSettings" id="LabelSettings_g2787"]
+[sub_resource type="LabelSettings" id="LabelSettings_qq14q"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nyv0j"]
-radius = 48.0
+[sub_resource type="LabelSettings" id="LabelSettings_1hibo"]
+font_size = 24
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_digys"]
-size = Vector2(100, 50)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pladm"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2bm6"]
+size = Vector2(152, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqj3l"]
+size = Vector2(76, 76)
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_afl1v")
@@ -1549,6 +1567,7 @@ stream = ExtResource("16_rakr5")
 autoplay = true
 
 [node name="DPad" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 51.0
@@ -1610,6 +1629,137 @@ action = "ui_up"
 shape = SubResource("ConvexPolygonShape2D_6ws33")
 passby_press = true
 action = "ui_left"
+
+[node name="NES" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonB" type="Control" parent="NES"]
+anchors_preset = 0
+offset_left = 898.0
+offset_top = 476.0
+offset_right = 938.0
+offset_bottom = 516.0
+
+[node name="Unpressed" type="TextureRect" parent="NES/ButtonB"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_1st0s")
+
+[node name="Pressed" type="TextureRect" parent="NES/ButtonB"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("23_1k6qc")
+
+[node name="Label" type="Label" parent="NES/ButtonB"]
+offset_left = 26.0
+offset_top = 28.0
+offset_right = 55.0
+offset_bottom = 51.0
+text = "Use"
+label_settings = SubResource("LabelSettings_g2787")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonB"]
+position = Vector2(41, 40)
+shape = SubResource("CircleShape2D_nyv0j")
+action = "Use"
+
+[node name="ButtonA" type="Control" parent="NES"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1026.0
+offset_top = 476.0
+offset_right = 1066.0
+offset_bottom = 516.0
+
+[node name="Unpressed" type="TextureRect" parent="NES/ButtonA"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_1st0s")
+
+[node name="Pressed" type="TextureRect" parent="NES/ButtonA"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("23_1k6qc")
+
+[node name="Label" type="Label" parent="NES/ButtonA"]
+offset_left = 15.0
+offset_top = 28.0
+offset_right = 65.0
+offset_bottom = 51.0
+text = "Attack"
+label_settings = SubResource("LabelSettings_g2787")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonA"]
+position = Vector2(40, 40)
+shape = SubResource("CircleShape2D_nyv0j")
+action = "Attack"
+
+[node name="ButtonSelect" type="Control" parent="NES"]
+anchors_preset = 0
+offset_left = 910.0
+offset_top = 602.0
+offset_right = 950.0
+offset_bottom = 642.0
+
+[node name="TextureRect" type="TextureRect" parent="NES/ButtonSelect"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+texture = ExtResource("29_j4ckb")
+
+[node name="Label" type="Label" parent="NES/ButtonSelect"]
+offset_left = 12.0
+offset_right = 48.0
+offset_bottom = 23.0
+text = "Item"
+label_settings = SubResource("LabelSettings_g2787")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonSelect"]
+position = Vector2(30, 12)
+shape = SubResource("RectangleShape2D_digys")
+action = "Slot_Up"
+
+[node name="ButtonStart" type="Control" parent="NES"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1040.0
+offset_top = 602.0
+offset_right = 1080.0
+offset_bottom = 642.0
+
+[node name="TextureRect" type="TextureRect" parent="NES/ButtonStart"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+texture = ExtResource("29_j4ckb")
+
+[node name="Label" type="Label" parent="NES/ButtonStart"]
+offset_left = 6.0
+offset_right = 51.0
+offset_bottom = 23.0
+text = "Menu"
+label_settings = SubResource("LabelSettings_g2787")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonStart"]
+position = Vector2(30, 12)
+shape = SubResource("RectangleShape2D_digys")
+action = "Inventory"
 
 [node name="SNES" type="Control" parent="."]
 visible = false
@@ -1878,130 +2028,341 @@ position = Vector2(46, 20)
 shape = SubResource("RectangleShape2D_6ktdt")
 action = "ui_accept"
 
-[node name="NES" type="Control" parent="."]
+[node name="WASD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 60.0
+offset_bottom = 59.0
+
+[node name="W" type="Control" parent="WASD"]
+anchors_preset = 0
+offset_left = 91.0
+offset_top = 437.0
+offset_right = 131.0
+offset_bottom = 477.0
+
+[node name="TextureRect" type="TextureRect" parent="WASD/W"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("30_q8rxm")
 
-[node name="ButtonB" type="Control" parent="NES"]
+[node name="Label" type="Label" parent="WASD/W"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 26.0
+offset_bottom = 27.0
+text = "W"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/W"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+text = "🡱"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/W"]
+position = Vector2(40, 39)
+shape = SubResource("RectangleShape2D_pladm")
+passby_press = true
+action = "ui_up"
+
+[node name="A" type="Control" parent="WASD"]
+layout_mode = 3
 anchors_preset = 0
-offset_left = 898.0
+offset_left = 11.0
 offset_top = 476.0
-offset_right = 938.0
-offset_bottom = 516.0
-
-[node name="Unpressed" type="TextureRect" parent="NES/ButtonB"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(2, 2)
-texture = ExtResource("18_1st0s")
-
-[node name="Pressed" type="TextureRect" parent="NES/ButtonB"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(2, 2)
-texture = ExtResource("23_1k6qc")
-
-[node name="Label" type="Label" parent="NES/ButtonB"]
-offset_left = 26.0
-offset_top = 28.0
-offset_right = 55.0
-offset_bottom = 51.0
-text = "Use"
-label_settings = SubResource("LabelSettings_g2787")
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonB"]
-position = Vector2(41, 40)
-shape = SubResource("CircleShape2D_nyv0j")
-action = "ui_cancel"
-
-[node name="ButtonA" type="Control" parent="NES"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1026.0
-offset_top = 476.0
-offset_right = 1066.0
-offset_bottom = 516.0
-
-[node name="Unpressed" type="TextureRect" parent="NES/ButtonA"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(2, 2)
-texture = ExtResource("18_1st0s")
-
-[node name="Pressed" type="TextureRect" parent="NES/ButtonA"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(2, 2)
-texture = ExtResource("23_1k6qc")
-
-[node name="Label" type="Label" parent="NES/ButtonA"]
-offset_left = 15.0
-offset_top = 28.0
-offset_right = 65.0
-offset_bottom = 51.0
-text = "Attack"
-label_settings = SubResource("LabelSettings_g2787")
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonA"]
-position = Vector2(40, 40)
-shape = SubResource("CircleShape2D_nyv0j")
-action = "ui_select"
-
-[node name="ButtonSelect" type="Control" parent="NES"]
-anchors_preset = 0
-offset_left = 910.0
-offset_top = 602.0
-offset_right = 950.0
-offset_bottom = 642.0
-
-[node name="TextureRect" type="TextureRect" parent="NES/ButtonSelect"]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 12.0
-scale = Vector2(2, 2)
-texture = ExtResource("29_j4ckb")
-
-[node name="Label" type="Label" parent="NES/ButtonSelect"]
-offset_left = 12.0
-offset_right = 48.0
-offset_bottom = 23.0
-text = "Item"
-label_settings = SubResource("LabelSettings_g2787")
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonSelect"]
-position = Vector2(30, 12)
-shape = SubResource("RectangleShape2D_digys")
-
-[node name="ButtonStart" type="Control" parent="NES"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1040.0
-offset_top = 602.0
-offset_right = 1080.0
-offset_bottom = 642.0
-
-[node name="TextureRect" type="TextureRect" parent="NES/ButtonStart"]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 12.0
-scale = Vector2(2, 2)
-texture = ExtResource("29_j4ckb")
-
-[node name="Label" type="Label" parent="NES/ButtonStart"]
-offset_left = 6.0
 offset_right = 51.0
-offset_bottom = 23.0
-text = "Menu"
-label_settings = SubResource("LabelSettings_g2787")
+offset_bottom = 516.0
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonStart"]
-position = Vector2(30, 12)
-shape = SubResource("RectangleShape2D_digys")
+[node name="TextureRect" type="TextureRect" parent="WASD/A"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("30_q8rxm")
+
+[node name="Label" type="Label" parent="WASD/A"]
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 21.0
+offset_bottom = 27.0
+text = "A"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/A"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+text = "🡰"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/A"]
+position = Vector2(40, 39)
+shape = SubResource("RectangleShape2D_pladm")
+passby_press = true
+action = "ui_left"
+
+[node name="S" type="Control" parent="WASD"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 91.0
+offset_top = 517.0
+offset_right = 131.0
+offset_bottom = 557.0
+
+[node name="TextureRect" type="TextureRect" parent="WASD/S"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("30_q8rxm")
+
+[node name="Label" type="Label" parent="WASD/S"]
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 27.0
+text = "S"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/S"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+text = "🡳"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/S"]
+position = Vector2(40, 39)
+shape = SubResource("RectangleShape2D_pladm")
+passby_press = true
+action = "ui_down"
+
+[node name="D" type="Control" parent="WASD"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 171.0
+offset_top = 476.0
+offset_right = 211.0
+offset_bottom = 516.0
+
+[node name="TextureRect" type="TextureRect" parent="WASD/D"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("30_q8rxm")
+
+[node name="Label" type="Label" parent="WASD/D"]
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 21.0
+offset_bottom = 27.0
+text = "D"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/D"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+text = "🡲"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/D"]
+position = Vector2(40, 39)
+shape = SubResource("RectangleShape2D_pladm")
+passby_press = true
+action = "ui_right"
+
+[node name="Space" type="Control" parent="WASD"]
+anchors_preset = 0
+offset_left = 955.0
+offset_top = 521.0
+offset_right = 995.0
+offset_bottom = 561.0
+
+[node name="TextureRect" type="TextureRect" parent="WASD/Space"]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 38.0
+scale = Vector2(2, 2)
+texture = ExtResource("31_xyeyu")
+
+[node name="Label" type="Label" parent="WASD/Space"]
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 55.0
+offset_bottom = 26.0
+text = "Space"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/Space"]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 148.0
+offset_bottom = 73.0
+text = "Attack"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/Space"]
+position = Vector2(76, 38)
+shape = SubResource("RectangleShape2D_c2bm6")
+action = "Attack"
+
+[node name="Shift" type="Control" parent="WASD"]
+anchors_preset = 0
+offset_left = 870.0
+offset_top = 521.0
+offset_right = 910.0
+offset_bottom = 561.0
+
+[node name="TextureRect" type="TextureRect" parent="WASD/Shift"]
+layout_mode = 0
+offset_right = 38.0
+offset_bottom = 38.0
+scale = Vector2(2, 2)
+texture = ExtResource("30_q8rxm")
+
+[node name="Label" type="Label" parent="WASD/Shift"]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 44.0
+offset_bottom = 26.0
+text = "Shift"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/Shift"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 71.0
+text = "Use"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/Shift"]
+position = Vector2(38, 38)
+shape = SubResource("RectangleShape2D_dqj3l")
+action = "Use"
+
+[node name="Enter" type="Control" parent="WASD"]
+anchors_preset = 0
+offset_left = 870.0
+offset_top = 436.0
+offset_right = 910.0
+offset_bottom = 476.0
+
+[node name="TextureRect" type="TextureRect" parent="WASD/Enter"]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 38.0
+scale = Vector2(2, 2)
+texture = ExtResource("31_xyeyu")
+
+[node name="Label" type="Label" parent="WASD/Enter"]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 50.0
+offset_bottom = 26.0
+text = "Enter"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/Enter"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 146.0
+offset_bottom = 71.0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/Enter"]
+position = Vector2(76, 38)
+shape = SubResource("RectangleShape2D_c2bm6")
+action = "Inventory"
+
+[node name="PgUp" type="Control" parent="WASD"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1031.0
+offset_top = 436.0
+offset_right = 1071.0
+offset_bottom = 476.0
+
+[node name="TextureRect" type="TextureRect" parent="WASD/PgUp"]
+layout_mode = 0
+offset_right = 38.0
+offset_bottom = 38.0
+scale = Vector2(2, 2)
+texture = ExtResource("30_q8rxm")
+
+[node name="Label" type="Label" parent="WASD/PgUp"]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 44.0
+offset_bottom = 26.0
+text = "PgUp"
+label_settings = SubResource("LabelSettings_qq14q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAction" type="Label" parent="WASD/PgUp"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 71.0
+text = "Item"
+label_settings = SubResource("LabelSettings_1hibo")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="WASD/PgUp"]
+position = Vector2(38, 38)
+shape = SubResource("RectangleShape2D_dqj3l")
+action = "Slot_Up"

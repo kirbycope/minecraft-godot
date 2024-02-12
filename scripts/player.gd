@@ -75,7 +75,7 @@ func _physics_process(delta):
 
 
 func _input(event):
-	if event.is_action_pressed("ui_select"):
+	if event.is_action_pressed("Attack"):
 		is_attacking = true
 		attack_timer = 0.0
 		$strong1.play()
