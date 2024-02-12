@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=37 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -16,6 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://bjb5p101nl47k" path="res://textures/food_empty.png" id="13_t43r7"]
 [ext_resource type="Texture2D" uid="uid://dbm1ose8rtkfc" path="res://textures/food_full.png" id="14_uqryb"]
 [ext_resource type="AudioStream" uid="uid://boja336j1lyyj" path="res://sounds/calm1.mp3" id="16_rakr5"]
+[ext_resource type="Texture2D" uid="uid://ctvbu5ln8v2wp" path="res://textures/dpad_base.png" id="17_o5e4m"]
+[ext_resource type="Texture2D" uid="uid://77hxoh43l1p2" path="res://textures/dpad_down.png" id="18_0mqnm"]
+[ext_resource type="Texture2D" uid="uid://brtb6negkla2e" path="res://textures/button_base.png" id="18_1st0s"]
+[ext_resource type="Texture2D" uid="uid://cm5cmrqhuw4qv" path="res://textures/dpad_left.png" id="19_7pcp8"]
+[ext_resource type="Texture2D" uid="uid://c1amqn3ycrois" path="res://textures/dpad_right.png" id="20_6c3t8"]
+[ext_resource type="Texture2D" uid="uid://dk0b58o1hxcon" path="res://textures/dpad_up.png" id="21_huagj"]
+[ext_resource type="Texture2D" uid="uid://b74vkuwip3uv3" path="res://textures/button_pill.png" id="23_ajg6i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg5ns"]
 atlas = ExtResource("6_0rp0o")
@@ -80,6 +87,17 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vondw"]
+size = Vector2(13, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uijkt"]
+size = Vector2(26, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgidu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf27x"]
+size = Vector2(15, 6)
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_afl1v")
@@ -1434,3 +1452,127 @@ texture = ExtResource("14_uqryb")
 [node name="Calm1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_rakr5")
 autoplay = true
+
+[node name="DPad" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 93.0
+offset_top = 505.0
+offset_right = 133.0
+offset_bottom = 545.0
+scale = Vector2(3, 3)
+
+[node name="Base" type="TextureRect" parent="DPad"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_o5e4m")
+
+[node name="Down" type="TextureRect" parent="DPad"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_0mqnm")
+
+[node name="Left" type="TextureRect" parent="DPad"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("19_7pcp8")
+
+[node name="Right" type="TextureRect" parent="DPad"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("20_6c3t8")
+
+[node name="Up" type="TextureRect" parent="DPad"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("21_huagj")
+
+[node name="Down2" type="TouchScreenButton" parent="DPad"]
+position = Vector2(20, 39.6667)
+shape = SubResource("RectangleShape2D_vondw")
+action = "ui_down"
+
+[node name="Left2" type="TouchScreenButton" parent="DPad"]
+position = Vector2(0.333334, 20)
+shape = SubResource("RectangleShape2D_uijkt")
+action = "ui_left"
+
+[node name="Right2" type="TouchScreenButton" parent="DPad"]
+position = Vector2(39.6667, 20)
+shape = SubResource("RectangleShape2D_uijkt")
+action = "ui_right"
+
+[node name="Up2" type="TouchScreenButton" parent="DPad"]
+position = Vector2(20, 0.333313)
+shape = SubResource("RectangleShape2D_vondw")
+action = "ui_up"
+
+[node name="ButtonA" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1016.0
+offset_top = 513.0
+offset_right = 1056.0
+offset_bottom = 553.0
+scale = Vector2(2.5, 2.5)
+
+[node name="Base" type="TextureRect" parent="ButtonA"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_1st0s")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonA"]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vgidu")
+action = "ui_select"
+
+[node name="ButtonB" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 884.0
+offset_top = 513.0
+offset_right = 924.0
+offset_bottom = 553.0
+scale = Vector2(2.5, 2.5)
+
+[node name="Base" type="TextureRect" parent="ButtonB"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_1st0s")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonB"]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vgidu")
+action = "ui_cancel"
+
+[node name="ButtonSelect" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 251.0
+offset_top = 603.0
+offset_right = 266.0
+offset_bottom = 609.0
+scale = Vector2(3, 3)
+
+[node name="Select" type="TextureRect" parent="ButtonSelect"]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 6.0
+texture = ExtResource("23_ajg6i")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonSelect"]
+position = Vector2(7.66667, 3)
+shape = SubResource("RectangleShape2D_hf27x")
