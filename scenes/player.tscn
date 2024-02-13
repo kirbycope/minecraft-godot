@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://ceh6kcvkydlps" path="res://textures/joao-francisco-tanini-figueiredo-steve-minecraft-player-3.png" id="1_jstyl"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xd0mi"]
-[ext_resource type="Texture2D" uid="uid://bvdfovqli1tq8" path="res://textures/wood_axe.png" id="2_eupn7"]
+[ext_resource type="Texture2D" uid="uid://drevls7rdmgq1" path="res://textures/wood_axe_r.png" id="2_l76ao"]
 [ext_resource type="Texture2D" uid="uid://d0b7jsewalcs8" path="res://textures/wood_sword.png" id="3_1gn28"]
 [ext_resource type="Texture2D" uid="uid://crvbtfyxqkj0t" path="res://textures/wood_sword_h.png" id="3_7n3q0"]
-[ext_resource type="Texture2D" uid="uid://c3l4loc8tiocc" path="res://textures/wood_hoe.png" id="3_i3up7"]
+[ext_resource type="Texture2D" uid="uid://cd2odopskrbca" path="res://textures/wood_hoe_r.png" id="3_w4dvd"]
 [ext_resource type="Texture2D" uid="uid://djbciuntjwqon" path="res://textures/wood_pickaxe.png" id="4_so2ea"]
 [ext_resource type="Texture2D" uid="uid://fbtpy46j35f" path="res://textures/wood_shovel.png" id="5_0j3ri"]
 [ext_resource type="AudioStream" uid="uid://nlm5nmva0f0h" path="res://sounds/strong1.wav" id="5_c6rdv"]
-[ext_resource type="Texture2D" uid="uid://c4x074pxe4xqq" path="res://textures/wood_axe_h.png" id="7_aybyg"]
-[ext_resource type="Texture2D" uid="uid://ckfc7dxhskp6x" path="res://textures/wood_hoe_h.png" id="8_bgipp"]
+[ext_resource type="Texture2D" uid="uid://dkrfrgp5a5ktx" path="res://textures/wood_axe_l.png" id="7_co12p"]
+[ext_resource type="Texture2D" uid="uid://cxrbivjmbtuet" path="res://textures/wood_hoe_l.png" id="8_amyh8"]
 [ext_resource type="Texture2D" uid="uid://cy846yvqr2wdh" path="res://textures/wood_pickaxe_h.png" id="9_xl3lj"]
 [ext_resource type="Texture2D" uid="uid://begocnjbjsfqd" path="res://textures/wood_shovel_h.png" id="10_r8bys"]
 [ext_resource type="AudioStream" uid="uid://rm5004x0kcqe" path="res://sounds/zombie/death.wav" id="13_3b5dp"]
@@ -37,7 +37,7 @@ animations = [{
 "texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_eupn7")
+"texture": ExtResource("2_l76ao")
 }],
 "loop": false,
 "name": &"wood_axe",
@@ -48,7 +48,7 @@ animations = [{
 "texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_i3up7")
+"texture": ExtResource("3_w4dvd")
 }],
 "loop": false,
 "name": &"wood_hoe",
@@ -103,7 +103,7 @@ animations = [{
 "texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_aybyg")
+"texture": ExtResource("7_co12p")
 }],
 "loop": false,
 "name": &"wood_axe",
@@ -114,7 +114,7 @@ animations = [{
 "texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_bgipp")
+"texture": ExtResource("8_amyh8")
 }],
 "loop": false,
 "name": &"wood_hoe",
@@ -419,19 +419,19 @@ scale = Vector2(14, 14)
 sprite_frames = SubResource("SpriteFrames_d6ouw")
 animation = &"wood_axe"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="AttackLeft" type="AnimatedSprite2D" parent="."]
 position = Vector2(-220, 20)
 scale = Vector2(14, 14)
 sprite_frames = SubResource("SpriteFrames_jt2vu")
-animation = &"wood_sword"
+animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n3lvr")
-animation = &"hurt_left"
+animation = &"attack_right"
 autoplay = "idle_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
