@@ -53,6 +53,7 @@ func setup_test():
 	hud_node.show_actionbar_items()
 	hud_node.show_inventory_items()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Player")
@@ -60,6 +61,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	play_sound_effect()
 	update_animation()
 	move_and_slide()
 	if is_attacking:
@@ -79,6 +81,12 @@ func _input(event):
 		is_attacking = true
 		attack_timer = 0.0
 		$strong1.play()
+
+
+func play_sound_effect():
+	if Global.player_death_zombie_play == true:
+		$death_zombie.play()
+		Global.player_death_zombie_play = false
 
 
 func update_animation():

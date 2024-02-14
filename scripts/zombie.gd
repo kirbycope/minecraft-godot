@@ -94,7 +94,7 @@ func _on_territory_body_exited(body):
 
 func die():
 	if health <= 0 and not is_dead:
-		$"../TileMap/player/death_zombie".play()
+		Global.player_death_zombie_play = true
 		queue_free()
 
 

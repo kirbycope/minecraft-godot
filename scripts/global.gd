@@ -3,17 +3,21 @@
 extends Node
 
 
+var day = true
 var inventory = [null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null]
 var is_falling = false
 var last_direction = Vector2.RIGHT
+var mobs_spawned_today = true
+var player_death_zombie_play = false
 var player_on_chest = false
 var player_on_crafting_table = false
 var player_position = Vector2(0, 0)
 var selected_item = ""
-
+var time = 6
+var time_of_day = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +26,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass # Replace with function body.
+	# Calculate time_scale based on desired cycle duration
+	var time_scale = 24.0 / 300 # 300 Seconds  == 5 minutes
+	time += delta * time_scale
+	# Reset after completing a cycle
+	if time >= 24.0:
+		time = 0.0
+		mobs_spawned_today = false
+	time_of_day = fmod(Global.time, 24.0)
+	if time_of_day >= 6.0 and time_of_day < 18.0:
+		day = true
+	else:
+		day = false
+		if mobs_spawned_today == false:
+			var scene_instance = load("res://scenes/zombie.tscn")
+			scene_instance = scene_instance.instantiate()
+			scene_instance.global_transform.origin = Vector2(250, 50)
+			var root_node = get_tree().get_root()
+			root_node.add_child(scene_instance)
+			mobs_spawned_today = true
 
 
 # Add item to player's inventory.

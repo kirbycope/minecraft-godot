@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://11axa2tanodl" path="res://textures/water_placeholder.png" id="14_653mn"]
 [ext_resource type="PackedScene" uid="uid://xxf58m2orfmx" path="res://scenes/chest.tscn" id="26_hbcrn"]
 [ext_resource type="PackedScene" uid="uid://b6g881s4tt6gt" path="res://scenes/crafting_table.tscn" id="30_5n4v8"]
-[ext_resource type="PackedScene" uid="uid://cohl4jmdhy8fr" path="res://scenes/zombie.tscn" id="31_h2kno"]
+[ext_resource type="PackedScene" uid="uid://dmmed0xwk5klw" path="res://scenes/day_night.tscn" id="32_2y5sp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3dd8"]
 resource_name = "cobblestone"
@@ -271,5 +271,5 @@ position = Vector2(471, 120)
 [node name="crafting_table" parent="." instance=ExtResource("30_5n4v8")]
 position = Vector2(8, 88)
 
-[node name="zombie" parent="." instance=ExtResource("31_h2kno")]
-position = Vector2(266, 21)
+[node name="day_night" parent="." instance=ExtResource("32_2y5sp")]
+color = Color(0.262745, 0.176471, 0.623529, 1)
