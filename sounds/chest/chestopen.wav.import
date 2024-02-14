@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bnamgttqvolgd"
-path="res://.godot/imported/stone1.wav-2e97b83b31550f32acdd13c7afaff2a8.sample"
+uid="uid://bjkej00teylr8"
+path="res://.godot/imported/chestopen.wav-ffb833d501d44200f4ad7761c6e5ee29.sample"
 
 [deps]
 
-source_file="res://sounds/step/stone1.wav"
-dest_files=["res://.godot/imported/stone1.wav-2e97b83b31550f32acdd13c7afaff2a8.sample"]
+source_file="res://sounds/chest/chestopen.wav"
+dest_files=["res://.godot/imported/chestopen.wav-ffb833d501d44200f4ad7761c6e5ee29.sample"]
 
 [params]
 

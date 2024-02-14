@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://nlm5nmva0f0h"
-path="res://.godot/imported/strong1.wav-dc31209344e70d854fd627461b81a4bf.sample"
+uid="uid://b1kkve24dnbbe"
+path="res://.godot/imported/wood1.wav-52609789b0b19b3e20d534441191a376.sample"
 
 [deps]
 
-source_file="res://sounds/strong1.wav"
-dest_files=["res://.godot/imported/strong1.wav-dc31209344e70d854fd627461b81a4bf.sample"]
+source_file="res://sounds/player/step/wood1.wav"
+dest_files=["res://.godot/imported/wood1.wav-52609789b0b19b3e20d534441191a376.sample"]
 
 [params]
 

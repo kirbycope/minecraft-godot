@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8w1x7r4myhr4"]
 
-[ext_resource type="Script" path="res://scenes/torch.gd" id="1_f64vx"]
-[ext_resource type="Texture2D" uid="uid://bi268q4oaeoft" path="res://textures/torch_on.png" id="1_ppfua"]
+[ext_resource type="Script" path="res://scripts/torch.gd" id="1_f64vx"]
+[ext_resource type="Texture2D" uid="uid://ih0ig3w7ifqa" path="res://textures/torch.png" id="1_ppfua"]
 [ext_resource type="Texture2D" uid="uid://be6vt0yau5dra" path="res://textures/2d_lights_and_shadows_neutral_point_light.png" id="2_eqjmj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gqtet"]
@@ -33,3 +33,6 @@ autoplay = "default"
 color = Color(0.976471, 0.584314, 0.129412, 1)
 shadow_enabled = true
 texture = ExtResource("2_eqjmj")
+texture_scale = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

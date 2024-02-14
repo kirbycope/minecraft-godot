@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c8ugfx8rxs617"]
+[gd_scene load_steps=60 format=3 uid="uid://c8ugfx8rxs617"]
 
 [ext_resource type="Script" path="res://scripts/overworld.gd" id="1_531ot"]
 [ext_resource type="Texture2D" uid="uid://b7q18ca7g7ihl" path="res://textures/cobblestone.png" id="1_d5i5w"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b6g881s4tt6gt" path="res://scenes/crafting_table.tscn" id="30_5n4v8"]
 [ext_resource type="PackedScene" uid="uid://dmmed0xwk5klw" path="res://scenes/day_night.tscn" id="32_2y5sp"]
 [ext_resource type="PackedScene" uid="uid://c8w1x7r4myhr4" path="res://scenes/torch.tscn" id="32_11ktk"]
+[ext_resource type="PackedScene" uid="uid://d0x6t7qnflxas" path="res://scenes/sounds.tscn" id="33_iboph"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3dd8"]
 resource_name = "cobblestone"
@@ -263,6 +264,9 @@ position = Vector2(128, 65)
 
 [node name="hud" parent="TileMap/player" instance=ExtResource("6_wr14p")]
 
+[node name="torch" parent="TileMap" instance=ExtResource("32_11ktk")]
+position = Vector2(71, 21)
+
 [node name="chest" parent="." instance=ExtResource("26_hbcrn")]
 position = Vector2(24, 24)
 
@@ -275,5 +279,4 @@ position = Vector2(8, 88)
 [node name="day_night" parent="." instance=ExtResource("32_2y5sp")]
 color = Color(0.262745, 0.176471, 0.623529, 1)
 
-[node name="torch" parent="." instance=ExtResource("32_11ktk")]
-position = Vector2(87, 37)
+[node name="sounds" parent="." instance=ExtResource("33_iboph")]

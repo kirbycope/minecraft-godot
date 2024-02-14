@@ -35,7 +35,7 @@ func _physics_process(delta):
 			if player.is_attacking:
 				time_since_last_attacked = 0
 				$AnimatedSprite2D.play("hurt_left")
-				$Hurt1.play()
+				Global.play_sound("zombie/hurt1")
 				if Global.selected_item.contains("shovel"):
 					health -= 2
 				elif Global.selected_item.contains("pickaxe"):
@@ -83,7 +83,7 @@ func _on_territory_body_entered(body):
 	if body.is_in_group("Player"):
 		player = body
 		track_player = true
-		$Say1.play()
+		Global.play_sound("zombie/say1")
 
 
 func _on_territory_body_exited(body):
@@ -94,7 +94,7 @@ func _on_territory_body_exited(body):
 
 func die():
 	if health <= 0 and not is_dead:
-		Global.player_death_zombie_play = true
+		Global.play_sound("zombie/death")
 		queue_free()
 
 

@@ -40,7 +40,7 @@ func _input(event):
 	# Inventory - Chest, show
 	if $SingleChest.visible == false:
 		if Global.player_on_chest and event.is_action_pressed("Attack"):
-			$SingleChest/ChestOpen.play()
+			Global.play_sound("chest/chestopen")
 			$ActionBar.visible = false
 			$Food.visible = false
 			$Hearts.visible = false
@@ -51,7 +51,7 @@ func _input(event):
 	# Inventory - Chest, hide
 	else:
 		if Global.player_on_chest == false or event.is_action_pressed("ui_cancel"):
-			$SingleChest/ChestClosed.play()
+			Global.play_sound("chest/chestclosed")
 			$ActionBar.visible = true
 			$Food.visible = true
 			$Hearts.visible = true
@@ -275,5 +275,5 @@ func show_inventory_highlight():
 	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
 	var node = get_node(node_path)
 	node.visible = true
-	var inventory = Global.inventory
-	var inventory_slot = highlighted_slot - 1
+	#var inventory = Global.inventory
+	#var inventory_slot = highlighted_slot - 1

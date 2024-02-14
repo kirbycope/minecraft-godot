@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bsj5pvjpjhb3o"
-path="res://.godot/imported/chestclosed.wav-18b572f659264e690633c898db83cc41.sample"
+uid="uid://blpty2m25gn0u"
+path="res://.godot/imported/strong2.wav-dfc90fa03ea3a58ca45a5fffddce4d65.sample"
 
 [deps]
 
-source_file="res://sounds/chestclosed.wav"
-dest_files=["res://.godot/imported/chestclosed.wav-18b572f659264e690633c898db83cc41.sample"]
+source_file="res://sounds/player/strong2.wav"
+dest_files=["res://.godot/imported/strong2.wav-dfc90fa03ea3a58ca45a5fffddce4d65.sample"]
 
 [params]
 

@@ -48,10 +48,6 @@ func setup_test():
 	item.quantity = 1
 	item.texture = "res://textures/wood_sword.png"	
 	Global.add_item_to_inventory(item)
-	# Update the UI
-	var hud_node = $hud
-	hud_node.show_actionbar_items()
-	hud_node.show_inventory_items()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -61,8 +57,8 @@ func _ready():
 
 
 func _physics_process(delta):
-	play_sound_effect()
 	update_animation()
+	update_torch_light()
 	move_and_slide()
 	if is_attacking:
 		attack_timer += delta
@@ -80,13 +76,9 @@ func _input(event):
 	if event.is_action_pressed("Attack"):
 		is_attacking = true
 		attack_timer = 0.0
-		$strong1.play()
-
-
-func play_sound_effect():
-	if Global.player_death_zombie_play == true:
-		$death_zombie.play()
-		Global.player_death_zombie_play = false
+		# Random punch sound effect
+		var random_number = randi() % 4 + 1
+		Global.play_sound("player/strong%s" %[random_number])
 
 
 func update_animation():
@@ -152,3 +144,7 @@ func update_animation():
 			elif Global.last_direction.y < 0:
 				#$AnimatedSprite2D.play("idle_up")
 				pass
+
+
+func update_torch_light():
+	$torch_light.enabled = (Global.selected_item == "torch")

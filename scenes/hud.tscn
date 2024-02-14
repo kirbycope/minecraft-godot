@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
 [ext_resource type="Texture2D" uid="uid://cfcvvscnq63vy" path="res://textures/actionbar_selected.png" id="3_xvcdo"]
 [ext_resource type="Texture2D" uid="uid://ceh6kcvkydlps" path="res://textures/joao-francisco-tanini-figueiredo-steve-minecraft-player-3.png" id="6_0rp0o"]
+[ext_resource type="AudioStream" uid="uid://bjkej00teylr8" path="res://sounds/chest/chestopen.wav" id="7_syjx7"]
+[ext_resource type="AudioStream" uid="uid://bsj5pvjpjhb3o" path="res://sounds/chest/chestclosed.wav" id="8_3tuke"]
 [ext_resource type="Texture2D" uid="uid://b52nqyujlx5mb" path="res://textures/inventory.png" id="8_l6hej"]
 [ext_resource type="Texture2D" uid="uid://coxhuuv4vur00" path="res://textures/chest_single.png" id="9_du2qu"]
 [ext_resource type="Texture2D" uid="uid://muv7iick1vf0" path="res://textures/xp_bar.png" id="10_ad4sl"]
 [ext_resource type="Texture2D" uid="uid://cfd28x5jy1d40" path="res://textures/inventory_selected.png" id="10_b5oe1"]
-[ext_resource type="AudioStream" uid="uid://bjkej00teylr8" path="res://sounds/chestopen.wav" id="10_u71ey"]
 [ext_resource type="Texture2D" uid="uid://dyopmfcl8atjq" path="res://textures/heart_empty.png" id="11_013jg"]
-[ext_resource type="AudioStream" uid="uid://bsj5pvjpjhb3o" path="res://sounds/chestclosed.wav" id="11_ot7if"]
 [ext_resource type="Texture2D" uid="uid://q6pwd5w2yqlp" path="res://textures/crafting_table.png" id="12_l5npx"]
 [ext_resource type="Texture2D" uid="uid://2hu755ftk2v3" path="res://textures/heart_full.png" id="12_r3bsj"]
 [ext_resource type="Texture2D" uid="uid://bjb5p101nl47k" path="res://textures/food_empty.png" id="13_t43r7"]
 [ext_resource type="Texture2D" uid="uid://dbm1ose8rtkfc" path="res://textures/food_full.png" id="14_uqryb"]
-[ext_resource type="AudioStream" uid="uid://boja336j1lyyj" path="res://sounds/calm1.mp3" id="16_rakr5"]
+[ext_resource type="AudioStream" uid="uid://boja336j1lyyj" path="res://sounds/music/calm1.mp3" id="16_rakr5"]
 [ext_resource type="Texture2D" uid="uid://ctvbu5ln8v2wp" path="res://textures/dpad_base.png" id="17_o5e4m"]
 [ext_resource type="Texture2D" uid="uid://77hxoh43l1p2" path="res://textures/dpad_down.png" id="18_0mqnm"]
 [ext_resource type="Texture2D" uid="uid://brtb6negkla2e" path="res://textures/button_red.png" id="18_1st0s"]
@@ -161,6 +161,9 @@ size = Vector2(72, 72)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1hibo"]
 font_size = 24
+font_color = Color(0.176471, 0.176471, 0.176471, 1)
+outline_size = 4
+outline_color = Color(0.145098, 0.145098, 0.145098, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2bm6"]
 size = Vector2(152, 76)
@@ -514,11 +517,11 @@ offset_bottom = 40.0
 
 [node name="ChestOpen" type="AudioStreamPlayer2D" parent="SingleChest"]
 position = Vector2(576, 324)
-stream = ExtResource("10_u71ey")
+stream = ExtResource("7_syjx7")
 
 [node name="ChestClosed" type="AudioStreamPlayer2D" parent="SingleChest"]
 position = Vector2(576, 324)
-stream = ExtResource("11_ot7if")
+stream = ExtResource("8_3tuke")
 
 [node name="Frame" type="CenterContainer" parent="SingleChest"]
 layout_mode = 0
@@ -1577,6 +1580,7 @@ offset_bottom = 477.0
 scale = Vector2(4, 4)
 
 [node name="Base" type="TextureRect" parent="DPad"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1644,6 +1648,7 @@ offset_right = 938.0
 offset_bottom = 516.0
 
 [node name="Unpressed" type="TextureRect" parent="NES/ButtonB"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1681,6 +1686,7 @@ offset_right = 1066.0
 offset_bottom = 516.0
 
 [node name="Unpressed" type="TextureRect" parent="NES/ButtonA"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1717,6 +1723,7 @@ offset_right = 950.0
 offset_bottom = 642.0
 
 [node name="TextureRect" type="TextureRect" parent="NES/ButtonSelect"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 12.0
@@ -1745,6 +1752,7 @@ offset_right = 1080.0
 offset_bottom = 642.0
 
 [node name="TextureRect" type="TextureRect" parent="NES/ButtonStart"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 12.0
@@ -2048,6 +2056,7 @@ offset_right = 131.0
 offset_bottom = 477.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/W"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -2088,6 +2097,7 @@ offset_right = 51.0
 offset_bottom = 516.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/A"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -2130,6 +2140,7 @@ offset_right = 131.0
 offset_bottom = 557.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/S"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -2173,6 +2184,7 @@ offset_right = 211.0
 offset_bottom = 516.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/D"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -2214,6 +2226,7 @@ offset_right = 995.0
 offset_bottom = 561.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/Space"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 76.0
 offset_bottom = 38.0
@@ -2256,6 +2269,7 @@ offset_right = 910.0
 offset_bottom = 561.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/Shift"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 38.0
 offset_bottom = 38.0
@@ -2298,6 +2312,7 @@ offset_right = 910.0
 offset_bottom = 476.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/Enter"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 76.0
 offset_bottom = 38.0
@@ -2341,6 +2356,7 @@ offset_right = 1071.0
 offset_bottom = 476.0
 
 [node name="TextureRect" type="TextureRect" parent="WASD/PgUp"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 38.0
 offset_bottom = 38.0

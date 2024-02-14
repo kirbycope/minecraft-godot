@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://duxryi7uwjw0w"
-path="res://.godot/imported/stone1.wav-d23c03d1d86986774e8a8e3574f3c915.sample"
+uid="uid://3jdk7daw3b3f"
+path="res://.godot/imported/grass1.wav-0fe1e12d27fe051372ff2031390ece24.sample"
 
 [deps]
 
-source_file="res://sounds/dig/stone1.wav"
-dest_files=["res://.godot/imported/stone1.wav-d23c03d1d86986774e8a8e3574f3c915.sample"]
+source_file="res://sounds/player/dig/grass1.wav"
+dest_files=["res://.godot/imported/grass1.wav-0fe1e12d27fe051372ff2031390ece24.sample"]
 
 [params]
 
