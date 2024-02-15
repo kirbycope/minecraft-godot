@@ -154,6 +154,24 @@ func _input(event):
 					Global.play_sound("player/dig/stone1")
 					$TileMap.erase_cell(2, tile_to_left)
 					give_item("cobblestone", 64)
+		
+		# Check "Leaf Layer" to the right, if facing right
+		if Global.last_direction == Vector2.RIGHT:
+			var tile_to_right = get_map_position(Vector2(16,0))
+			var right_source_id = $TileMap.get_cell_source_id(3, tile_to_right)
+			if (right_source_id == 15): 			# Source ID 15: "leaves_oak"
+				Global.stop_player_sound()
+				Global.play_sound("player/dig/stone1")
+				$TileMap.erase_cell(3, tile_to_right)
+				give_item("leaves_oak", 64)
+		else:
+			var tile_to_left = get_map_position(Vector2(-16,0))
+			var left_source_id = $TileMap.get_cell_source_id(3, tile_to_left)
+			if (left_source_id == 15): 			# Source ID 15: "leaves_oak"
+				Global.stop_player_sound()
+				Global.play_sound("player/dig/stone1")
+				$TileMap.erase_cell(3, tile_to_left)
+				give_item("leaves_oak", 64)
 
 
 # Called when the node enters the scene tree for the first time.
