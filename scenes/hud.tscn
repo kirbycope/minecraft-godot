@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://muv7iick1vf0" path="res://textures/xp_bar.png" id="10_ad4sl"]
 [ext_resource type="Texture2D" uid="uid://cfd28x5jy1d40" path="res://textures/inventory_selected.png" id="10_b5oe1"]
 [ext_resource type="Texture2D" uid="uid://dyopmfcl8atjq" path="res://textures/heart_empty.png" id="11_013jg"]
-[ext_resource type="Texture2D" uid="uid://q6pwd5w2yqlp" path="res://textures/crafting_table.png" id="12_l5npx"]
+[ext_resource type="Texture2D" uid="uid://q6pwd5w2yqlp" path="res://textures/crafting_table_frame.png" id="12_l5npx"]
 [ext_resource type="Texture2D" uid="uid://2hu755ftk2v3" path="res://textures/heart_full.png" id="12_r3bsj"]
 [ext_resource type="Texture2D" uid="uid://bjb5p101nl47k" path="res://textures/food_empty.png" id="13_t43r7"]
 [ext_resource type="Texture2D" uid="uid://dbm1ose8rtkfc" path="res://textures/food_full.png" id="14_uqryb"]

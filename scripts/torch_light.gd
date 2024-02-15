@@ -1,3 +1,5 @@
+# torch_light.gd
+
 extends PointLight2D
 
 

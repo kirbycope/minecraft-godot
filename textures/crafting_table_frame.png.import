@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4q77bouaekwt"
-path="res://.godot/imported/crafting_table_front.png-f3e3b9b9974f17436c7f317e948c36cf.ctex"
+uid="uid://q6pwd5w2yqlp"
+path="res://.godot/imported/crafting_table_frame.png-d1d646c1823561259b29722e62cae8ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/crafting_table_front.png"
-dest_files=["res://.godot/imported/crafting_table_front.png-f3e3b9b9974f17436c7f317e948c36cf.ctex"]
+source_file="res://textures/crafting_table_frame.png"
+dest_files=["res://.godot/imported/crafting_table_frame.png-d1d646c1823561259b29722e62cae8ad.ctex"]
 
 [params]
 

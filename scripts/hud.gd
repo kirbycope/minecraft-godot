@@ -19,7 +19,17 @@ var selected_slot = 1
 ]
 
 
-# Called when an input event is triggered
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass # Replace with function body.
+
+
+# Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
 	# Display controls based on input type
 	if event is InputEventScreenTouch:
@@ -137,16 +147,6 @@ func _input(event):
 		clear_slot_selection()
 		determine_slot_selection(event)
 		show_slot_selection()
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass # Replace with function body.
 
 
 # Clears the selected slot on the ActionBar.
@@ -275,5 +275,3 @@ func show_inventory_highlight():
 	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
 	var node = get_node(node_path)
 	node.visible = true
-	#var inventory = Global.inventory
-	#var inventory_slot = highlighted_slot - 1

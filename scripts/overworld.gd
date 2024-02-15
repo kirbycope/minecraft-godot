@@ -1,8 +1,34 @@
-# overworld.md
+# overworld.gd
 
 extends Node2D
 
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass  # Replace with function body.
+
+
+# Called each physics frame with the time since the last physics frame as argument (delta, in seconds).
+func _physics_process(delta):
+	# Check if player has fallen into the void
+	var tilemap = $TileMap
+	var source_id_layer_0 = tilemap.get_cell_source_id(0, get_map_position()) # Bedrock Layer
+	var source_id_layer_1 = tilemap.get_cell_source_id(1, get_map_position()) # Base Layer
+	var source_id_layer_2 = tilemap.get_cell_source_id(2, get_map_position()) # Breakable Layer
+	if (source_id_layer_0 == -1
+		and source_id_layer_1 == -1
+		and source_id_layer_2 == -1):
+			Global.is_falling = true
+	else:
+		Global.is_falling = false
+
+
+# Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
 	if event.is_action_pressed("Use"):
 		# Get cell at "Base Layer" of TileMap
@@ -172,30 +198,6 @@ func _input(event):
 				Global.play_sound("player/dig/stone1")
 				$TileMap.erase_cell(3, tile_to_left)
 				give_item("leaves_oak", 64)
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass # Replace with function body.
-
-
-func _physics_process(delta):
-	# Check if player has fallen into the void
-	var tilemap = $TileMap
-	var source_id_layer_0 = tilemap.get_cell_source_id(0, get_map_position())
-	var source_id_layer_1 = tilemap.get_cell_source_id(1, get_map_position())
-	var source_id_layer_2 = tilemap.get_cell_source_id(2, get_map_position())
-	if (source_id_layer_0 == -1
-		and source_id_layer_1 == -1
-		and source_id_layer_2 == -1):
-			Global.is_falling = true
-	else:
-		Global.is_falling = false
 
 
 # Gets the player's current map position

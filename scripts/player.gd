@@ -12,6 +12,39 @@ var is_dead = false
 var speed = 100
 
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	add_to_group("Player")
+	setup_test()
+
+
+# Called each physics frame with the time since the last physics frame as argument (delta, in seconds).
+func _physics_process(delta):
+	update_animation()
+	update_torch_light()
+	move_and_slide()
+	if is_attacking:
+		attack_timer += delta
+		if attack_timer >= attack_duration:
+			is_attacking = false
+			attack_timer = 0.0
+	if Global.is_falling:
+		falling_timer += delta
+		if falling_timer >= falling_duration:
+			falling_timer = 0.0
+			position = Vector2(25, 25)
+
+
+# Called once for every event before _unhandled_input(), allowing you to consume some events.
+func _input(event):
+	if event.is_action_pressed("Attack"):
+		is_attacking = true
+		attack_timer = 0.0
+		# Random punch sound effect
+		var random_number = randi() % 4 + 1
+		Global.play_sound("player/strong%s" %[random_number])
+
+
 func setup_test():
 	# Give player "wood_axe"
 	var item = {}
@@ -48,37 +81,6 @@ func setup_test():
 	item.quantity = 1
 	item.texture = "res://textures/wood_sword.png"	
 	Global.add_item_to_inventory(item)
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	add_to_group("Player")
-	setup_test()
-
-
-func _physics_process(delta):
-	update_animation()
-	update_torch_light()
-	move_and_slide()
-	if is_attacking:
-		attack_timer += delta
-		if attack_timer >= attack_duration:
-			is_attacking = false
-			attack_timer = 0.0
-	if Global.is_falling:
-		falling_timer += delta
-		if falling_timer >= falling_duration:
-			falling_timer = 0.0
-			position = Vector2(25, 25)
-
-
-func _input(event):
-	if event.is_action_pressed("Attack"):
-		is_attacking = true
-		attack_timer = 0.0
-		# Random punch sound effect
-		var random_number = randi() % 4 + 1
-		Global.play_sound("player/strong%s" %[random_number])
 
 
 func update_animation():

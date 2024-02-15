@@ -15,7 +15,7 @@ var player_death_zombie_play = false
 var player_on_chest = false
 var player_on_crafting_table = false
 var player_position = Vector2(0, 0)
-var seconds_in_day = 300 # 300 Seconds  == 5 minutes
+var seconds_in_day = 300 # 300 Seconds == 5 minutes
 var selected_item = ""
 var time = 6
 var time_of_day = 0

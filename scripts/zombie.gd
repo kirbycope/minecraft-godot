@@ -1,3 +1,5 @@
+# zombie.gd
+
 extends CharacterBody2D
 
 
@@ -23,10 +25,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass  # Replace with function body.
 
 
-# _physics_process function is called every physics frame (typically 60 times per second)
+# Called each physics frame with the time since the last physics frame as argument (delta, in seconds).
 func _physics_process(delta):
 	if player and player_in_range: # in range of the enemy hitbox
 		# Deal damage from player
