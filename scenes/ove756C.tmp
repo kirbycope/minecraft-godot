@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cuxcqa8roq1rp" path="res://textures/double_plant_grass_carried.png" id="3_qfnw6"]
 [ext_resource type="Texture2D" uid="uid://dmx4bqrhmfn0y" path="res://textures/grass_side_carried.png" id="4_7jjr1"]
 [ext_resource type="Texture2D" uid="uid://cq8uemnn6lebx" path="res://textures/tallgrass_carried.tga" id="4_cq8xw"]
-[ext_resource type="Texture2D" uid="uid://nmnrd1d573x3" path="res://textures/chest.png" id="5_812x5"]
+[ext_resource type="Texture2D" uid="uid://nmnrd1d573x3" path="res://textures/chest_front.png" id="5_812x5"]
 [ext_resource type="PackedScene" uid="uid://t8b4xbx6qgtr" path="res://scenes/player.tscn" id="5_kdvt4"]
 [ext_resource type="Texture2D" uid="uid://b2g4ccsspp0wt" path="res://textures/bedrock.png" id="5_rwgvr"]
 [ext_resource type="Texture2D" uid="uid://b5bd6of4h3r87" path="res://textures/log_oak.png" id="6_g85ql"]

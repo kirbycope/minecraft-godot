@@ -95,17 +95,16 @@ func _input(event):
 				take_item("planks_oak")
 			
 			# Check "Breakable Layer" for a "chest"
-			if $TileMap/player/hud/Slots.visible == false:
-				if Global.last_direction == Vector2.RIGHT:
-					var tile_to_right = get_map_position(Vector2(16,0))
-					var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
-					if (right_source_id == 12): 			# Source ID 12: "chest"
-						$TileMap/player/hud.chest_ui_show()
-				else:
-					var tile_to_left = get_map_position(Vector2(-16,0))
-					var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
-					if (left_source_id == 12): 			# Source ID 12: "chest"
-						$TileMap/player/hud.chest_ui_show()
+			if Global.last_direction == Vector2.RIGHT:
+				var tile_to_right = get_map_position(Vector2(16,0))
+				var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
+				if (right_source_id == 12): 			# Source ID 12: "chest"
+					$TileMap/player/hud.chest_ui_show()
+			else:
+				var tile_to_left = get_map_position(Vector2(-16,0))
+				var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
+				if (left_source_id == 12): 			# Source ID 12: "chest"
+					$TileMap/player/hud.chest_ui_show()
 			
 			# Check "Breakable Layer" for a "crafting_table"
 			if Global.last_direction == Vector2.RIGHT:
@@ -169,6 +168,16 @@ func _input(event):
 						Global.play_sound("player/dig/wood1")
 						$TileMap.erase_cell(2, tile_to_right)
 						give_item("planks_oak", 64)
+					elif (right_source_id == 12):	# Source ID 12: "chest"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_right)
+						give_item("chest", 1)
+					elif (right_source_id == 19):	# Source ID 19: "crafting_table"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_right)
+						give_item("crafting_table", 1)
 				# Check to the left, if facing left
 				else:
 					var tile_to_left = get_map_position(Vector2(-16,0))
@@ -188,6 +197,16 @@ func _input(event):
 						Global.play_sound("player/dig/wood1")
 						$TileMap.erase_cell(2, tile_to_left)
 						give_item("planks_oak", 64)
+					elif (left_source_id == 12):	# Source ID 12: "chest"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_left)
+						give_item("chest", 1)
+					elif (left_source_id == 19):	# Source ID 19: "crafting_table"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_left)
+						give_item("crafting_table", 1)
 			
 			# Use "wood_pickaxe" to mine "cobblestone" and "stone"
 			if Global.selected_item == "wood_pickaxe":
