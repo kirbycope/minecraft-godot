@@ -22,7 +22,8 @@ func _ready():
 func _physics_process(delta):
 	update_animation()
 	update_torch_light()
-	move_and_slide()
+	if Global.player_can_move:
+		move_and_slide()
 	if is_attacking:
 		attack_timer += delta
 		if attack_timer >= attack_duration:
@@ -33,11 +34,12 @@ func _physics_process(delta):
 		if falling_timer >= falling_duration:
 			falling_timer = 0.0
 			position = Vector2(25, 25)
+			Global.play_sound("random/hurt")
 
 
 # Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
-	if event.is_action_pressed("Attack"):
+	if event.is_action_pressed("Attack") and $hud/Slots.visible == false:
 		is_attacking = true
 		attack_timer = 0.0
 		# Random punch sound effect

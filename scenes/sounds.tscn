@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d0x6t7qnflxas"]
+[gd_scene load_steps=20 format=3 uid="uid://d0x6t7qnflxas"]
 
 [ext_resource type="AudioStream" uid="uid://bsj5pvjpjhb3o" path="res://sounds/chest/chestclosed.wav" id="1_8eiel"]
 [ext_resource type="AudioStream" uid="uid://bjkej00teylr8" path="res://sounds/chest/chestopen.wav" id="2_t0cuk"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bnamgttqvolgd" path="res://sounds/player/step/stone1.wav" id="13_6aida"]
 [ext_resource type="AudioStream" uid="uid://b1kkve24dnbbe" path="res://sounds/player/step/wood1.wav" id="14_1w5ac"]
 [ext_resource type="AudioStream" uid="uid://dl80tikxeoh0e" path="res://sounds/random/pop.wav" id="18_u502p"]
+[ext_resource type="AudioStream" uid="uid://bed1r7xp3f83q" path="res://sounds/random/hurt.wav" id="19_4gcqp"]
 
 [node name="Sounds" type="Node2D"]
 
@@ -86,3 +87,6 @@ stream = ExtResource("6_byi4u")
 
 [node name="pop" type="AudioStreamPlayer2D" parent="random"]
 stream = ExtResource("18_u502p")
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="random"]
+stream = ExtResource("19_4gcqp")

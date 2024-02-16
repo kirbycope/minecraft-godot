@@ -11,11 +11,7 @@ var inventory = [null, null, null, null, null, null, null, null, null, null,
 var is_falling = false
 var last_direction = Vector2.RIGHT
 var mobs_spawned_today = true
-var player_death_zombie_play = false
-var player_on_chest = false
-var player_on_crafting_table = false
-var player_position = Vector2(0, 0)
-var seconds_in_day = 300 # 300 Seconds == 5 minutes
+var player_can_move = true
 var selected_item = ""
 var time = 6
 var time_of_day = 0
@@ -29,18 +25,18 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Calculate time_scale based on desired cycle duration
-	var time_scale = 24.0 / seconds_in_day
-	time += delta * time_scale
+	var time_scale = 24.0 / 300 # 300 Seconds == 5 minutes
+	Global.time += delta * time_scale
 	# Reset after completing a cycle
-	if time >= 24.0:
-		time = 0.0
-		mobs_spawned_today = false
-	time_of_day = fmod(Global.time, 24.0)
-	if time_of_day >= 6.0 and time_of_day < 18.0:
-		day = true
+	if Global.time >= 24.0:
+		Global.time = 0.0
+		Global.mobs_spawned_today = false
+	Global.time_of_day = fmod(Global.time, 24.0)
+	if Global.time_of_day >= 6.0 and Global.time_of_day < 18.0:
+		Global.day = true
 	else:
-		day = false
-		if mobs_spawned_today == false:
+		Global.day = false
+		if Global.mobs_spawned_today == false:
 			# Create a [Zombie]
 			var scene_instance = load("res://scenes/zombie.tscn")
 			scene_instance = scene_instance.instantiate()
@@ -48,7 +44,7 @@ func _process(delta):
 			# Add [Zombie] to scene
 			var root_node = get_tree().get_root()
 			root_node.add_child(scene_instance)
-			mobs_spawned_today = true
+			Global.mobs_spawned_today = true
 
 
 # Add item to player's inventory.
@@ -60,13 +56,13 @@ func add_item_to_inventory(item):
 	else:
 		var slot = get_first_empty_slot_number()
 		item.slot = slot
-		inventory[slot] = item
+		Global.inventory[slot] = item
 		update_hud()
 
 
 # Change the given item's quantity to the player's inventory.
 func change_item_quantity(item_id, change = 0) -> int:
-	for item in inventory:
+	for item in Global.inventory:
 		if item != null:
 			if item.has("id"):
 				if item.id == item_id:
@@ -78,15 +74,15 @@ func change_item_quantity(item_id, change = 0) -> int:
 # Get the first empty slot of the player's inventory.
 func get_first_empty_slot_number():
 	var index = -1
-	for i in range(len(inventory)):
-		if inventory[i] == null:
+	for i in range(len(Global.inventory)):
+		if Global.inventory[i] == null:
 			return i
 	return index
 
 
 # Get the slot number of the given item in the player's inventory.
 func get_inventory_slot_number(item_id) -> int:
-	for item in inventory:
+	for item in Global.inventory:
 		if item != null:
 			if item.has("id"):
 				if item.id == item_id:
@@ -96,7 +92,7 @@ func get_inventory_slot_number(item_id) -> int:
 
 # Check if the player's inventory contains the given item
 func inventory_contains_item(item_id: String) -> bool:
-	for item in inventory:
+	for item in Global.inventory:
 		if item != null:
 			if item.has("id"):
 				if item.id == item_id:
@@ -120,7 +116,7 @@ func remove_item_from_inventory(item_id):
 		# Clear slot if none left
 		if quantity == 0:
 			var item_slot = get_inventory_slot_number(item_id)
-			inventory[item_slot] = null
+			Global.inventory[item_slot] = null
 		update_hud()
 
 

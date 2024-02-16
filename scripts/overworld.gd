@@ -30,174 +30,205 @@ func _physics_process(delta):
 
 # Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
-	if event.is_action_pressed("Use"):
-		# Get cell at "Base Layer" of TileMap
-		var source_id = $TileMap.get_cell_source_id(1, get_map_position())
 
-		# Use "wood_hoe" to make "farmland_dry"
-		if Global.selected_item == "wood_hoe":
-			if (source_id == 2 					# Source ID 2: "grass"
-			or source_id == 8): 				# Source ID 8: "grass_path"
-				Global.play_sound("player/dig/grass1")
-				set_cell(1, 21) 				# Source ID 21: "farmland_dry"
-		
-		# Use "wood_shovel" to make "grass_path"
-		if Global.selected_item == "wood_shovel":
-			if(source_id == 2 					# Source ID 2: "grass"
-			or source_id == 21): 				# Source ID 21: "farmland_dry"
-				Global.play_sound("player/step/grass1")
-				set_cell(1, 8) 					# Source ID 8: "grass_path"
-		
-		# Use "seeds_wheat" on "farmland_(dry/wet)" to plant "wheat"
-		if Global.selected_item == "seeds_wheat":
-			if(source_id == 20 					# Source ID 20: "farmland_wet"
-			or source_id == 21): 				# Source ID 21: "farmland_dry"
-				Global.play_sound("player/step/grass1")
-				set_cell(2, 22) 				# Source ID 22: "wheat"
-				take_item("seeds_wheat")
-		
-		# Use "sapling_oak" on grass/path/farmland to plant "sapling_oak"
-		if Global.selected_item == "sapling_oak":
-			if(source_id == 2 					# Source ID 2: "grass",
-			or source_id == 8 					# Source ID 8: "grass_path"
-			or source_id == 20 					# Source ID 20: "farmland_wet"
-			or source_id == 21): 				# Source ID 21: "farmland_dry"
-				Global.play_sound("player/step/grass1")
-				set_cell(2, 9) 					# Source ID 9: "sappling_oak"
-				take_item("sapling_oak")
-		
-		# Use "cobblestone" to place "cobblestone"
-		if Global.selected_item == "cobblestone":
-			Global.play_sound("player/step/stone1")
-			set_cell(2, 0) 						# Source ID 0: "cobblestone"
-			take_item("cobblestone")
-		
-		# Use "log_oak" to place "log_oak"
-		if Global.selected_item == "log_oak":
-			Global.play_sound("player/step/wood1")
-			set_cell(2, 5) 						# Source ID 5: "log_oak"
-			take_item("log_oak")
-		
-		# Use "log_oak_top" to place "log_oak_top"
-		if Global.selected_item == "log_oak_top":
-			Global.play_sound("player/step/wood1")
-			set_cell(2, 6) 						# Source ID 6: "log_oak_top"
-			take_item("log_oak_top")
-		
-		# Use "planks_oak" to place "planks_oak"
-		if Global.selected_item == "planks_oak":
-			Global.play_sound("player/step/wood1")
-			set_cell(2, 7) 					# Source ID 7: "planks_oak"
-			take_item("planks_oak")
-	
-	var inventory_visible = $TileMap/player/hud/Slots.visible
-	if event.is_action_pressed("Attack") and inventory_visible == false:
-		# Get cell at "Breakable Layer" of TileMap
-		var source_id = $TileMap.get_cell_source_id(2, get_map_position())
-		
-		# Pick up "(double/tall)_grass" and add "seeds_wheat" to inventory
-		if (source_id == 10						# Source ID : "double_grass"
-		or source_id == 11):					# Source ID : "tall_grass"
-			Global.stop_player_sound()
-			Global.play_sound("random/pop")
-			$TileMap.erase_cell(2, get_map_position())
-			give_item("seeds_wheat", 64)
-		
-		# Pick up "sappling_oak" and add to inventory
-		if source_id == 9: 						# Source ID 9: "sappling_oak"
-			Global.stop_player_sound()
-			Global.play_sound("random/pop")
-			$TileMap.erase_cell(2, get_map_position())
-			give_item("sapling_oak", 64)
-		
-		# Pick up "wheat_7" and add "wheat" to inventory
-		if source_id == 23: 					# Source ID 23: "wheat_7"
-			Global.stop_player_sound()
-			Global.play_sound("random/pop")
-			$TileMap.erase_cell(2, get_map_position())
-			give_item("wheat", 1)
-		
-		# Use "wood_axe" to cut "log_oak", "log_oak_top", and "planks_oak"
-		if Global.selected_item == "wood_axe":
-			# Check to the right, if facing right
+	# 🅑 "Use"
+	if event.is_action_pressed("Use"):
+		# If the inventory is not currently visible
+		if $TileMap/player/hud/Slots.visible == false:
+			# Get cell at "Base Layer" of TileMap
+			var source_id = $TileMap.get_cell_source_id(1, get_map_position())
+
+			# Use "wood_hoe" to make "farmland_dry"
+			if Global.selected_item == "wood_hoe":
+				if (source_id == 2 					# Source ID 2: "grass"
+				or source_id == 8): 				# Source ID 8: "grass_path"
+					Global.play_sound("player/dig/grass1")
+					set_cell(1, 21) 				# Source ID 21: "farmland_dry"
+			
+			# Use "wood_shovel" to make "grass_path"
+			if Global.selected_item == "wood_shovel":
+				if(source_id == 2 					# Source ID 2: "grass"
+				or source_id == 21): 				# Source ID 21: "farmland_dry"
+					Global.play_sound("player/step/grass1")
+					set_cell(1, 8) 					# Source ID 8: "grass_path"
+			
+			# Use "seeds_wheat" on "farmland_(dry/wet)" to plant "wheat"
+			if Global.selected_item == "seeds_wheat":
+				if(source_id == 20 					# Source ID 20: "farmland_wet"
+				or source_id == 21): 				# Source ID 21: "farmland_dry"
+					Global.play_sound("player/step/grass1")
+					set_cell(2, 22) 				# Source ID 22: "wheat"
+					take_item("seeds_wheat")
+			
+			# Use "sapling_oak" on grass/path/farmland to plant "sapling_oak"
+			if Global.selected_item == "sapling_oak":
+				if(source_id == 2 					# Source ID 2: "grass",
+				or source_id == 8 					# Source ID 8: "grass_path"
+				or source_id == 20 					# Source ID 20: "farmland_wet"
+				or source_id == 21): 				# Source ID 21: "farmland_dry"
+					Global.play_sound("player/step/grass1")
+					set_cell(2, 9) 					# Source ID 9: "sappling_oak"
+					take_item("sapling_oak")
+			
+			# Use "cobblestone" to place "cobblestone"
+			if Global.selected_item == "cobblestone":
+				Global.play_sound("player/step/stone1")
+				set_cell(2, 0) 						# Source ID 0: "cobblestone"
+				take_item("cobblestone")
+			
+			# Use "log_oak" to place "log_oak"
+			if Global.selected_item == "log_oak":
+				Global.play_sound("player/step/wood1")
+				set_cell(2, 5) 						# Source ID 5: "log_oak"
+				take_item("log_oak")
+			
+			# Use "log_oak_top" to place "log_oak_top"
+			if Global.selected_item == "log_oak_top":
+				Global.play_sound("player/step/wood1")
+				set_cell(2, 6) 						# Source ID 6: "log_oak_top"
+				take_item("log_oak_top")
+			
+			# Use "planks_oak" to place "planks_oak"
+			if Global.selected_item == "planks_oak":
+				Global.play_sound("player/step/wood1")
+				set_cell(2, 7) 					# Source ID 7: "planks_oak"
+				take_item("planks_oak")
+			
+			# Check "Breakable Layer" for a "chest"
+			if $TileMap/player/hud/Slots.visible == false:
+				if Global.last_direction == Vector2.RIGHT:
+					var tile_to_right = get_map_position(Vector2(16,0))
+					var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
+					if (right_source_id == 12): 			# Source ID 12: "chest"
+						$TileMap/player/hud.chest_ui_show()
+				else:
+					var tile_to_left = get_map_position(Vector2(-16,0))
+					var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
+					if (left_source_id == 12): 			# Source ID 12: "chest"
+						$TileMap/player/hud.chest_ui_show()
+			
+			# Check "Breakable Layer" for a "crafting_table"
 			if Global.last_direction == Vector2.RIGHT:
 				var tile_to_right = get_map_position(Vector2(16,0))
 				var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
-				if (right_source_id == 5): 		# Source ID 5: "log_oak"
-					Global.stop_player_sound()
-					Global.play_sound("player/dig/wood1")
-					$TileMap.erase_cell(2, tile_to_right)
-					give_item("log_oak", 64)
-				elif (right_source_id == 6): 	# Source ID 6: "log_oak_top"
-					Global.stop_player_sound()
-					Global.play_sound("player/dig/wood1")
-					$TileMap.erase_cell(2, tile_to_right)
-					give_item("log_oak_top", 64)
-				elif (right_source_id == 7): 	# Source ID 7: "planks_oak"
-					Global.stop_player_sound()
-					Global.play_sound("player/dig/wood1")
-					$TileMap.erase_cell(2, tile_to_right)
-					give_item("planks_oak", 64)
-			# Check to the left, if facing left
+				if (right_source_id == 19): 			# Source ID 12: "crafting_table"
+					$TileMap/player/hud.crafting_table_ui_show()
 			else:
 				var tile_to_left = get_map_position(Vector2(-16,0))
 				var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
-				if (left_source_id == 5): 		# Source ID 5: "log_oak"
-					Global.stop_player_sound()
-					Global.play_sound("player/dig/wood1")
-					$TileMap.erase_cell(2, tile_to_left)
-					give_item("log_oak", 64)
-				elif (left_source_id == 6): 	# Source ID 6: "log_oak_top"
-					Global.stop_player_sound()
-					Global.play_sound("player/dig/wood1")
-					$TileMap.erase_cell(2, tile_to_left)
-					give_item("log_oak_top", 64)
-				elif (left_source_id == 7): 	# Source ID 7: "planks_oak"
-					Global.stop_player_sound()
-					Global.play_sound("player/dig/wood1")
-					$TileMap.erase_cell(2, tile_to_left)
-					give_item("planks_oak", 64)
-		
-		# Use "wood_pickaxe" to mine "cobblestone" and "stone"
-		if Global.selected_item == "wood_pickaxe":
-			# Check to the right, if facing right
+				if (left_source_id == 19): 			# Source ID 12: "crafting_table"
+					$TileMap/player/hud.crafting_table_ui_show()
+
+	# 🅐 "Attack"
+	if event.is_action_pressed("Attack"):
+		# If the inventory is not currently visible
+		if $TileMap/player/hud/Slots.visible == false:
+			# Get cell at "Breakable Layer" of TileMap
+			var source_id = $TileMap.get_cell_source_id(2, get_map_position())
+			
+			# Pick up "(double/tall)_grass" and add "seeds_wheat" to inventory
+			if (source_id == 10						# Source ID : "double_grass"
+			or source_id == 11):					# Source ID : "tall_grass"
+				Global.stop_player_sound()
+				Global.play_sound("random/pop")
+				$TileMap.erase_cell(2, get_map_position())
+				give_item("seeds_wheat", 64)
+			
+			# Pick up "sappling_oak" and add to inventory
+			if source_id == 9: 						# Source ID 9: "sappling_oak"
+				Global.stop_player_sound()
+				Global.play_sound("random/pop")
+				$TileMap.erase_cell(2, get_map_position())
+				give_item("sapling_oak", 64)
+			
+			# Pick up "wheat_7" and add "wheat" to inventory
+			if source_id == 23: 					# Source ID 23: "wheat_7"
+				Global.stop_player_sound()
+				Global.play_sound("random/pop")
+				$TileMap.erase_cell(2, get_map_position())
+				give_item("wheat", 1)
+			
+			# Use "wood_axe" to cut "log_oak", "log_oak_top", and "planks_oak"
+			if Global.selected_item == "wood_axe":
+				# Check to the right, if facing right
+				if Global.last_direction == Vector2.RIGHT:
+					var tile_to_right = get_map_position(Vector2(16,0))
+					var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
+					if (right_source_id == 5): 		# Source ID 5: "log_oak"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_right)
+						give_item("log_oak", 64)
+					elif (right_source_id == 6): 	# Source ID 6: "log_oak_top"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_right)
+						give_item("log_oak_top", 64)
+					elif (right_source_id == 7): 	# Source ID 7: "planks_oak"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_right)
+						give_item("planks_oak", 64)
+				# Check to the left, if facing left
+				else:
+					var tile_to_left = get_map_position(Vector2(-16,0))
+					var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
+					if (left_source_id == 5): 		# Source ID 5: "log_oak"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_left)
+						give_item("log_oak", 64)
+					elif (left_source_id == 6): 	# Source ID 6: "log_oak_top"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_left)
+						give_item("log_oak_top", 64)
+					elif (left_source_id == 7): 	# Source ID 7: "planks_oak"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/wood1")
+						$TileMap.erase_cell(2, tile_to_left)
+						give_item("planks_oak", 64)
+			
+			# Use "wood_pickaxe" to mine "cobblestone" and "stone"
+			if Global.selected_item == "wood_pickaxe":
+				# Check to the right, if facing right
+				if Global.last_direction == Vector2.RIGHT:
+					var tile_to_right = get_map_position(Vector2(16,0))
+					var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
+					if (right_source_id == 0 		# Source ID 0: "cobblestone"
+					or right_source_id == 18): 		# Source ID 18: "stone"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/stone1")
+						$TileMap.erase_cell(2, tile_to_right)
+						give_item("cobblestone", 64)
+				# Check to the left, if facing left
+				else:
+					var tile_to_left = get_map_position(Vector2(-16,0))
+					var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
+					if (left_source_id == 0 		# Source ID 0: "cobblestone"
+					or left_source_id == 18): 		# Source ID 18: "stone"
+						Global.stop_player_sound()
+						Global.play_sound("player/dig/stone1")
+						$TileMap.erase_cell(2, tile_to_left)
+						give_item("cobblestone", 64)
+			
+			# Check "Leaf Layer" to the right, if facing right
 			if Global.last_direction == Vector2.RIGHT:
 				var tile_to_right = get_map_position(Vector2(16,0))
-				var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
-				if (right_source_id == 0 		# Source ID 0: "cobblestone"
-				or right_source_id == 18): 		# Source ID 18: "stone"
+				var right_source_id = $TileMap.get_cell_source_id(3, tile_to_right)
+				if (right_source_id == 15): 			# Source ID 15: "leaves_oak"
 					Global.stop_player_sound()
 					Global.play_sound("player/dig/stone1")
-					$TileMap.erase_cell(2, tile_to_right)
-					give_item("cobblestone", 64)
-			# Check to the left, if facing left
+					$TileMap.erase_cell(3, tile_to_right)
+					give_item("leaves_oak", 64)
 			else:
 				var tile_to_left = get_map_position(Vector2(-16,0))
-				var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
-				if (left_source_id == 0 		# Source ID 0: "cobblestone"
-				or left_source_id == 18): 		# Source ID 18: "stone"
+				var left_source_id = $TileMap.get_cell_source_id(3, tile_to_left)
+				if (left_source_id == 15): 			# Source ID 15: "leaves_oak"
 					Global.stop_player_sound()
 					Global.play_sound("player/dig/stone1")
-					$TileMap.erase_cell(2, tile_to_left)
-					give_item("cobblestone", 64)
-		
-		# Check "Leaf Layer" to the right, if facing right
-		if Global.last_direction == Vector2.RIGHT:
-			var tile_to_right = get_map_position(Vector2(16,0))
-			var right_source_id = $TileMap.get_cell_source_id(3, tile_to_right)
-			if (right_source_id == 15): 			# Source ID 15: "leaves_oak"
-				Global.stop_player_sound()
-				Global.play_sound("player/dig/stone1")
-				$TileMap.erase_cell(3, tile_to_right)
-				give_item("leaves_oak", 64)
-		else:
-			var tile_to_left = get_map_position(Vector2(-16,0))
-			var left_source_id = $TileMap.get_cell_source_id(3, tile_to_left)
-			if (left_source_id == 15): 			# Source ID 15: "leaves_oak"
-				Global.stop_player_sound()
-				Global.play_sound("player/dig/stone1")
-				$TileMap.erase_cell(3, tile_to_left)
-				give_item("leaves_oak", 64)
+					$TileMap.erase_cell(3, tile_to_left)
+					give_item("leaves_oak", 64)
 
 
 # Gets the player's current map position

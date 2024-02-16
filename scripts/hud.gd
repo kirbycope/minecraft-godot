@@ -21,6 +21,7 @@ var selected_slot = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Always show the HUD when paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
@@ -31,114 +32,73 @@ func _process(delta):
 
 # Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
+	
 	# Display controls based on input type
-	if event is InputEventScreenTouch:
+	if event is InputEventScreenTouch: # 📱
 		$DPad.visible = true;
 		$NES.visible = true;
 		$SNES.visible = false;
 		$WASD.visible = false;
-	elif event is InputEventJoypadMotion or event is InputEventJoypadButton:
+	elif event is InputEventJoypadMotion or event is InputEventJoypadButton: # 🎮
 		$DPad.visible = true;
 		$NES.visible = true;
 		$SNES.visible = false;
 		$WASD.visible = false;
-	elif event is InputEventKey:
+	elif event is InputEventKey: # ⌨
 		$DPad.visible = false;
 		$NES.visible = false;
 		$SNES.visible = false;
 		$WASD.visible = true;
-	# Inventory - Chest, show
-	if $SingleChest.visible == false:
-		if Global.player_on_chest and event.is_action_pressed("Attack"):
-			Global.play_sound("chest/chestopen")
-			$ActionBar.visible = false
-			$Food.visible = false
-			$Hearts.visible = false
-			$Inventory.visible = false
-			$SingleChest.visible = true
-			$Slots.visible = true
-			$XPBar.visible = false
+		
 	# Inventory - Chest, hide
-	else:
-		if Global.player_on_chest == false or event.is_action_pressed("ui_cancel"):
-			Global.play_sound("chest/chestclosed")
-			$ActionBar.visible = true
-			$Food.visible = true
-			$Hearts.visible = true
-			$SingleChest.visible = false
-			$Slots.visible = false
-			$XPBar.visible = true
-	# Inventory - Crafting Table, show
-	if $CraftingTable.visible == false:
-		if Global.player_on_crafting_table and event.is_action_pressed("Attack"):
-			$ActionBar.visible = false
-			$CraftingTable.visible = true
-			$Food.visible = false
-			$Hearts.visible = false
-			$Inventory.visible = false
-			$Slots.visible = true
-			$XPBar.visible = false
+	if $SingleChest.visible:
+		if event.is_action_pressed("Inventory") or event.is_action_pressed("ui_cancel"):
+			chest_ui_hide()
+	
 	# Inventory - Crafting Table, hide
+	if $CraftingTable.visible:
+		if event.is_action_pressed("Inventory") or event.is_action_pressed("ui_cancel"):
+			crafting_table_ui_hide()
+	
+	# Inventory - Player, hide
+	if $Inventory.visible:
+		if event.is_action_pressed("Inventory") or event.is_action_pressed("ui_cancel"):
+			inventory_ui_hide()
 	else:
-		if Global.player_on_crafting_table == false or event.is_action_pressed("ui_cancel"):
-			$ActionBar.visible = true
-			$CraftingTable.visible = false
-			$Food.visible = true
-			$Hearts.visible = true
-			$Slots.visible = false
-			$XPBar.visible = true
-	# Inventory - Player
-	if $CraftingTable.visible == false and $SingleChest.visible == false:
-		# Show
-		if $Inventory.visible == false:
-			if event.is_action_pressed("Inventory"):
-				get_tree().paused = true
-				$ActionBar.visible = false
-				$Inventory.visible = true
-				$Food.visible = false
-				$Hearts.visible = false
-				$Slots.visible = true
-				$XPBar.visible = false
-		else:
-			# Navigate
-			if event.is_action_pressed("ui_down"):
-				if highlighted_slot >= 28:
-					highlighted_slot -= 27
-				elif highlighted_slot >= 1:
-					highlighted_slot += 9
-			if event.is_action_pressed("ui_left"):
-				if (highlighted_slot == 1
-				or highlighted_slot == 10
-				or highlighted_slot == 19
-				or highlighted_slot == 28):
-					highlighted_slot += 8
-				else:
-					highlighted_slot -= 1
-			if event.is_action_pressed("ui_right"):
-				if (highlighted_slot == 9
-				or highlighted_slot == 18
-				or highlighted_slot == 27
-				or highlighted_slot == 36):
-					highlighted_slot -= 8
-				else:
-					highlighted_slot += 1
-			if event.is_action_pressed("ui_up"):
-				if highlighted_slot < 10:
-					highlighted_slot += 27
-				else:
-					highlighted_slot -= 9
-			highlighted_slot = clamp(highlighted_slot, 1, 36)
-			# Hide
-			if event.is_action_pressed("Inventory"):
-				get_tree().paused = false
-				highlighted_slot = 0
-				$ActionBar.visible = true
-				$Food.visible = true
-				$Hearts.visible = true
-				$Inventory.visible = false
-				$Slots.visible = false
-				$XPBar.visible = true
+		# Inventory - Player, show
+		if event.is_action_pressed("Inventory"):
+			inventory_ui_show()
+	
+	# Inventroy Slot Navigation
 	if $Slots.visible:
+		# Navigate
+		if event.is_action_pressed("ui_down"):
+			if highlighted_slot >= 28:
+				highlighted_slot -= 27
+			elif highlighted_slot >= 1:
+				highlighted_slot += 9
+		if event.is_action_pressed("ui_left"):
+			if (highlighted_slot == 1
+			or highlighted_slot == 10
+			or highlighted_slot == 19
+			or highlighted_slot == 28):
+				highlighted_slot += 8
+			else:
+				highlighted_slot -= 1
+		if event.is_action_pressed("ui_right"):
+			if (highlighted_slot == 9
+			or highlighted_slot == 18
+			or highlighted_slot == 27
+			or highlighted_slot == 36):
+				highlighted_slot -= 8
+			else:
+				highlighted_slot += 1
+		if event.is_action_pressed("ui_up"):
+			if highlighted_slot < 10:
+				highlighted_slot += 27
+			else:
+				highlighted_slot -= 9
+		highlighted_slot = clamp(highlighted_slot, 1, 36)
 		# Highlight inventory active slot
 		clear_inventory_highlight()
 		show_inventory_highlight()
@@ -147,6 +107,30 @@ func _input(event):
 		clear_slot_selection()
 		determine_slot_selection(event)
 		show_slot_selection()
+
+
+# Hides the Chest UI.
+func chest_ui_hide():
+	Global.play_sound("chest/chestclosed")
+	Global.player_can_move = true
+	$SingleChest.visible = false
+	$ActionBar.visible = true
+	$Food.visible = true
+	$Hearts.visible = true
+	$Slots.visible = false
+	$XPBar.visible = true
+
+
+# Displays the Chest UI.
+func chest_ui_show():
+	Global.play_sound("chest/chestopen")
+	Global.player_can_move = false
+	$SingleChest.visible = true
+	$ActionBar.visible = false
+	$Food.visible = false
+	$Hearts.visible = false
+	$Slots.visible = true
+	$XPBar.visible = false
 
 
 # Clears the selected slot on the ActionBar.
@@ -160,6 +144,29 @@ func clear_slot_selection():
 	$ActionBar/Slot7/SlotSelected.visible = false
 	$ActionBar/Slot8/SlotSelected.visible = false
 	$ActionBar/Slot9/SlotSelected.visible = false
+
+
+# Hides the Crafting Table UI.
+func crafting_table_ui_hide():
+	Global.player_can_move = true
+	$CraftingTable.visible = false
+	$ActionBar.visible = true
+	$Food.visible = true
+	$Hearts.visible = true
+	$Slots.visible = false
+	$XPBar.visible = true
+
+
+# Displays the Crafting Table UI.
+func crafting_table_ui_show():
+	Global.player_can_move = false
+	$CraftingTable.visible = true
+	$ActionBar.visible = false
+	$Food.visible = false
+	$Hearts.visible = false
+	$Inventory.visible = false
+	$Slots.visible = true
+	$XPBar.visible = false
 
 
 # Determines slot to activate on the ActionBar.
@@ -190,6 +197,29 @@ func determine_slot_selection(event):
 		selected_slot += 1
 		if selected_slot > 9:
 			selected_slot = selected_slot - 9
+
+
+# Hides the Inventory UI.
+func inventory_ui_hide():
+	get_tree().paused = false
+	highlighted_slot = 0
+	$ActionBar.visible = true
+	$Food.visible = true
+	$Hearts.visible = true
+	$Inventory.visible = false
+	$Slots.visible = false
+	$XPBar.visible = true
+
+
+# Shows the Inventory UI.
+func inventory_ui_show():
+	get_tree().paused = true
+	$ActionBar.visible = false
+	$Inventory.visible = true
+	$Food.visible = false
+	$Hearts.visible = false
+	$Slots.visible = true
+	$XPBar.visible = false
 
 
 # Sets a global for the item in the selected slot on the ActionBar.
@@ -258,7 +288,7 @@ func show_inventory_items():
 			inventory_slot_images[i].texture = null
 
 
-# Clears the highlight in the inventory
+# Clears the highlight in the Inventory.
 func clear_inventory_highlight():
 	var slot_range = 36
 	for i in slot_range:
@@ -268,7 +298,7 @@ func clear_inventory_highlight():
 		node.visible = false
 
 
-# Highlights the active inventory slot
+# Highlights the active slot in the Inventory.
 func show_inventory_highlight():
 	if highlighted_slot == 0:
 		highlighted_slot = selected_slot
