@@ -10,6 +10,7 @@ var inventory = [null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null]
 var is_falling = false
 var last_direction = Vector2.RIGHT
+var last_facing = Vector2.RIGHT
 var mobs_spawned_today = true
 var player_can_move = true
 var selected_item = ""

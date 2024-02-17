@@ -39,6 +39,10 @@ func _physics_process(delta):
 
 # Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
+	if event.is_action_pressed("ui_left"):
+		Global.last_facing = Vector2.LEFT
+	elif event.is_action_pressed("ui_right"):
+		Global.last_facing = Vector2.RIGHT
 	if event.is_action_pressed("Attack") and $hud/Slots.visible == false:
 		is_attacking = true
 		attack_timer = 0.0
@@ -126,6 +130,10 @@ func update_animation():
 		if Input.is_action_pressed("ui_down"):
 			velocity.y = speed
 			#$AnimatedSprite2D.play("walk_down")
+			if Global.last_facing == Vector2.LEFT:
+				$AnimatedSprite2D.play("walk_left")
+			elif Global.last_facing == Vector2.RIGHT:
+				$AnimatedSprite2D.play("walk_right")
 		elif Input.is_action_pressed("ui_left"):
 			velocity.x = -speed
 			$AnimatedSprite2D.play("walk_left")
@@ -135,6 +143,10 @@ func update_animation():
 		elif Input.is_action_pressed("ui_up"):
 			velocity.y = -speed
 			#$AnimatedSprite2D.play("walk_up")
+			if Global.last_facing == Vector2.LEFT:
+				$AnimatedSprite2D.play("walk_left")
+			elif Global.last_facing == Vector2.RIGHT:
+				$AnimatedSprite2D.play("walk_right")
 		elif direction == Vector2.ZERO:
 			$AttackLeft.play("idle")
 			$AttackRight.play("idle")
