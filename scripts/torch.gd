@@ -16,6 +16,8 @@ func _process(delta):
 	# Hide if not day
 	$PointLight2D.visible = not Global.day
 
+
+# Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
 	if player_in_range:
 		if event.is_action_pressed("Attack"):
@@ -28,6 +30,7 @@ func _input(event):
 			Global.add_item_to_inventory(item)
 			queue_free()
 
+
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		player_in_range = true
@@ -36,4 +39,3 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_range = false
-

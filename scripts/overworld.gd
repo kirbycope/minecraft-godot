@@ -101,7 +101,10 @@ func _input(event):
 				var scene_instance = load("res://scenes/torch.tscn")
 				scene_instance = scene_instance.instantiate()
 				var player_position = $TileMap/player.position
-				scene_instance.global_transform.origin = player_position
+				scene_instance.global_transform.origin = player_position + Vector2(16, 16)
+				# Add [Torch] to scene
+				var root_node = get_tree().get_root()
+				root_node.add_child(scene_instance)
 				take_item("torch")
 			
 			# Check "Breakable Layer" for a "chest"
