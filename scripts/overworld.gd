@@ -94,6 +94,16 @@ func _input(event):
 				set_cell(2, 7) 					# Source ID 7: "planks_oak"
 				take_item("planks_oak")
 			
+			# Use "torch" to place "torch"
+			if Global.selected_item == "torch":
+				Global.play_sound("player/step/wood1")
+				# Create a [Torch]
+				var scene_instance = load("res://scenes/torch.tscn")
+				scene_instance = scene_instance.instantiate()
+				var player_position = $TileMap/player.position
+				scene_instance.global_transform.origin = player_position
+				take_item("torch")
+			
 			# Check "Breakable Layer" for a "chest"
 			if Global.last_direction == Vector2.RIGHT:
 				var tile_to_right = get_map_position(Vector2(16,0))
@@ -146,6 +156,13 @@ func _input(event):
 				Global.play_sound("random/pop")
 				$TileMap.erase_cell(2, get_map_position())
 				give_item("wheat", 1)
+			
+			# Pick up "poppy" and add to inventory
+			if source_id == 16: 					# Source ID 16: "poppy"
+				Global.stop_player_sound()
+				Global.play_sound("random/pop")
+				$TileMap.erase_cell(2, get_map_position())
+				give_item("poppy", 1)
 			
 			# Use "wood_axe" to cut "log_oak", "log_oak_top", and "planks_oak"
 			if Global.selected_item == "wood_axe":
@@ -231,7 +248,7 @@ func _input(event):
 						$TileMap.erase_cell(2, tile_to_left)
 						give_item("cobblestone", 64)
 			
-			# Check "Leaf Layer" to the right, if facing right
+			# Check "Leaf Layer" for "leaves_oak"
 			if Global.last_direction == Vector2.RIGHT:
 				var tile_to_right = get_map_position(Vector2(16,0))
 				var right_source_id = $TileMap.get_cell_source_id(3, tile_to_right)
