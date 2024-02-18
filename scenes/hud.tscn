@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=66 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -35,6 +35,10 @@
 [ext_resource type="Texture2D" uid="uid://c7n5d7oqhdakq" path="res://textures/button_keycap_double.png" id="31_xyeyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o1vr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8efae"]
+font_size = 24
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg5ns"]
 atlas = ExtResource("6_0rp0o")
@@ -225,7 +229,8 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot1"]
-position = Vector2(8, 8)
+visible = false
+position = Vector2(8, 10.8)
 shape = SubResource("RectangleShape2D_1o1vr")
 action = "Slot_1"
 
@@ -452,6 +457,88 @@ texture = ExtResource("3_xvcdo")
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_1o1vr")
 action = "Slot_9"
+
+[node name="Quantity1" type="Label" parent="ActionBar"]
+layout_mode = 2
+offset_left = 334.0
+offset_top = 610.0
+offset_right = 362.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity2" type="Label" parent="ActionBar"]
+offset_left = 394.0
+offset_top = 610.0
+offset_right = 422.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity3" type="Label" parent="ActionBar"]
+offset_left = 454.0
+offset_top = 610.0
+offset_right = 482.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity4" type="Label" parent="ActionBar"]
+offset_left = 514.0
+offset_top = 610.0
+offset_right = 542.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity5" type="Label" parent="ActionBar"]
+offset_left = 574.0
+offset_top = 610.0
+offset_right = 602.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity6" type="Label" parent="ActionBar"]
+offset_left = 634.0
+offset_top = 610.0
+offset_right = 662.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity7" type="Label" parent="ActionBar"]
+offset_left = 694.0
+offset_top = 610.0
+offset_right = 722.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity8" type="Label" parent="ActionBar"]
+offset_left = 754.0
+offset_top = 610.0
+offset_right = 782.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity9" type="Label" parent="ActionBar"]
+offset_left = 814.0
+offset_top = 610.0
+offset_right = 842.0
+offset_bottom = 644.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="CraftingTable" type="Control" parent="."]
 visible = false

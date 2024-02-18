@@ -95,6 +95,7 @@ func change_item_quantity(item_id, change = 0) -> int:
 			if item.has("id"):
 				if item.id == item_id:
 					item.quantity += change
+					update_hud()
 					return item.quantity
 	return -1
 

@@ -5,6 +5,10 @@ extends CanvasLayer
 
 var highlighted_slot = 1
 var selected_slot = 1
+
+@onready var action_bar_quantity_labels = [$ActionBar/Quantity1, $ActionBar/Quantity2, $ActionBar/Quantity3, $ActionBar/Quantity4,
+	$ActionBar/Quantity5, $ActionBar/Quantity6, $ActionBar/Quantity7, $ActionBar/Quantity8, $ActionBar/Quantity9
+]
 @onready var action_bar_slot_images = [$ActionBar/Slot1/SlotTexture, $ActionBar/Slot2/SlotTexture, $ActionBar/Slot3/SlotTexture, $ActionBar/Slot4/SlotTexture,
 	$ActionBar/Slot5/SlotTexture, $ActionBar/Slot6/SlotTexture, $ActionBar/Slot7/SlotTexture, $ActionBar/Slot8/SlotTexture, $ActionBar/Slot9/SlotTexture
 ]
@@ -342,8 +346,11 @@ func show_actionbar_items():
 	inventory = inventory.slice(0,9)
 	for i in range(len(inventory)):
 		if inventory[i] != null:
+			action_bar_quantity_labels[i].text = str(inventory[i].quantity)
+			action_bar_quantity_labels[i].visible = true
 			action_bar_slot_images[i].texture = load(inventory[i].texture)
 		else:
+			action_bar_quantity_labels[i].visible = false
 			action_bar_slot_images[i].texture = null
 
 
