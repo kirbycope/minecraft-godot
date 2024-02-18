@@ -76,6 +76,12 @@ func _input(event):
 			set_cell(2, 7) 					# Source ID 7: "planks_oak"
 			Global.remove_item_from_inventory("planks_oak")
 		
+		# Use "poppy" to place "poppy"
+		if Global.selected_item == "poppy":
+			Global.play_sound("player/step/grass1")
+			set_cell(2, 16) 				# Source ID 16: "poppy"
+			Global.remove_item_from_inventory("poppy")
+		
 		# Use "sapling_oak" on grass/path/farmland to plant "sapling_oak"
 		if Global.selected_item == "sapling_oak":
 			if(source_id == 2 					# Source ID 2: "grass",
