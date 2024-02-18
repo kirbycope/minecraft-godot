@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=65 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bf8ueubh5fnwx" path="res://textures/button_yellow.png" id="23_he4qc"]
 [ext_resource type="Texture2D" uid="uid://dtalfnj31twwc" path="res://textures/button_blue.png" id="24_yem7f"]
 [ext_resource type="Texture2D" uid="uid://2gpuxv5hy78i" path="res://textures/button_green.png" id="25_7e06i"]
+[ext_resource type="Texture2D" uid="uid://bm7e0d828lacf" path="res://textures/button_pill_alt.png" id="25_cbtfe"]
 [ext_resource type="Texture2D" uid="uid://dvkfce4mygul0" path="res://textures/button_l.png" id="27_0m8ok"]
 [ext_resource type="Texture2D" uid="uid://bjit5embfdkl1" path="res://textures/button_r.png" id="28_x6iea"]
 [ext_resource type="Texture2D" uid="uid://b74vkuwip3uv3" path="res://textures/button_pill.png" id="29_j4ckb"]
@@ -1588,6 +1589,7 @@ texture = ExtResource("17_o5e4m")
 
 [node name="Down" type="TextureRect" parent="DPad"]
 visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1595,6 +1597,7 @@ texture = ExtResource("18_0mqnm")
 
 [node name="Left" type="TextureRect" parent="DPad"]
 visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1602,6 +1605,7 @@ texture = ExtResource("19_7pcp8")
 
 [node name="Right" type="TextureRect" parent="DPad"]
 visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1609,6 +1613,7 @@ texture = ExtResource("20_6c3t8")
 
 [node name="Up" type="TextureRect" parent="DPad"]
 visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1663,13 +1668,22 @@ offset_bottom = 40.0
 scale = Vector2(2, 2)
 texture = ExtResource("23_1k6qc")
 
-[node name="Label" type="Label" parent="NES/ButtonB"]
+[node name="LabelUse" type="Label" parent="NES/ButtonB"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 28.0
 offset_right = 55.0
 offset_bottom = 51.0
 text = "Use"
+label_settings = SubResource("LabelSettings_g2787")
+
+[node name="LabelCancel" type="Label" parent="NES/ButtonB"]
+visible = false
+offset_left = 14.0
+offset_top = 28.0
+offset_right = 66.0
+offset_bottom = 51.0
+text = "Cancel"
 label_settings = SubResource("LabelSettings_g2787")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonB"]
@@ -1701,13 +1715,22 @@ offset_bottom = 40.0
 scale = Vector2(2, 2)
 texture = ExtResource("23_1k6qc")
 
-[node name="Label" type="Label" parent="NES/ButtonA"]
+[node name="LabelAttack" type="Label" parent="NES/ButtonA"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 28.0
 offset_right = 65.0
 offset_bottom = 51.0
 text = "Attack"
+label_settings = SubResource("LabelSettings_g2787")
+
+[node name="LabelSelect" type="Label" parent="NES/ButtonA"]
+visible = false
+offset_left = 17.0
+offset_top = 28.0
+offset_right = 63.0
+offset_bottom = 51.0
+text = "Select"
 label_settings = SubResource("LabelSettings_g2787")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="NES/ButtonA"]
@@ -1722,13 +1745,21 @@ offset_top = 602.0
 offset_right = 950.0
 offset_bottom = 642.0
 
-[node name="TextureRect" type="TextureRect" parent="NES/ButtonSelect"]
+[node name="Unpressed" type="TextureRect" parent="NES/ButtonSelect"]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 12.0
 scale = Vector2(2, 2)
 texture = ExtResource("29_j4ckb")
+
+[node name="Pressed" type="TextureRect" parent="NES/ButtonSelect"]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+offset_right = 30.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+texture = ExtResource("25_cbtfe")
 
 [node name="Label" type="Label" parent="NES/ButtonSelect"]
 layout_mode = 0
@@ -1751,13 +1782,21 @@ offset_top = 602.0
 offset_right = 1080.0
 offset_bottom = 642.0
 
-[node name="TextureRect" type="TextureRect" parent="NES/ButtonStart"]
+[node name="Unpressed" type="TextureRect" parent="NES/ButtonStart"]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 12.0
 scale = Vector2(2, 2)
 texture = ExtResource("29_j4ckb")
+
+[node name="Pressed" type="TextureRect" parent="NES/ButtonStart"]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+offset_right = 30.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+texture = ExtResource("25_cbtfe")
 
 [node name="Label" type="Label" parent="NES/ButtonStart"]
 layout_mode = 0

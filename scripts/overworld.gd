@@ -42,37 +42,37 @@ func _input(event):
 			if Global.selected_item == "chest":
 				Global.play_sound("player/step/wood1")
 				set_cell(2, 12) 						# Source ID 12: "cobblestone"
-				take_item("chest")
+				Global.remove_item_from_inventory("chest")
 			
 			# Use "crafting_table" to place "crafting_table"
 			if Global.selected_item == "crafting_table":
 				Global.play_sound("player/step/wood1")
 				set_cell(2, 19) 						# Source ID 19: "crafting_table"
-				take_item("crafting_table")
+				Global.remove_item_from_inventory("crafting_table")
 			
 			# Use "cobblestone" to place "cobblestone"
 			if Global.selected_item == "cobblestone":
 				Global.play_sound("player/step/stone1")
 				set_cell(2, 0) 						# Source ID 0: "cobblestone"
-				take_item("cobblestone")
+				Global.remove_item_from_inventory("cobblestone")
 			
 			# Use "log_oak" to place "log_oak"
 			if Global.selected_item == "log_oak":
 				Global.play_sound("player/step/wood1")
 				set_cell(2, 5) 						# Source ID 5: "log_oak"
-				take_item("log_oak")
+				Global.remove_item_from_inventory("log_oak")
 			
 			# Use "log_oak_top" to place "log_oak_top"
 			if Global.selected_item == "log_oak_top":
 				Global.play_sound("player/step/wood1")
 				set_cell(2, 6) 						# Source ID 6: "log_oak_top"
-				take_item("log_oak_top")
+				Global.remove_item_from_inventory("log_oak_top")
 			
 			# Use "planks_oak" to place "planks_oak"
 			if Global.selected_item == "planks_oak":
 				Global.play_sound("player/step/wood1")
 				set_cell(2, 7) 					# Source ID 7: "planks_oak"
-				take_item("planks_oak")
+				Global.remove_item_from_inventory("planks_oak")
 			
 			# Use "sapling_oak" on grass/path/farmland to plant "sapling_oak"
 			if Global.selected_item == "sapling_oak":
@@ -82,7 +82,7 @@ func _input(event):
 				or source_id == 21): 				# Source ID 21: "farmland_dry"
 					Global.play_sound("player/step/grass1")
 					set_cell(2, 9) 					# Source ID 9: "sappling_oak"
-					take_item("sapling_oak")
+					Global.remove_item_from_inventory("sapling_oak")
 			
 			# Use "seeds_wheat" on "farmland_(dry/wet)" to plant "wheat"
 			if Global.selected_item == "seeds_wheat":
@@ -90,7 +90,7 @@ func _input(event):
 				or source_id == 21): 				# Source ID 21: "farmland_dry"
 					Global.play_sound("player/step/grass1")
 					set_cell(2, 22) 				# Source ID 22: "wheat"
-					take_item("seeds_wheat")
+					Global.remove_item_from_inventory("seeds_wheat")
 			
 			# Use "torch" to place "torch"
 			if Global.selected_item == "torch":
@@ -103,7 +103,7 @@ func _input(event):
 				# Add [Torch] to scene
 				var root_node = get_tree().get_root()
 				root_node.add_child(scene_instance)
-				take_item("torch")
+				Global.remove_item_from_inventory("torch")
 			
 			# Use "wood_hoe" to make "farmland_dry"
 			if Global.selected_item == "wood_hoe":
@@ -299,11 +299,6 @@ func give_item(item_name, stack_size = 1):
 	item.quantity = 1
 	item.texture = "res://textures/" + item_name + ".png"
 	Global.add_item_to_inventory(item) 
-
-
-# Removes the item from the player's inventory
-func take_item(item_name):
-	Global.remove_item_from_inventory(item_name)
 
 
 # Set the tile at the player's position.

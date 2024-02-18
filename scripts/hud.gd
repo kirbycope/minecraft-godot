@@ -49,29 +49,96 @@ func _input(event):
 		$NES.visible = false;
 		$SNES.visible = false;
 		$WASD.visible = true;
-		
+	
+	# ˅ "Down" button released
+	if event.is_action_released("ui_down"):
+		$DPad/Base.visible = true
+		$DPad/Down.visible = false
+	# ˅ "Down" button pressed
+	if event.is_action_pressed("ui_down"):
+		$DPad/Base.visible = false
+		$DPad/Down.visible = true
+	# ˂ "Left" button released
+	if event.is_action_released("ui_left"):
+		$DPad/Base.visible = true
+		$DPad/Left.visible = false
+	# ˂ "Left" button pressed
+	if event.is_action_pressed("ui_left"):
+		$DPad/Base.visible = false
+		$DPad/Left.visible = true
+	# ˃ "Right" button released
+	if event.is_action_released("ui_right"):
+		$DPad/Base.visible = true
+		$DPad/Right.visible = false
+	# ˃ "Right" button pressed
+	if event.is_action_pressed("ui_right"):
+		$DPad/Base.visible = false
+		$DPad/Right.visible = true
+	# ˄ "Up" button released
+	if event.is_action_released("ui_up"):
+		$DPad/Base.visible = true
+		$DPad/Up.visible = false
+	# ˄ "Up" button pressed
+	if event.is_action_pressed("ui_up"):
+		$DPad/Base.visible = false
+		$DPad/Up.visible = true
+	# [Select] button pressed
+	if event.is_action_pressed("Slot_Up"):
+		$NES/ButtonSelect/Pressed.visible = true
+	# [Select] button released
+	if event.is_action_released("Slot_Up"):
+		$NES/ButtonSelect/Pressed.visible = false
+	# [Start] button pressed
+	if event.is_action_pressed("Inventory"):
+		$NES/ButtonStart/Pressed.visible = true
+	# [Start] button released
+	if event.is_action_released("Inventory"):
+		$NES/ButtonStart/Pressed.visible = false
+	# Ⓐ "Attack" button released
+	if event.is_action_released("Attack"):
+		$NES/ButtonA/Pressed.visible = false
+	# 🅐 "Attack" button pressed
+	if event.is_action_pressed("Attack"):
+		$NES/ButtonA/Pressed.visible = true
+	# Ⓑ "Use" button released
+	if event.is_action_released("Use"):
+		$NES/ButtonB/Pressed.visible = false
+	# 🅑 "Use" button pressed
+	if event.is_action_pressed("Use"):
+		$NES/ButtonB/Pressed.visible = true
+	
 	# Inventory - Chest, hide
 	if $SingleChest.visible:
-		if event.is_action_pressed("Inventory") or event.is_action_pressed("ui_cancel"):
+		if (event.is_action_pressed("ui_cancel")
+		or event.is_action_pressed("Use")):
 			chest_ui_hide()
 	
 	# Inventory - Crafting Table, hide
 	if $CraftingTable.visible:
-		if event.is_action_pressed("Inventory") or event.is_action_pressed("ui_cancel"):
+		if (event.is_action_pressed("ui_cancel")
+		or event.is_action_pressed("Use")):
 			crafting_table_ui_hide()
 	
 	# Inventory - Player, hide
 	if $Inventory.visible:
-		if event.is_action_pressed("Inventory") or event.is_action_pressed("ui_cancel"):
+		if (event.is_action_pressed("Inventory")
+		or event.is_action_pressed("ui_cancel")
+		or event.is_action_pressed("Use")):
 			inventory_ui_hide()
 	else:
 		# Inventory - Player, show
 		if event.is_action_pressed("Inventory"):
+			chest_ui_hide()
+			crafting_table_ui_hide()
 			inventory_ui_show()
 	
 	# Inventroy Slot Navigation
 	if $Slots.visible:
 		# Navigate
+		$NES/ButtonA/LabelAttack.visible = false
+		$NES/ButtonA/LabelSelect.visible = true
+		$NES/ButtonB/LabelUse.visible = false
+		$NES/ButtonB/LabelCancel.visible = true
 		if event.is_action_pressed("ui_down"):
 			if highlighted_slot >= 28:
 				highlighted_slot -= 27
@@ -103,6 +170,10 @@ func _input(event):
 		clear_inventory_highlight()
 		show_inventory_highlight()
 	else:
+		$NES/ButtonA/LabelAttack.visible = true
+		$NES/ButtonA/LabelSelect.visible = false
+		$NES/ButtonB/LabelUse.visible = true
+		$NES/ButtonB/LabelCancel.visible = false
 		# Highlight ActionBar selected slot
 		clear_slot_selection()
 		determine_slot_selection(event)
