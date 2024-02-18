@@ -38,37 +38,17 @@ func _input(event):
 			# Get cell at "Base Layer" of TileMap
 			var source_id = $TileMap.get_cell_source_id(1, get_map_position())
 
-			# Use "wood_hoe" to make "farmland_dry"
-			if Global.selected_item == "wood_hoe":
-				if (source_id == 2 					# Source ID 2: "grass"
-				or source_id == 8): 				# Source ID 8: "grass_path"
-					Global.play_sound("player/dig/grass1")
-					set_cell(1, 21) 				# Source ID 21: "farmland_dry"
+			# Use "chest" to place "chest"
+			if Global.selected_item == "chest":
+				Global.play_sound("player/step/wood1")
+				set_cell(2, 12) 						# Source ID 12: "cobblestone"
+				take_item("chest")
 			
-			# Use "wood_shovel" to make "grass_path"
-			if Global.selected_item == "wood_shovel":
-				if(source_id == 2 					# Source ID 2: "grass"
-				or source_id == 21): 				# Source ID 21: "farmland_dry"
-					Global.play_sound("player/step/grass1")
-					set_cell(1, 8) 					# Source ID 8: "grass_path"
-			
-			# Use "seeds_wheat" on "farmland_(dry/wet)" to plant "wheat"
-			if Global.selected_item == "seeds_wheat":
-				if(source_id == 20 					# Source ID 20: "farmland_wet"
-				or source_id == 21): 				# Source ID 21: "farmland_dry"
-					Global.play_sound("player/step/grass1")
-					set_cell(2, 22) 				# Source ID 22: "wheat"
-					take_item("seeds_wheat")
-			
-			# Use "sapling_oak" on grass/path/farmland to plant "sapling_oak"
-			if Global.selected_item == "sapling_oak":
-				if(source_id == 2 					# Source ID 2: "grass",
-				or source_id == 8 					# Source ID 8: "grass_path"
-				or source_id == 20 					# Source ID 20: "farmland_wet"
-				or source_id == 21): 				# Source ID 21: "farmland_dry"
-					Global.play_sound("player/step/grass1")
-					set_cell(2, 9) 					# Source ID 9: "sappling_oak"
-					take_item("sapling_oak")
+			# Use "crafting_table" to place "crafting_table"
+			if Global.selected_item == "crafting_table":
+				Global.play_sound("player/step/wood1")
+				set_cell(2, 19) 						# Source ID 19: "crafting_table"
+				take_item("crafting_table")
 			
 			# Use "cobblestone" to place "cobblestone"
 			if Global.selected_item == "cobblestone":
@@ -94,6 +74,24 @@ func _input(event):
 				set_cell(2, 7) 					# Source ID 7: "planks_oak"
 				take_item("planks_oak")
 			
+			# Use "sapling_oak" on grass/path/farmland to plant "sapling_oak"
+			if Global.selected_item == "sapling_oak":
+				if(source_id == 2 					# Source ID 2: "grass",
+				or source_id == 8 					# Source ID 8: "grass_path"
+				or source_id == 20 					# Source ID 20: "farmland_wet"
+				or source_id == 21): 				# Source ID 21: "farmland_dry"
+					Global.play_sound("player/step/grass1")
+					set_cell(2, 9) 					# Source ID 9: "sappling_oak"
+					take_item("sapling_oak")
+			
+			# Use "seeds_wheat" on "farmland_(dry/wet)" to plant "wheat"
+			if Global.selected_item == "seeds_wheat":
+				if(source_id == 20 					# Source ID 20: "farmland_wet"
+				or source_id == 21): 				# Source ID 21: "farmland_dry"
+					Global.play_sound("player/step/grass1")
+					set_cell(2, 22) 				# Source ID 22: "wheat"
+					take_item("seeds_wheat")
+			
 			# Use "torch" to place "torch"
 			if Global.selected_item == "torch":
 				Global.play_sound("player/step/wood1")
@@ -106,6 +104,20 @@ func _input(event):
 				var root_node = get_tree().get_root()
 				root_node.add_child(scene_instance)
 				take_item("torch")
+			
+			# Use "wood_hoe" to make "farmland_dry"
+			if Global.selected_item == "wood_hoe":
+				if (source_id == 2 					# Source ID 2: "grass"
+				or source_id == 8): 				# Source ID 8: "grass_path"
+					Global.play_sound("player/dig/grass1")
+					set_cell(1, 21) 				# Source ID 21: "farmland_dry"
+			
+			# Use "wood_shovel" to make "grass_path"
+			if Global.selected_item == "wood_shovel":
+				if(source_id == 2 					# Source ID 2: "grass"
+				or source_id == 21): 				# Source ID 21: "farmland_dry"
+					Global.play_sound("player/step/grass1")
+					set_cell(1, 8) 					# Source ID 8: "grass_path"
 			
 			# Check "Breakable Layer" for a "chest"
 			if Global.last_direction == Vector2.RIGHT:
