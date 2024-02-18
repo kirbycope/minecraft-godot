@@ -12,6 +12,15 @@ var selected_slot = 1
 @onready var action_bar_slot_images = [$ActionBar/Slot1/SlotTexture, $ActionBar/Slot2/SlotTexture, $ActionBar/Slot3/SlotTexture, $ActionBar/Slot4/SlotTexture,
 	$ActionBar/Slot5/SlotTexture, $ActionBar/Slot6/SlotTexture, $ActionBar/Slot7/SlotTexture, $ActionBar/Slot8/SlotTexture, $ActionBar/Slot9/SlotTexture
 ]
+@onready var inventory_slot_quantity_labels = [$Slots/Quantity1, $Slots/Quantity2, $Slots/Quantity3, $Slots/Quantity4,
+	$Slots/Quantity5, $Slots/Quantity6, $Slots/Quantity7, $Slots/Quantity8, $Slots/Quantity9,
+	$Slots/Quantity10, $Slots/Quantity11, $Slots/Quantity12, $Slots/Quantity13, $Slots/Quantity14,
+	$Slots/Quantity15, $Slots/Quantity16, $Slots/Quantity17, $Slots/Quantity18, $Slots/Quantity19,
+	$Slots/Quantity20, $Slots/Quantity21, $Slots/Quantity22, $Slots/Quantity23, $Slots/Quantity24,
+	$Slots/Quantity25, $Slots/Quantity26, $Slots/Quantity27, $Slots/Quantity28, $Slots/Quantity29,
+	$Slots/Quantity30, $Slots/Quantity31, $Slots/Quantity32, $Slots/Quantity33, $Slots/Quantity34,
+	$Slots/Quantity35, $Slots/Quantity36
+]
 @onready var inventory_slot_images = [$Slots/Slot1/SlotTexture, $Slots/Slot2/SlotTexture, $Slots/Slot3/SlotTexture, $Slots/Slot4/SlotTexture,
 	$Slots/Slot5/SlotTexture, $Slots/Slot6/SlotTexture, $Slots/Slot7/SlotTexture, $Slots/Slot8/SlotTexture, $Slots/Slot9/SlotTexture,
 	$Slots/Slot10/SlotTexture, $Slots/Slot11/SlotTexture, $Slots/Slot12/SlotTexture, $Slots/Slot13/SlotTexture, $Slots/Slot14/SlotTexture,
@@ -361,8 +370,11 @@ func show_inventory_items():
 	for i in range(len(inventory)):
 		if inventory[i] != null:
 			if inventory[i].texture != null:
+				inventory_slot_quantity_labels[i].text = str(inventory[i].quantity)
+				inventory_slot_quantity_labels[i].visible = true
 				inventory_slot_images[i].texture = load(inventory[i].texture)
 		else:
+			inventory_slot_quantity_labels[i].visible = false
 			inventory_slot_images[i].texture = null
 
 

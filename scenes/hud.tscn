@@ -1465,6 +1465,330 @@ offset_right = 18.8
 offset_bottom = 18.8
 stretch_mode = 3
 
+[node name="Quantity1" type="Label" parent="Slots"]
+offset_left = 357.0
+offset_top = 524.0
+offset_right = 385.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity2" type="Label" parent="Slots"]
+offset_left = 411.0
+offset_top = 524.0
+offset_right = 439.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity3" type="Label" parent="Slots"]
+offset_left = 465.0
+offset_top = 524.0
+offset_right = 493.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity4" type="Label" parent="Slots"]
+offset_left = 519.0
+offset_top = 524.0
+offset_right = 547.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity5" type="Label" parent="Slots"]
+offset_left = 573.0
+offset_top = 524.0
+offset_right = 601.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity6" type="Label" parent="Slots"]
+offset_left = 627.0
+offset_top = 524.0
+offset_right = 655.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity7" type="Label" parent="Slots"]
+offset_left = 681.0
+offset_top = 523.0
+offset_right = 709.0
+offset_bottom = 557.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity8" type="Label" parent="Slots"]
+offset_left = 735.0
+offset_top = 524.0
+offset_right = 763.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity9" type="Label" parent="Slots"]
+offset_left = 789.0
+offset_top = 524.0
+offset_right = 817.0
+offset_bottom = 558.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity10" type="Label" parent="Slots"]
+offset_left = 357.0
+offset_top = 350.0
+offset_right = 385.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity11" type="Label" parent="Slots"]
+offset_left = 411.0
+offset_top = 350.0
+offset_right = 439.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity12" type="Label" parent="Slots"]
+offset_left = 465.0
+offset_top = 350.0
+offset_right = 493.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity13" type="Label" parent="Slots"]
+offset_left = 519.0
+offset_top = 350.0
+offset_right = 547.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity14" type="Label" parent="Slots"]
+offset_left = 573.0
+offset_top = 350.0
+offset_right = 601.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity15" type="Label" parent="Slots"]
+offset_left = 627.0
+offset_top = 350.0
+offset_right = 655.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity16" type="Label" parent="Slots"]
+offset_left = 681.0
+offset_top = 349.0
+offset_right = 709.0
+offset_bottom = 383.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity17" type="Label" parent="Slots"]
+offset_left = 735.0
+offset_top = 350.0
+offset_right = 763.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity18" type="Label" parent="Slots"]
+offset_left = 789.0
+offset_top = 350.0
+offset_right = 817.0
+offset_bottom = 384.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity19" type="Label" parent="Slots"]
+offset_left = 357.0
+offset_top = 404.0
+offset_right = 385.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity20" type="Label" parent="Slots"]
+offset_left = 411.0
+offset_top = 404.0
+offset_right = 439.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity21" type="Label" parent="Slots"]
+offset_left = 465.0
+offset_top = 404.0
+offset_right = 493.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity22" type="Label" parent="Slots"]
+offset_left = 519.0
+offset_top = 404.0
+offset_right = 547.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity23" type="Label" parent="Slots"]
+offset_left = 573.0
+offset_top = 404.0
+offset_right = 601.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity24" type="Label" parent="Slots"]
+offset_left = 627.0
+offset_top = 404.0
+offset_right = 655.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity25" type="Label" parent="Slots"]
+offset_left = 681.0
+offset_top = 403.0
+offset_right = 709.0
+offset_bottom = 437.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity26" type="Label" parent="Slots"]
+offset_left = 735.0
+offset_top = 404.0
+offset_right = 763.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity27" type="Label" parent="Slots"]
+offset_left = 789.0
+offset_top = 404.0
+offset_right = 817.0
+offset_bottom = 438.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity28" type="Label" parent="Slots"]
+offset_left = 357.0
+offset_top = 458.0
+offset_right = 385.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity29" type="Label" parent="Slots"]
+offset_left = 411.0
+offset_top = 458.0
+offset_right = 439.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity30" type="Label" parent="Slots"]
+offset_left = 465.0
+offset_top = 458.0
+offset_right = 493.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity31" type="Label" parent="Slots"]
+offset_left = 519.0
+offset_top = 458.0
+offset_right = 547.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity32" type="Label" parent="Slots"]
+offset_left = 573.0
+offset_top = 458.0
+offset_right = 601.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity33" type="Label" parent="Slots"]
+offset_left = 627.0
+offset_top = 458.0
+offset_right = 655.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity34" type="Label" parent="Slots"]
+offset_left = 681.0
+offset_top = 457.0
+offset_right = 709.0
+offset_bottom = 491.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity35" type="Label" parent="Slots"]
+offset_left = 735.0
+offset_top = 458.0
+offset_right = 763.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Quantity36" type="Label" parent="Slots"]
+offset_left = 789.0
+offset_top = 458.0
+offset_right = 817.0
+offset_bottom = 492.0
+label_settings = SubResource("LabelSettings_8efae")
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="XPBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
