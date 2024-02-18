@@ -52,8 +52,15 @@ func _input(event):
 
 
 func setup_test():
-	# Give player "wood_axe"
+	# Give player "cobblestone"
 	var item = {}
+	item.id = "cobblestone"
+	item.stack_size = 1
+	item.quantity = 1
+	item.texture = "res://textures/cobblestone.png"
+	Global.add_item_to_inventory(item)
+	# Give player "wood_axe"
+	item = {}
 	item.id = "wood_axe"
 	item.stack_size = 1
 	item.quantity = 1

@@ -229,8 +229,7 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_xvcdo")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="ActionBar/Slot1"]
-visible = false
-position = Vector2(8, 10.8)
+position = Vector2(8, 7.6)
 shape = SubResource("RectangleShape2D_1o1vr")
 action = "Slot_1"
 
@@ -469,6 +468,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity2" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 394.0
 offset_top = 610.0
 offset_right = 422.0
@@ -478,6 +478,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity3" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 454.0
 offset_top = 610.0
 offset_right = 482.0
@@ -487,6 +488,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity4" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 514.0
 offset_top = 610.0
 offset_right = 542.0
@@ -496,6 +498,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity5" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 574.0
 offset_top = 610.0
 offset_right = 602.0
@@ -505,6 +508,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity6" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 634.0
 offset_top = 610.0
 offset_right = 662.0
@@ -514,6 +518,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity7" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 694.0
 offset_top = 610.0
 offset_right = 722.0
@@ -523,6 +528,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity8" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 754.0
 offset_top = 610.0
 offset_right = 782.0
@@ -532,6 +538,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity9" type="Label" parent="ActionBar"]
+layout_mode = 0
 offset_left = 814.0
 offset_top = 610.0
 offset_right = 842.0
@@ -630,8 +637,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Slot1" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot1" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 333.0
 offset_top = 498.0
 offset_right = 354.0
@@ -641,14 +648,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot1"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot1"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot2" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot2" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 387.0
 offset_top = 498.0
 offset_right = 408.0
@@ -658,14 +671,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot2"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot2"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot3" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot3" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 441.0
 offset_top = 498.0
 offset_right = 462.0
@@ -675,14 +694,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot3"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot3"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot4" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot4" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 495.0
 offset_top = 498.0
 offset_right = 516.0
@@ -692,14 +717,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot4"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot4"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot5" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot5" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 549.0
 offset_top = 498.0
 offset_right = 570.0
@@ -709,14 +740,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot5"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot5"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot6" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot6" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 603.0
 offset_top = 498.0
 offset_right = 624.0
@@ -726,14 +763,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot6"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot6"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot7" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot7" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 657.0
 offset_top = 498.0
 offset_right = 678.0
@@ -743,14 +786,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot7"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot7"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot8" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot8" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 711.0
 offset_top = 498.0
 offset_right = 732.0
@@ -760,14 +809,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot8"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot8"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot9" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot9" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 765.0
 offset_top = 498.0
 offset_right = 786.0
@@ -777,14 +832,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot9"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot9"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot10" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot10" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 333.0
 offset_top = 324.0
 offset_right = 355.0
@@ -794,14 +855,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot10"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot10"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot11" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot11" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 387.0
 offset_top = 324.0
 offset_right = 408.0
@@ -811,14 +878,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot11"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot11"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot12" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot12" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 441.0
 offset_top = 324.0
 offset_right = 462.0
@@ -828,14 +901,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot12"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot12"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot13" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot13" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 495.0
 offset_top = 324.0
 offset_right = 516.0
@@ -845,14 +924,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot13"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot13"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot14" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot14" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 549.0
 offset_top = 324.0
 offset_right = 570.0
@@ -862,14 +947,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot14"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot14"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot15" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot15" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 603.0
 offset_top = 324.0
 offset_right = 624.0
@@ -879,14 +970,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot15"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot15"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot16" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot16" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 657.0
 offset_top = 324.0
 offset_right = 678.0
@@ -896,14 +993,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot16"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot16"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot17" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot17" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 710.0
 offset_top = 324.0
 offset_right = 731.0
@@ -913,14 +1016,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot17"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot17"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot18" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot18" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 764.0
 offset_top = 324.0
 offset_right = 785.0
@@ -930,14 +1039,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot18"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot18"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot19" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot19" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 333.0
 offset_top = 378.0
 offset_right = 354.0
@@ -947,14 +1062,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot19"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot19"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot20" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot20" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 387.0
 offset_top = 378.0
 offset_right = 408.0
@@ -964,14 +1085,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot20"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot20"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot21" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot21" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 441.0
 offset_top = 378.0
 offset_right = 462.0
@@ -981,14 +1108,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot21"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot21"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot22" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot22" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 495.0
 offset_top = 378.0
 offset_right = 516.0
@@ -998,14 +1131,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot22"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot22"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot23" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot23" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 549.0
 offset_top = 378.0
 offset_right = 570.0
@@ -1015,14 +1154,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot23"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot23"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot24" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot24" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 603.0
 offset_top = 378.0
 offset_right = 624.0
@@ -1032,14 +1177,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot24"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot24"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot25" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot25" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 657.0
 offset_top = 378.0
 offset_right = 678.0
@@ -1049,14 +1200,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot25"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot25"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot26" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot26" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 710.0
 offset_top = 378.0
 offset_right = 731.0
@@ -1066,14 +1223,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot26"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot26"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot27" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot27" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 765.0
 offset_top = 378.0
 offset_right = 786.0
@@ -1083,14 +1246,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot27"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot27"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot28" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot28" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 333.0
 offset_top = 432.0
 offset_right = 354.0
@@ -1100,14 +1269,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot28"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot28"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot29" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot29" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 387.0
 offset_top = 431.0
 offset_right = 408.0
@@ -1117,14 +1292,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot29"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot29"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot30" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot30" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 441.0
 offset_top = 431.0
 offset_right = 462.0
@@ -1134,14 +1315,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot30"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot30"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot31" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot31" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 495.0
 offset_top = 432.0
 offset_right = 516.0
@@ -1151,14 +1338,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot31"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot31"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot32" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot32" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 549.0
 offset_top = 432.0
 offset_right = 570.0
@@ -1168,14 +1361,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot32"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot32"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot33" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot33" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 603.0
 offset_top = 431.0
 offset_right = 624.0
@@ -1185,14 +1384,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot33"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot33"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot34" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot34" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 657.0
 offset_top = 432.0
 offset_right = 678.0
@@ -1202,14 +1407,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot34"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot34"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot35" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot35" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 710.0
 offset_top = 432.0
 offset_right = 731.0
@@ -1219,14 +1430,20 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot35"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot35"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
-[node name="Slot36" type="CenterContainer" parent="Slots"]
-layout_mode = 0
+[node name="Slot36" type="Control" parent="Slots"]
+anchors_preset = 0
 offset_left = 765.0
 offset_top = 431.0
 offset_right = 786.0
@@ -1236,10 +1453,16 @@ scale = Vector2(2.5, 2.5)
 [node name="SlotHighlighted" type="TextureRect" parent="Slots/Slot36"]
 visible = false
 layout_mode = 2
+offset_right = 21.0
+offset_bottom = 21.0
 texture = ExtResource("10_b5oe1")
 
 [node name="SlotTexture" type="TextureRect" parent="Slots/Slot36"]
 layout_mode = 2
+offset_left = 2.8
+offset_top = 2.8
+offset_right = 18.8
+offset_bottom = 18.8
 stretch_mode = 3
 
 [node name="XPBar" type="Control" parent="."]
