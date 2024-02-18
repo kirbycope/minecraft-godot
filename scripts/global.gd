@@ -9,24 +9,37 @@ var inventory = [null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null]
 var is_falling = false
+var is_raining = false
 var last_direction = Vector2.RIGHT
 var last_facing = Vector2.RIGHT
 var mobs_spawned_today = true
 var player_can_move = true
+var rain_chance = 1/2
+var rain_check_interval = 5
+var rain_check_timer : Timer
+var rain_duration = 60
+var rain_timer = 0
 var selected_item = ""
 var time = 6
+var time_cycle_duration = 300
 var time_of_day = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	randomize()
+	rain_check_timer = Timer.new()
+	rain_check_timer.wait_time = Global.rain_check_interval
+	rain_check_timer.autostart = true
+	rain_check_timer.one_shot = false
+	add_child(rain_check_timer)
+	rain_check_timer.connect("timeout", Callable(self, "_on_RainCheckTimer_timeout"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Calculate time_scale based on desired cycle duration
-	var time_scale = 24.0 / 300 # 300 Seconds == 5 minutes
+	var time_scale = 24.0 / time_cycle_duration
 	Global.time += delta * time_scale
 	# Reset after completing a cycle
 	if Global.time >= 24.0:
@@ -46,6 +59,20 @@ func _process(delta):
 			var root_node = get_tree().get_root()
 			root_node.add_child(scene_instance)
 			Global.mobs_spawned_today = true
+	# Reset rain timer after completing a cycle
+	if Global.is_raining:
+		Global.rain_timer += delta
+		if Global.rain_timer >= Global.rain_duration:
+			Global.is_raining = false
+			Global.rain_timer = 0.0  # Reset the timer for the next rain event
+
+
+# Handler for the rain check timer's timeout signal
+func _on_RainCheckTimer_timeout():
+	if not Global.is_raining and randf() < Global.rain_chance:
+		# Not raining, so start the rain
+		Global.is_raining = true
+		Global.rain_timer = 0.0  # Reset rain timer
 
 
 # Add item to player's inventory.

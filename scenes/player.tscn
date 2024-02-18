@@ -427,8 +427,9 @@ autoplay = "idle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n3lvr")
-animation = &"idle_left"
-autoplay = "idle_left"
+animation = &"idle_right"
+autoplay = "idle_right"
+frame_progress = 0.343962
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.78814e-06, 120)
