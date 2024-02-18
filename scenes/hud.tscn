@@ -1679,6 +1679,7 @@ label_settings = SubResource("LabelSettings_g2787")
 
 [node name="LabelCancel" type="Label" parent="NES/ButtonB"]
 visible = false
+layout_mode = 0
 offset_left = 14.0
 offset_top = 28.0
 offset_right = 66.0
@@ -1726,6 +1727,7 @@ label_settings = SubResource("LabelSettings_g2787")
 
 [node name="LabelSelect" type="Label" parent="NES/ButtonA"]
 visible = false
+layout_mode = 0
 offset_left = 17.0
 offset_top = 28.0
 offset_right = 63.0
@@ -1756,6 +1758,7 @@ texture = ExtResource("29_j4ckb")
 [node name="Pressed" type="TextureRect" parent="NES/ButtonSelect"]
 visible = false
 modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
 offset_right = 30.0
 offset_bottom = 12.0
 scale = Vector2(2, 2)
@@ -1793,6 +1796,7 @@ texture = ExtResource("29_j4ckb")
 [node name="Pressed" type="TextureRect" parent="NES/ButtonStart"]
 visible = false
 modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
 offset_right = 30.0
 offset_bottom = 12.0
 scale = Vector2(2, 2)

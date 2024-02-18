@@ -111,6 +111,7 @@ func _input(event):
 	if $SingleChest.visible:
 		if (event.is_action_pressed("ui_cancel")
 		or event.is_action_pressed("Use")):
+			Global.play_sound("chest/chestclosed")
 			chest_ui_hide()
 	
 	# Inventory - Crafting Table, hide
@@ -182,7 +183,6 @@ func _input(event):
 
 # Hides the Chest UI.
 func chest_ui_hide():
-	Global.play_sound("chest/chestclosed")
 	Global.player_can_move = true
 	$SingleChest.visible = false
 	$ActionBar.visible = true
