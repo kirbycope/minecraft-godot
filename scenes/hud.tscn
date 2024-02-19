@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cwr65be7sraem"]
+[gd_scene load_steps=67 format=3 uid="uid://cwr65be7sraem"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_afl1v"]
 [ext_resource type="Texture2D" uid="uid://ctx0riyljempg" path="res://textures/actionbar.png" id="1_p3smb"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://q6pwd5w2yqlp" path="res://textures/crafting_table_frame.png" id="12_l5npx"]
 [ext_resource type="Texture2D" uid="uid://2hu755ftk2v3" path="res://textures/heart_full.png" id="12_r3bsj"]
 [ext_resource type="Texture2D" uid="uid://bjb5p101nl47k" path="res://textures/food_empty.png" id="13_t43r7"]
+[ext_resource type="Texture2D" uid="uid://sj2qwb6lbo5k" path="res://textures/heart_half.png" id="14_r1sb7"]
 [ext_resource type="Texture2D" uid="uid://dbm1ose8rtkfc" path="res://textures/food_full.png" id="14_uqryb"]
 [ext_resource type="AudioStream" uid="uid://boja336j1lyyj" path="res://sounds/music/calm1.mp3" id="16_rakr5"]
 [ext_resource type="Texture2D" uid="uid://ctvbu5ln8v2wp" path="res://textures/dpad_base.png" id="17_o5e4m"]
@@ -1466,6 +1467,7 @@ offset_bottom = 18.8
 stretch_mode = 3
 
 [node name="Quantity1" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 357.0
 offset_top = 524.0
 offset_right = 385.0
@@ -1475,6 +1477,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity2" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 411.0
 offset_top = 524.0
 offset_right = 439.0
@@ -1484,6 +1487,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity3" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 465.0
 offset_top = 524.0
 offset_right = 493.0
@@ -1493,6 +1497,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity4" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 524.0
 offset_right = 547.0
@@ -1502,6 +1507,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity5" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 524.0
 offset_right = 601.0
@@ -1511,6 +1517,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity6" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 627.0
 offset_top = 524.0
 offset_right = 655.0
@@ -1520,6 +1527,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity7" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 681.0
 offset_top = 523.0
 offset_right = 709.0
@@ -1529,6 +1537,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity8" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 735.0
 offset_top = 524.0
 offset_right = 763.0
@@ -1538,6 +1547,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity9" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 789.0
 offset_top = 524.0
 offset_right = 817.0
@@ -1547,6 +1557,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity10" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 357.0
 offset_top = 350.0
 offset_right = 385.0
@@ -1556,6 +1567,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity11" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 411.0
 offset_top = 350.0
 offset_right = 439.0
@@ -1565,6 +1577,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity12" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 465.0
 offset_top = 350.0
 offset_right = 493.0
@@ -1574,6 +1587,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity13" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 350.0
 offset_right = 547.0
@@ -1583,6 +1597,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity14" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 350.0
 offset_right = 601.0
@@ -1592,6 +1607,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity15" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 627.0
 offset_top = 350.0
 offset_right = 655.0
@@ -1601,6 +1617,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity16" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 681.0
 offset_top = 349.0
 offset_right = 709.0
@@ -1610,6 +1627,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity17" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 735.0
 offset_top = 350.0
 offset_right = 763.0
@@ -1619,6 +1637,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity18" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 789.0
 offset_top = 350.0
 offset_right = 817.0
@@ -1628,6 +1647,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity19" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 357.0
 offset_top = 404.0
 offset_right = 385.0
@@ -1637,6 +1657,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity20" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 411.0
 offset_top = 404.0
 offset_right = 439.0
@@ -1646,6 +1667,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity21" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 465.0
 offset_top = 404.0
 offset_right = 493.0
@@ -1655,6 +1677,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity22" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 404.0
 offset_right = 547.0
@@ -1664,6 +1687,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity23" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 404.0
 offset_right = 601.0
@@ -1673,6 +1697,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity24" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 627.0
 offset_top = 404.0
 offset_right = 655.0
@@ -1682,6 +1707,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity25" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 681.0
 offset_top = 403.0
 offset_right = 709.0
@@ -1691,6 +1717,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity26" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 735.0
 offset_top = 404.0
 offset_right = 763.0
@@ -1700,6 +1727,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity27" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 789.0
 offset_top = 404.0
 offset_right = 817.0
@@ -1709,6 +1737,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity28" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 357.0
 offset_top = 458.0
 offset_right = 385.0
@@ -1718,6 +1747,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity29" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 411.0
 offset_top = 458.0
 offset_right = 439.0
@@ -1727,6 +1757,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity30" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 465.0
 offset_top = 458.0
 offset_right = 493.0
@@ -1736,6 +1767,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity31" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 458.0
 offset_right = 547.0
@@ -1745,6 +1777,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity32" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 458.0
 offset_right = 601.0
@@ -1754,6 +1787,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity33" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 627.0
 offset_top = 458.0
 offset_right = 655.0
@@ -1763,6 +1797,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity34" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 681.0
 offset_top = 457.0
 offset_right = 709.0
@@ -1772,6 +1807,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity35" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 735.0
 offset_top = 458.0
 offset_right = 763.0
@@ -1781,6 +1817,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Quantity36" type="Label" parent="Slots"]
+layout_mode = 0
 offset_left = 789.0
 offset_top = 458.0
 offset_right = 817.0
@@ -1826,13 +1863,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart1/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart1/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart1/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart2" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1846,13 +1893,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart2/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart2/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart2/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart3" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1866,13 +1923,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart3/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart3/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart3/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart4" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1886,13 +1953,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart4/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart4/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart4/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart5" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1906,13 +1983,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart5/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart5/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart5/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart6" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1926,13 +2013,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart6/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart6/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart6/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart7" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1946,13 +2043,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart7/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart7/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart7/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart8" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1966,13 +2073,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart8/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart8/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart8/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart9" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -1986,13 +2103,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart9/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart9/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart9/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Heart10" type="CenterContainer" parent="Hearts"]
 layout_mode = 0
@@ -2006,13 +2133,23 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("11_013jg")
 
-[node name="TextureRect" type="TextureRect" parent="Hearts/Heart10/HeartContainer"]
+[node name="Full" type="TextureRect" parent="Hearts/Heart10/HeartContainer"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 0.999997
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("12_r3bsj")
+
+[node name="Half" type="TextureRect" parent="Hearts/Heart10/HeartContainer"]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 8.0
+texture = ExtResource("14_r1sb7")
+stretch_mode = 3
 
 [node name="Food" type="Control" parent="."]
 layout_mode = 3

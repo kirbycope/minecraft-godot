@@ -3,6 +3,8 @@
 extends CharacterBody2D
 
 
+var damage_interval = 0.75
+var damage_timer = 0
 var direction = Vector2.ZERO
 var direction_change_interval = 3
 var direction_change_timer = 0
@@ -48,7 +50,6 @@ func _physics_process(delta):
 					health -= 5
 				else:
 					health -= 1
-				update_healthbar()
 				die()
 	elif player and track_player: # in the enemy's territory (agro range)
 		# Move towards player
@@ -68,8 +69,15 @@ func _physics_process(delta):
 	var old_position = position
 	position.x = clamp(position.x, min_position.x, max_position.x)
 	position.y = clamp(position.y, min_position.y, max_position.y)
-	# Attack player?
-
+	# Attack player
+	if player_in_range:
+		damage_timer += delta
+	if damage_timer >= damage_interval:
+		if player:
+			Global.player_health -= 3
+			$AnimatedSprite2D.play("attack_left")
+			Global.play_sound("zombie/step1")
+		damage_timer = 0.0
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Player"):
@@ -92,6 +100,7 @@ func _on_territory_body_exited(body):
 	if body.is_in_group("Player"):
 		player = null
 		track_player = false
+		pick_random_direction()
 
 
 func die():
@@ -122,7 +131,3 @@ func update_animation(direction):
 		$AnimatedSprite2D.play("walk_right")
 	elif direction == Vector2.UP:
 		pass
-
-
-func update_healthbar():
-	pass

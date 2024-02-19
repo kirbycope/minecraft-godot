@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_adyb8"]
 [ext_resource type="Texture2D" uid="uid://c32m0n4e3lj6h" path="res://textures/joao-francisco-tanini-figueiredo-zombie-minecraft.png" id="1_y5ygc"]
-[ext_resource type="AudioStream" uid="uid://buvh3uvsflch7" path="res://sounds/zombie/say1.wav" id="3_gh5y8"]
-[ext_resource type="AudioStream" uid="uid://bxi2323mm2n44" path="res://sounds/zombie/hurt1.wav" id="4_8jbih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm1wj"]
+atlas = ExtResource("1_y5ygc")
+region = Rect2(0, 0, 384, 425)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht8lg"]
+atlas = ExtResource("1_y5ygc")
+region = Rect2(384, 1275, 384, 425)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nw12"]
 atlas = ExtResource("1_y5ygc")
@@ -99,6 +105,20 @@ region = Rect2(1536, 850, 384, 425)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r5h16"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm1wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht8lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm1wj")
+}],
+"loop": false,
+"name": &"attack_left",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4nw12")
@@ -214,8 +234,10 @@ script = ExtResource("1_adyb8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r5h16")
-animation = &"walk_left"
+animation = &"attack_left"
 autoplay = "idle_left"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9.53674e-06, 9.53674e-06)
@@ -230,12 +252,6 @@ shape = SubResource("CircleShape2D_kotos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="territory"]
 shape = SubResource("CircleShape2D_fthh3")
-
-[node name="Hurt1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_8jbih")
-
-[node name="Say1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_gh5y8")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

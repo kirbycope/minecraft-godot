@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0x6t7qnflxas"]
+[gd_scene load_steps=21 format=3 uid="uid://d0x6t7qnflxas"]
 
 [ext_resource type="AudioStream" uid="uid://bsj5pvjpjhb3o" path="res://sounds/chest/chestclosed.wav" id="1_8eiel"]
 [ext_resource type="AudioStream" uid="uid://bjkej00teylr8" path="res://sounds/chest/chestopen.wav" id="2_t0cuk"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dlohla1d0x07x" path="res://sounds/player/step/grass1.wav" id="12_fl1ej"]
 [ext_resource type="AudioStream" uid="uid://bnamgttqvolgd" path="res://sounds/player/step/stone1.wav" id="13_6aida"]
 [ext_resource type="AudioStream" uid="uid://b1kkve24dnbbe" path="res://sounds/player/step/wood1.wav" id="14_1w5ac"]
+[ext_resource type="AudioStream" uid="uid://df2628g6ytjri" path="res://sounds/zombie/step1.wav" id="18_t14in"]
 [ext_resource type="AudioStream" uid="uid://dl80tikxeoh0e" path="res://sounds/random/pop.wav" id="18_u502p"]
 [ext_resource type="AudioStream" uid="uid://bed1r7xp3f83q" path="res://sounds/random/hurt.wav" id="19_4gcqp"]
 
@@ -82,6 +83,9 @@ stream = ExtResource("5_tfqsf")
 
 [node name="say1" type="AudioStreamPlayer2D" parent="zombie"]
 stream = ExtResource("6_byi4u")
+
+[node name="step1" type="AudioStreamPlayer2D" parent="zombie"]
+stream = ExtResource("18_t14in")
 
 [node name="random" type="Node" parent="."]
 

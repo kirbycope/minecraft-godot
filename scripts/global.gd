@@ -14,6 +14,7 @@ var last_direction = Vector2.RIGHT
 var last_facing = Vector2.RIGHT
 var mobs_spawned_today = true
 var player_can_move = true
+var player_health = 20
 var rain_chance = 1/2
 var rain_check_interval = 5
 var rain_check_timer : Timer

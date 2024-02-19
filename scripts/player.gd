@@ -22,6 +22,10 @@ func _ready():
 func _physics_process(delta):
 	update_animation()
 	update_torch_light()
+	if Global.player_health <= 0:
+		die()
+	else:
+		update_health()
 	if Global.player_can_move:
 		move_and_slide()
 	if is_attacking:
@@ -49,6 +53,12 @@ func _input(event):
 		# Random punch sound effect
 		var random_number = randi() % 4 + 1
 		Global.play_sound("player/strong%s" %[random_number])
+
+
+func die():
+	position = Vector2(25, 25)
+	Global.play_sound("random/hurt")
+	Global.player_health = 20
 
 
 func setup_test():
@@ -160,6 +170,29 @@ func update_animation():
 			elif Global.last_direction.y < 0:
 				#$AnimatedSprite2D.play("idle_up")
 				pass
+
+
+func update_health():
+	$hud/Hearts/Heart10/HeartContainer/Full.visible = (Global.player_health >= 20)
+	$hud/Hearts/Heart10/HeartContainer/Half.visible = (Global.player_health == 19)
+	$hud/Hearts/Heart9/HeartContainer/Full.visible = (Global.player_health >= 18)
+	$hud/Hearts/Heart9/HeartContainer/Half.visible = (Global.player_health == 17)
+	$hud/Hearts/Heart8/HeartContainer/Full.visible = (Global.player_health >= 16)
+	$hud/Hearts/Heart8/HeartContainer/Half.visible = (Global.player_health == 15)
+	$hud/Hearts/Heart7/HeartContainer/Full.visible = (Global.player_health >= 14)
+	$hud/Hearts/Heart7/HeartContainer/Half.visible = (Global.player_health == 13)
+	$hud/Hearts/Heart6/HeartContainer/Full.visible = (Global.player_health >= 12)
+	$hud/Hearts/Heart6/HeartContainer/Half.visible = (Global.player_health == 11)
+	$hud/Hearts/Heart5/HeartContainer/Full.visible = (Global.player_health >= 10)
+	$hud/Hearts/Heart5/HeartContainer/Half.visible = (Global.player_health == 9)
+	$hud/Hearts/Heart4/HeartContainer/Full.visible = (Global.player_health >= 8)
+	$hud/Hearts/Heart4/HeartContainer/Half.visible = (Global.player_health == 7)
+	$hud/Hearts/Heart3/HeartContainer/Full.visible = (Global.player_health >= 6)
+	$hud/Hearts/Heart3/HeartContainer/Half.visible = (Global.player_health == 5)
+	$hud/Hearts/Heart2/HeartContainer/Full.visible = (Global.player_health >= 4)
+	$hud/Hearts/Heart2/HeartContainer/Half.visible = (Global.player_health == 3)
+	$hud/Hearts/Heart1/HeartContainer/Full.visible = (Global.player_health >= 2)
+	$hud/Hearts/Heart1/HeartContainer/Half.visible = (Global.player_health == 1)
 
 
 func update_torch_light():
