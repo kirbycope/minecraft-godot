@@ -46,6 +46,8 @@ func _process(delta):
 	if Global.time >= 24.0:
 		Global.time = 0.0
 		Global.mobs_spawned_today = false
+	# Update clock
+	update_clock()
 	Global.time_of_day = fmod(Global.time, 24.0)
 	if Global.time_of_day >= 6.0 and Global.time_of_day < 18.0:
 		Global.day = true
@@ -166,6 +168,60 @@ func stop_sound(sound):
 	var current_scene = tree.get_current_scene()
 	var sounds = current_scene.get_node("sounds/" + sound)
 	sounds.stop()
+
+
+func update_clock():
+	var tree = get_tree()
+	var current_scene = tree.get_current_scene()
+	var clock_texture = current_scene.get_node("TileMap/player/hud/Clock/TextureRect")
+	if Global.time >= 0 and Global.time < 1:
+		clock_texture.texture = load("res://textures/clock/clock_40.png")
+	elif Global.time >= 1 and Global.time < 2:
+		clock_texture.texture = load("res://textures/clock/clock_42.png")
+	elif Global.time >= 2 and Global.time < 3:
+		clock_texture.texture = load("res://textures/clock/clock_45.png")
+	elif Global.time >= 3 and Global.time < 4:
+		clock_texture.texture = load("res://textures/clock/clock_47.png")
+	elif Global.time >= 4 and Global.time < 5:
+		clock_texture.texture = load("res://textures/clock/clock_50.png")
+	elif Global.time >= 5 and Global.time < 6:
+		clock_texture.texture = load("res://textures/clock/clock_52.png")
+	elif Global.time >= 6 and Global.time < 7:
+		clock_texture.texture = load("res://textures/clock/clock_55.png")
+	elif Global.time >= 7 and Global.time < 8:
+		clock_texture.texture = load("res://textures/clock/clock_57.png")
+	elif Global.time >= 8 and Global.time < 9:
+		clock_texture.texture = load("res://textures/clock/clock_60.png")
+	elif Global.time >= 9 and Global.time < 10:
+		clock_texture.texture = load("res://textures/clock/clock_02.png")
+	elif Global.time >= 10 and Global.time < 11:
+		clock_texture.texture = load("res://textures/clock/clock_05.png")
+	elif Global.time >= 11 and Global.time < 12:
+		clock_texture.texture = load("res://textures/clock/clock_07.png")
+	elif Global.time >= 12 and Global.time < 13:
+		clock_texture.texture = load("res://textures/clock/clock_10.png")
+	elif Global.time >= 13 and Global.time < 14:
+		clock_texture.texture = load("res://textures/clock/clock_12.png")
+	elif Global.time >= 14 and Global.time < 15:
+		clock_texture.texture = load("res://textures/clock/clock_15.png")
+	elif Global.time >= 15 and Global.time < 16:
+		clock_texture.texture = load("res://textures/clock/clock_17.png")
+	elif Global.time >= 16 and Global.time < 17:
+		clock_texture.texture = load("res://textures/clock/clock_20.png")
+	elif Global.time >= 17 and Global.time < 18:
+		clock_texture.texture = load("res://textures/clock/clock_22.png")
+	elif Global.time >= 18 and Global.time < 19:
+		clock_texture.texture = load("res://textures/clock/clock_25.png")
+	elif Global.time >= 19 and Global.time < 20:
+		clock_texture.texture = load("res://textures/clock/clock_27.png")
+	elif Global.time >= 20 and Global.time < 21:
+		clock_texture.texture = load("res://textures/clock/clock_30.png")
+	elif Global.time >= 21 and Global.time < 22:
+		clock_texture.texture = load("res://textures/clock/clock_32.png")
+	elif Global.time >= 22 and Global.time < 23:
+		clock_texture.texture = load("res://textures/clock/clock_35.png")
+	elif Global.time >= 23 and Global.time < 24:
+		clock_texture.texture = load("res://textures/clock/clock_37.png")
 
 
 # Update the HUD based on the player's status and inventory
