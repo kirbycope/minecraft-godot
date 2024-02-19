@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c8ugfx8rxs617"]
+[gd_scene load_steps=61 format=3 uid="uid://c8ugfx8rxs617"]
 
 [ext_resource type="Script" path="res://scripts/overworld.gd" id="1_531ot"]
 [ext_resource type="Texture2D" uid="uid://b7q18ca7g7ihl" path="res://textures/cobblestone.png" id="1_d5i5w"]
@@ -33,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://c8w1x7r4myhr4" path="res://scenes/torch.tscn" id="32_11ktk"]
 [ext_resource type="PackedScene" uid="uid://dlbth42lfmyp0" path="res://scenes/rain.tscn" id="32_ap130"]
 [ext_resource type="PackedScene" uid="uid://d0x6t7qnflxas" path="res://scenes/sounds.tscn" id="33_iboph"]
-[ext_resource type="PackedScene" uid="uid://cohl4jmdhy8fr" path="res://scenes/zombie.tscn" id="34_7e42r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3dd8"]
 resource_name = "cobblestone"
@@ -289,6 +288,3 @@ visible = false
 color = Color(0.262745, 0.176471, 0.623529, 1)
 
 [node name="sounds" parent="." instance=ExtResource("33_iboph")]
-
-[node name="zombie" parent="." instance=ExtResource("34_7e42r")]
-position = Vector2(271, 108)
