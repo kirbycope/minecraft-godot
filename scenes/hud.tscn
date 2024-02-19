@@ -1874,6 +1874,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart1/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -1904,6 +1905,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart2/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -1934,6 +1936,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart3/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -1964,6 +1967,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart4/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -1994,6 +1998,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart5/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -2024,6 +2029,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart6/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -2054,6 +2060,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart7/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -2084,6 +2091,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart8/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -2114,6 +2122,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart9/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0
@@ -2144,6 +2153,7 @@ texture = ExtResource("12_r3bsj")
 
 [node name="Half" type="TextureRect" parent="Hearts/Heart10/HeartContainer"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 5.0

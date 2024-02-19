@@ -133,22 +133,32 @@ func _input(event):
 			var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
 			if (right_source_id == 12): 			# Source ID 12: "chest"
 				$TileMap/player/hud.chest_ui_show()
-		else:
+		elif Global.last_direction == Vector2.LEFT:
 			var tile_to_left = get_map_position(Vector2(-16,0))
 			var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
 			if (left_source_id == 12): 			# Source ID 12: "chest"
+				$TileMap/player/hud.chest_ui_show()
+		else:
+			var tile_to_up = get_map_position(Vector2(0,0))
+			var up_source_id = $TileMap.get_cell_source_id(2, tile_to_up)
+			if (up_source_id == 12): 			# Source ID 12: "chest"
 				$TileMap/player/hud.chest_ui_show()
 		
 		# Check "Breakable Layer" for a "crafting_table"
 		if Global.last_direction == Vector2.RIGHT:
 			var tile_to_right = get_map_position(Vector2(16,0))
 			var right_source_id = $TileMap.get_cell_source_id(2, tile_to_right)
-			if (right_source_id == 19): 			# Source ID 12: "crafting_table"
+			if (right_source_id == 19): 			# Source ID 19: "crafting_table"
 				$TileMap/player/hud.crafting_table_ui_show()
-		else:
+		elif Global.last_direction == Vector2.LEFT:
 			var tile_to_left = get_map_position(Vector2(-16,0))
 			var left_source_id = $TileMap.get_cell_source_id(2, tile_to_left)
-			if (left_source_id == 19): 			# Source ID 12: "crafting_table"
+			if (left_source_id == 19): 			# Source ID 19: "crafting_table"
+				$TileMap/player/hud.crafting_table_ui_show()
+		else:
+			var tile_to_up = get_map_position(Vector2(0,0))
+			var up_source_id = $TileMap.get_cell_source_id(2, tile_to_up)
+			if (up_source_id == 19): 			# Source ID 19: "crafting_table"
 				$TileMap/player/hud.crafting_table_ui_show()
 
 	# 🅐 "Attack"

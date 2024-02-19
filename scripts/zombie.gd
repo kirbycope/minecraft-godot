@@ -92,8 +92,12 @@ func _on_hitbox_body_exited(body):
 func _on_territory_body_entered(body):
 	if body.is_in_group("Player"):
 		player = body
-		track_player = true
-		Global.play_sound("zombie/say1")
+		if Global.selected_item == "torch":
+			player = null
+			track_player = false
+		else:
+			track_player = true
+			Global.play_sound("zombie/say1")
 
 
 func _on_territory_body_exited(body):
