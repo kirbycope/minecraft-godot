@@ -2349,10 +2349,6 @@ offset_right = 9.0
 offset_bottom = 9.0
 texture = ExtResource("14_uqryb")
 
-[node name="Calm1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_rakr5")
-autoplay = true
-
 [node name="DPad" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -3231,3 +3227,7 @@ offset_top = 2.0
 offset_right = 16.0
 offset_bottom = 42.0
 texture = ExtResource("35_7ibda")
+
+[node name="Calm1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_rakr5")
+autoplay = true

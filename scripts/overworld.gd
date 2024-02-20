@@ -26,7 +26,9 @@ func _physics_process(delta):
 		Global.is_falling = true
 	else:
 		Global.is_falling = false
-
+	# Grow crops each day
+	if Global.crops_grown_today == false:
+		grow_crops()
 
 # Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
@@ -316,6 +318,61 @@ func give_item(item_name, stack_size = 1):
 	item.quantity = 1
 	item.texture = "res://textures/" + item_name + ".png"
 	Global.add_item_to_inventory(item) 
+
+
+#⬚⬚⬚⬚⬚	(-32,-32)(-16,-32)(0,-32)(16,-32)(32,-32)
+#⬚⬚⬚⬚⬚	(-32,-16)(-16,-16)(0,-16)(16,-16)(32,-16)
+#⬚⬚▣⬚⬚	(-32,  0)(-16,  0)(0,  0)(16,  0)(32,  0)
+#⬚⬚⬚⬚⬚	(-32, 16)(-16, 16)(0, 16)(16, 16)(32, 16)
+#⬚⬚⬚⬚⬚	(-32, 32)(-16, 32)(0, 32)(16, 32)(32, 32)
+# ^ Shows a 5x5(=25) grid around the player
+# Using a 16x16(=256) grid would be like the current "chunk"
+func grow_crops():
+
+	# Get the TileMap
+	var tilemap = $TileMap
+
+	# Define the range of points
+	var start = -256
+	var end = 256
+	
+	# Define the grid size
+	var grid_size = 32
+	
+	# Calculate the step size for each point
+	var step = (end - start) / (grid_size-1)
+
+	# Iterate over each point
+	for i in range(grid_size):
+		for j in range(grid_size):
+			# Calculate the coordinates for the current point
+			var x = start + i * step
+			var y = start + j * step
+			# Get Tile Map data at the coordinates of the current point
+			var source_id = tilemap.get_cell_source_id(1, get_map_position(Vector2(x, y)))
+			# Handle Farmland
+			if (source_id == 20					# Source ID 20: "farmland_wet"
+			or source_id == 21):				# Source ID 21: "farmland_dry"
+				# Check for crops
+				var source_id_layer_2 = tilemap.get_cell_source_id(2, get_map_position(Vector2(x, y)))
+				# Handle "wheat_0" -> "wheat_6"
+				if source_id_layer_2 == 22: 	# Source ID 22: "wheat_0"
+					$TileMap.set_cell(2, get_map_position(Vector2(x, y)), 26, Vector2i(0, 0), 0)
+				elif source_id_layer_2 == 26: 	# Source ID 26: "wheat_1"
+					$TileMap.set_cell(2, get_map_position(Vector2(x, y)), 27, Vector2i(0, 0), 0)
+				elif source_id_layer_2 == 27: 	# Source ID 27: "wheat_2"
+					$TileMap.set_cell(2, get_map_position(Vector2(x, y)), 28, Vector2i(0, 0), 0)
+				elif source_id_layer_2 == 28: 	# Source ID 28: "wheat_3"
+					$TileMap.set_cell(2, get_map_position(Vector2(x, y)), 29, Vector2i(0, 0), 0)
+				elif source_id_layer_2 == 29: 	# Source ID 29: "wheat_4"
+					$TileMap.set_cell(2, get_map_position(Vector2(x, y)), 30, Vector2i(0, 0), 0)
+				elif source_id_layer_2 == 30: 	# Source ID 30: "wheat_5"
+					$TileMap.set_cell(2, get_map_position(Vector2(x, y)), 31, Vector2i(0, 0), 0)
+				elif source_id_layer_2 == 31: 	# Source ID 31: "wheat_6"
+					$TileMap.set_cell(2, get_map_position(Vector2(x, y)), 23, Vector2i(0, 0), 0)
+	
+	# Set global flag so this only happens once per day
+	Global.crops_grown_today = true
 
 
 # Set the tile at the player's position.

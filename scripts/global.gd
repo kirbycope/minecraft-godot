@@ -3,6 +3,7 @@
 extends Node
 
 
+var crops_grown_today = true
 var day = true
 var inventory = [null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null, null, null, null, null,
@@ -45,6 +46,7 @@ func _process(delta):
 	# Reset after completing a cycle
 	if Global.time >= 24.0:
 		Global.time = 0.0
+		Global.crops_grown_today = false
 		Global.mobs_spawned_today = false
 	# Update clock
 	update_clock()
