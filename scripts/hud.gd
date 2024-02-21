@@ -4,7 +4,8 @@ extends CanvasLayer
 
 
 var actionbar_selected_slot = 1
-var highlighted_slot = 1
+var highlighted_slot = 0
+var selected_slot = 0
 
 @onready var action_bar_quantity_labels = [$ActionBar/Quantity1, $ActionBar/Quantity2, $ActionBar/Quantity3, $ActionBar/Quantity4,
 	$ActionBar/Quantity5, $ActionBar/Quantity6, $ActionBar/Quantity7, $ActionBar/Quantity8, $ActionBar/Quantity9
@@ -122,22 +123,19 @@ func _input(event):
 	
 	# Inventory - Chest, hide
 	if $SingleChest.visible:
-		if (event.is_action_pressed("ui_cancel")
-		or event.is_action_pressed("Use")):
+		if event.is_action_pressed("ui_cancel"):
 			Global.play_sound("chest/chestclosed")
 			chest_ui_hide()
 	
 	# Inventory - Crafting Table, hide
 	if $CraftingTable.visible:
-		if (event.is_action_pressed("ui_cancel")
-		or event.is_action_pressed("Use")):
+		if event.is_action_pressed("ui_cancel"):
 			crafting_table_ui_hide()
 	
 	# Inventory - Player, hide
 	if $Inventory.visible:
 		if (event.is_action_pressed("Inventory")
-		or event.is_action_pressed("ui_cancel")
-		or event.is_action_pressed("Use")):
+		or event.is_action_pressed("ui_cancel")):
 			inventory_ui_hide()
 	else:
 		# Inventory - Player, show
@@ -183,11 +181,24 @@ func _input(event):
 				highlighted_slot += 27
 			else:
 				highlighted_slot -= 9
-		# Ⓐ "Select" button pressed
-		if event.is_action_pressed("Attack"):
-			pass # ToDo: set selected inventory slot and show it
 		# Ensure the slot number is within range
 		highlighted_slot = clamp(highlighted_slot, 1, 36)
+		# Ⓐ "Select" button pressed
+		if event.is_action_pressed("Attack"):
+			if selected_slot == 0:
+				var node_path = "Slots/Slot" + str(highlighted_slot) + "/SlotSelected"
+				var node = get_node(node_path)
+				node.visible = true
+				selected_slot = highlighted_slot
+			else:
+				pass # ToDo: Swap items with previously selected slot
+		# 🅑 "Cancel" button pressed
+		elif event.is_action_pressed("Use"):
+			if selected_slot > 0:
+				var node_path = "Slots/Slot" + str(selected_slot) + "/SlotSelected"
+				var node = get_node(node_path)
+				node.visible = false
+				selected_slot = 0
 		# Highlight inventory active slot
 		inventory_clear_slot_highlight()
 		inventory_show_highlight()
@@ -200,6 +211,7 @@ func _input(event):
 		actionbar_clear_slot_selection()
 		actionbar_determine_slot_selection(event)
 		actionbar_show_slot_selection()
+		highlighted_slot = actionbar_selected_slot
 
 
 # Clears the selected slot frame for all slots on the ActionBar.
@@ -355,8 +367,6 @@ func inventory_clear_slot_highlight():
 
 # Highlights the active slot in the Inventory.
 func inventory_show_highlight():
-	if highlighted_slot == 0:
-		highlighted_slot = actionbar_selected_slot
 	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
 	var node = get_node(node_path)
 	node.visible = true
@@ -381,6 +391,8 @@ func inventory_slot_textures():
 func inventory_ui_hide():
 	get_tree().paused = false
 	highlighted_slot = 0
+	selected_slot = 0
+	inventory_clear_slot_highlight()
 	$ActionBar.visible = true
 	$Food.visible = true
 	$Hearts.visible = true
