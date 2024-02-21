@@ -320,13 +320,7 @@ func give_item(item_name, stack_size = 1):
 	Global.add_item_to_inventory(item) 
 
 
-#⬚⬚⬚⬚⬚	(-32,-32)(-16,-32)(0,-32)(16,-32)(32,-32)
-#⬚⬚⬚⬚⬚	(-32,-16)(-16,-16)(0,-16)(16,-16)(32,-16)
-#⬚⬚▣⬚⬚	(-32,  0)(-16,  0)(0,  0)(16,  0)(32,  0)
-#⬚⬚⬚⬚⬚	(-32, 16)(-16, 16)(0, 16)(16, 16)(32, 16)
-#⬚⬚⬚⬚⬚	(-32, 32)(-16, 32)(0, 32)(16, 32)(32, 32)
-# ^ Shows a 5x5(=25) grid around the player
-# Using a 16x16(=256) grid would be like the current "chunk"
+# Looks for and ages crops around the player.
 func grow_crops():
 
 	# Get the TileMap

@@ -37,9 +37,7 @@ func _physics_process(delta):
 		falling_timer += delta
 		if falling_timer >= falling_duration:
 			falling_timer = 0.0
-			position = Vector2(25, 25)
-			Global.play_sound("random/hurt")
-
+			die()
 
 # Called once for every event before _unhandled_input(), allowing you to consume some events.
 func _input(event):
