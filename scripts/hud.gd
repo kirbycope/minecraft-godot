@@ -3,8 +3,8 @@
 extends CanvasLayer
 
 
+var actionbar_selected_slot = 1
 var highlighted_slot = 1
-var selected_slot = 1
 
 @onready var action_bar_quantity_labels = [$ActionBar/Quantity1, $ActionBar/Quantity2, $ActionBar/Quantity3, $ActionBar/Quantity4,
 	$ActionBar/Quantity5, $ActionBar/Quantity6, $ActionBar/Quantity7, $ActionBar/Quantity8, $ActionBar/Quantity9
@@ -153,11 +153,13 @@ func _input(event):
 		$NES/ButtonA/LabelSelect.visible = true
 		$NES/ButtonB/LabelUse.visible = false
 		$NES/ButtonB/LabelCancel.visible = true
+		# ˅ "Down" button pressed
 		if event.is_action_pressed("ui_down"):
 			if highlighted_slot >= 28:
 				highlighted_slot -= 27
 			elif highlighted_slot >= 1:
 				highlighted_slot += 9
+		# ˂ "Left" button pressed
 		if event.is_action_pressed("ui_left"):
 			if (highlighted_slot == 1
 			or highlighted_slot == 10
@@ -166,6 +168,7 @@ func _input(event):
 				highlighted_slot += 8
 			else:
 				highlighted_slot -= 1
+		# ˃ "Right" button pressed
 		if event.is_action_pressed("ui_right"):
 			if (highlighted_slot == 9
 			or highlighted_slot == 18
@@ -174,24 +177,124 @@ func _input(event):
 				highlighted_slot -= 8
 			else:
 				highlighted_slot += 1
+		# ˄ "Up" button pressed
 		if event.is_action_pressed("ui_up"):
 			if highlighted_slot < 10:
 				highlighted_slot += 27
 			else:
 				highlighted_slot -= 9
+		# Ⓐ "Select" button pressed
+		if event.is_action_pressed("Attack"):
+			pass # ToDo: set selected inventory slot and show it
+		# Ensure the slot number is within range
 		highlighted_slot = clamp(highlighted_slot, 1, 36)
 		# Highlight inventory active slot
-		clear_inventory_highlight()
-		show_inventory_highlight()
+		inventory_clear_slot_highlight()
+		inventory_show_highlight()
 	else:
 		$NES/ButtonA/LabelAttack.visible = true
 		$NES/ButtonA/LabelSelect.visible = false
 		$NES/ButtonB/LabelUse.visible = true
 		$NES/ButtonB/LabelCancel.visible = false
 		# Highlight ActionBar selected slot
-		clear_slot_selection()
-		determine_slot_selection(event)
-		show_slot_selection()
+		actionbar_clear_slot_selection()
+		actionbar_determine_slot_selection(event)
+		actionbar_show_slot_selection()
+
+
+# Clears the selected slot frame for all slots on the ActionBar.
+func actionbar_clear_slot_selection():
+	for i in range(1, 10):
+		var node_path = "ActionBar/Slot" + str(i)+ "/SlotSelected"
+		var node = get_node(node_path)
+		node.visible = false
+
+
+# Determines the selected slot on the ActionBar.
+func actionbar_determine_slot_selection(event):
+	if event.is_action_pressed("Slot_1"):
+		actionbar_selected_slot = 1
+	elif event.is_action_pressed("Slot_2"):
+		actionbar_selected_slot = 2
+	elif event.is_action_pressed("Slot_3"):
+		actionbar_selected_slot = 3
+	elif event.is_action_pressed("Slot_4"):
+		actionbar_selected_slot = 4
+	elif event.is_action_pressed("Slot_5"):
+		actionbar_selected_slot = 5
+	elif event.is_action_pressed("Slot_6"):
+		actionbar_selected_slot = 6
+	elif event.is_action_pressed("Slot_7"):
+		actionbar_selected_slot = 7
+	elif event.is_action_pressed("Slot_8"):
+		actionbar_selected_slot = 8
+	elif event.is_action_pressed("Slot_9"):
+		actionbar_selected_slot = 9
+	elif event.is_action_pressed("Slot_Down"):
+		actionbar_selected_slot -= 1
+		if actionbar_selected_slot < 1:
+			actionbar_selected_slot = actionbar_selected_slot + 9
+	elif event.is_action_pressed("Slot_Up"):
+		actionbar_selected_slot += 1
+		if actionbar_selected_slot > 9:
+			actionbar_selected_slot = actionbar_selected_slot - 9
+
+
+# Shows a frame on the selected slot on the ActionBar.
+func actionbar_show_slot_selection():
+	if actionbar_selected_slot == 1:
+		$ActionBar/Slot1/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot1/SlotTexture)
+	elif actionbar_selected_slot == 2:
+		$ActionBar/Slot2/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot2/SlotTexture)
+	elif actionbar_selected_slot == 3:
+		$ActionBar/Slot3/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot3/SlotTexture)
+	elif actionbar_selected_slot == 4:
+		$ActionBar/Slot4/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot4/SlotTexture)
+	elif actionbar_selected_slot == 5:
+		$ActionBar/Slot5/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot5/SlotTexture)
+	elif actionbar_selected_slot == 6:
+		$ActionBar/Slot6/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot6/SlotTexture)
+	elif actionbar_selected_slot == 7:
+		$ActionBar/Slot7/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot7/SlotTexture)
+	elif actionbar_selected_slot == 8:
+		$ActionBar/Slot8/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot8/SlotTexture)
+	elif actionbar_selected_slot == 9:
+		$ActionBar/Slot9/SlotSelected.visible = true
+		actionbar_set_selected_item($ActionBar/Slot9/SlotTexture)
+
+
+# Sets a global for the item in the selected slot on the ActionBar. The item texture file name must match the item name.
+func actionbar_set_selected_item(texture_rect):
+	var texture = texture_rect.texture
+	if texture:
+		var resource_path = texture.resource_path
+		resource_path = resource_path.replace("res://textures/", "")
+		resource_path = resource_path.replace(".png", "")
+		Global.selected_item = resource_path
+	else:
+		Global.selected_item = ""
+
+
+# Sets the textures for each slot in the ActionBar.
+func actionbar_slot_textures():
+	var inventory = Global.inventory
+	inventory = inventory.slice(0,9)
+	for i in range(len(inventory)):
+		if inventory[i] != null:
+			action_bar_quantity_labels[i].text = str(inventory[i].quantity)
+			action_bar_quantity_labels[i].visible = true
+			action_bar_slot_images[i].texture = load(inventory[i].texture)
+		else:
+			action_bar_quantity_labels[i].visible = false
+			action_bar_slot_images[i].texture = null
 
 
 # Hides the Chest UI.
@@ -217,19 +320,6 @@ func chest_ui_show():
 	$XPBar.visible = false
 
 
-# Clears the selected slot on the ActionBar.
-func clear_slot_selection():
-	$ActionBar/Slot1/SlotSelected.visible = false
-	$ActionBar/Slot2/SlotSelected.visible = false
-	$ActionBar/Slot3/SlotSelected.visible = false
-	$ActionBar/Slot4/SlotSelected.visible = false
-	$ActionBar/Slot5/SlotSelected.visible = false
-	$ActionBar/Slot6/SlotSelected.visible = false
-	$ActionBar/Slot7/SlotSelected.visible = false
-	$ActionBar/Slot8/SlotSelected.visible = false
-	$ActionBar/Slot9/SlotSelected.visible = false
-
-
 # Hides the Crafting Table UI.
 func crafting_table_ui_hide():
 	Global.player_can_move = true
@@ -253,34 +343,38 @@ func crafting_table_ui_show():
 	$XPBar.visible = false
 
 
-# Determines slot to activate on the ActionBar.
-func determine_slot_selection(event):
-	if event.is_action_pressed("Slot_1"):
-		selected_slot = 1
-	elif event.is_action_pressed("Slot_2"):
-		selected_slot = 2
-	elif event.is_action_pressed("Slot_3"):
-		selected_slot = 3
-	elif event.is_action_pressed("Slot_4"):
-		selected_slot = 4
-	elif event.is_action_pressed("Slot_5"):
-		selected_slot = 5
-	elif event.is_action_pressed("Slot_6"):
-		selected_slot = 6
-	elif event.is_action_pressed("Slot_7"):
-		selected_slot = 7
-	elif event.is_action_pressed("Slot_8"):
-		selected_slot = 8
-	elif event.is_action_pressed("Slot_9"):
-		selected_slot = 9
-	elif event.is_action_pressed("Slot_Down"):
-		selected_slot -= 1
-		if selected_slot < 1:
-			selected_slot = selected_slot + 9
-	elif event.is_action_pressed("Slot_Up"):
-		selected_slot += 1
-		if selected_slot > 9:
-			selected_slot = selected_slot - 9
+# Clears the highlighted slot for all slots in the Inventory.
+func inventory_clear_slot_highlight():
+	var slot_range = 36
+	for i in slot_range:
+		var slot_number = i + 1
+		var node_path = "Slots/Slot" + str(slot_number) + "/SlotHighlighted"
+		var node = get_node(node_path)
+		node.visible = false
+
+
+# Highlights the active slot in the Inventory.
+func inventory_show_highlight():
+	if highlighted_slot == 0:
+		highlighted_slot = actionbar_selected_slot
+	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
+	var node = get_node(node_path)
+	node.visible = true
+
+
+# Sets the textures for each item in the Inventory.
+func inventory_slot_textures():
+	var inventory = Global.inventory
+	inventory = inventory.slice(0,36)
+	for i in range(len(inventory)):
+		if inventory[i] != null:
+			if inventory[i].texture != null:
+				inventory_slot_quantity_labels[i].text = str(inventory[i].quantity)
+				inventory_slot_quantity_labels[i].visible = true
+				inventory_slot_images[i].texture = load(inventory[i].texture)
+		else:
+			inventory_slot_quantity_labels[i].visible = false
+			inventory_slot_images[i].texture = null
 
 
 # Hides the Inventory UI.
@@ -304,94 +398,3 @@ func inventory_ui_show():
 	$Hearts.visible = false
 	$Slots.visible = true
 	$XPBar.visible = false
-
-
-# Sets a global for the item in the selected slot on the ActionBar.
-func set_selected_item(texture_rect):
-	var texture = texture_rect.texture
-	if texture:
-		var resource_path = texture.resource_path
-		resource_path = resource_path.replace("res://textures/", "")
-		resource_path = resource_path.replace(".png", "")
-		Global.selected_item = resource_path
-	else:
-		Global.selected_item = ""
-
-
-# Shows a frame on the selected slot on the ActionBar.
-func show_slot_selection():
-	if selected_slot == 1:
-		$ActionBar/Slot1/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot1/SlotTexture)
-	elif selected_slot == 2:
-		$ActionBar/Slot2/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot2/SlotTexture)
-	elif selected_slot == 3:
-		$ActionBar/Slot3/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot3/SlotTexture)
-	elif selected_slot == 4:
-		$ActionBar/Slot4/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot4/SlotTexture)
-	elif selected_slot == 5:
-		$ActionBar/Slot5/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot5/SlotTexture)
-	elif selected_slot == 6:
-		$ActionBar/Slot6/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot6/SlotTexture)
-	elif selected_slot == 7:
-		$ActionBar/Slot7/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot7/SlotTexture)
-	elif selected_slot == 8:
-		$ActionBar/Slot8/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot8/SlotTexture)
-	elif selected_slot == 9:
-		$ActionBar/Slot9/SlotSelected.visible = true
-		set_selected_item($ActionBar/Slot9/SlotTexture)
-
-
-# Sets the textures for each item in the ActionBar.
-func show_actionbar_items():
-	var inventory = Global.inventory
-	inventory = inventory.slice(0,9)
-	for i in range(len(inventory)):
-		if inventory[i] != null:
-			action_bar_quantity_labels[i].text = str(inventory[i].quantity)
-			action_bar_quantity_labels[i].visible = true
-			action_bar_slot_images[i].texture = load(inventory[i].texture)
-		else:
-			action_bar_quantity_labels[i].visible = false
-			action_bar_slot_images[i].texture = null
-
-
-# Sets the textures for each item in the Inventory.
-func show_inventory_items():
-	var inventory = Global.inventory
-	inventory = inventory.slice(0,36)
-	for i in range(len(inventory)):
-		if inventory[i] != null:
-			if inventory[i].texture != null:
-				inventory_slot_quantity_labels[i].text = str(inventory[i].quantity)
-				inventory_slot_quantity_labels[i].visible = true
-				inventory_slot_images[i].texture = load(inventory[i].texture)
-		else:
-			inventory_slot_quantity_labels[i].visible = false
-			inventory_slot_images[i].texture = null
-
-
-# Clears the highlight in the Inventory.
-func clear_inventory_highlight():
-	var slot_range = 36
-	for i in slot_range:
-		var slot_number = i + 1
-		var node_path = "Slots/Slot" + str(slot_number) + "/SlotHighlighted"
-		var node = get_node(node_path)
-		node.visible = false
-
-
-# Highlights the active slot in the Inventory.
-func show_inventory_highlight():
-	if highlighted_slot == 0:
-		highlighted_slot = selected_slot
-	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
-	var node = get_node(node_path)
-	node.visible = true

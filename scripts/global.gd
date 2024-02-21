@@ -231,5 +231,5 @@ func update_hud():
 	var tree = get_tree()
 	var current_scene = tree.get_current_scene()
 	var hud = current_scene.get_node("TileMap/player/hud")
-	hud.show_actionbar_items()
-	hud.show_inventory_items()
+	hud.actionbar_slot_textures()
+	hud.inventory_slot_textures()
