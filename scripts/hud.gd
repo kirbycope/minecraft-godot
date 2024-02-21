@@ -191,7 +191,7 @@ func _input(event):
 				node.visible = true
 				selected_slot = highlighted_slot
 			else:
-				pass # ToDo: Swap items with previously selected slot
+				inventory_swap_slots()
 		# 🅑 "Cancel" button pressed
 		elif event.is_action_pressed("Use"):
 			if selected_slot > 0:
@@ -212,6 +212,7 @@ func _input(event):
 		actionbar_determine_slot_selection(event)
 		actionbar_show_slot_selection()
 		highlighted_slot = actionbar_selected_slot
+		inventory_clear_slot_selection()
 
 
 # Clears the selected slot frame for all slots on the ActionBar.
@@ -365,7 +366,17 @@ func inventory_clear_slot_highlight():
 		node.visible = false
 
 
-# Highlights the active slot in the Inventory.
+# Clears the selected slot frame for all slots in the Inventory.
+func inventory_clear_slot_selection():
+	var slot_range = 36
+	for i in slot_range:
+		var slot_number = i + 1
+		var node_path = "Slots/Slot" + str(slot_number) + "/SlotSelected"
+		var node = get_node(node_path)
+		node.visible = false
+
+
+# Highlights the current slot in the Inventory.
 func inventory_show_highlight():
 	var node_path = "Slots/Slot" + str(highlighted_slot) +"/SlotHighlighted"
 	var node = get_node(node_path)
@@ -385,6 +396,18 @@ func inventory_slot_textures():
 		else:
 			inventory_slot_quantity_labels[i].visible = false
 			inventory_slot_images[i].texture = null
+
+
+# Swaps the items in the Selected slot with the Highlighted slot.
+func inventory_swap_slots():
+	var highlighted_slot_item = Global.inventory[highlighted_slot-1]
+	var selected_slot_item = Global.inventory[selected_slot-1]
+	Global.inventory[highlighted_slot-1] = selected_slot_item
+	Global.inventory[selected_slot-1] = highlighted_slot_item
+	selected_slot = 0
+	inventory_clear_slot_selection()
+	inventory_slot_textures()
+	actionbar_slot_textures()
 
 
 # Hides the Inventory UI.

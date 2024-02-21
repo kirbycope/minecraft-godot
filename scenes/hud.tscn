@@ -696,6 +696,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot2"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -727,6 +728,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot3"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -758,6 +760,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot4"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -789,6 +792,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot5"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -820,6 +824,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot6"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -851,6 +856,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot7"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -882,6 +888,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot8"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -913,6 +920,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot9"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -944,6 +952,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot10"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -975,6 +984,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot11"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1006,6 +1016,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot12"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1037,6 +1048,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot13"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1068,6 +1080,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot14"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1099,6 +1112,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot15"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1130,6 +1144,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot16"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1161,6 +1176,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot17"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1192,6 +1208,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot18"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1223,6 +1240,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot19"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1254,6 +1272,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot20"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1285,6 +1304,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot21"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1316,6 +1336,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot22"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1347,6 +1368,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot23"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1378,6 +1400,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot24"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1409,6 +1432,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot25"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1440,6 +1464,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot26"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1471,6 +1496,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot27"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1502,6 +1528,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot28"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1533,6 +1560,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot29"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1564,6 +1592,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot30"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1595,6 +1624,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot31"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1626,6 +1656,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot32"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1657,6 +1688,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot33"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1688,6 +1720,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot34"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1719,6 +1752,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot35"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
@@ -1750,6 +1784,7 @@ stretch_mode = 3
 
 [node name="SlotSelected" type="TextureRect" parent="Slots/Slot36"]
 visible = false
+layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
