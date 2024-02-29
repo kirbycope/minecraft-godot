@@ -2,6 +2,7 @@
 
 # minecraft-godot
 A demake of Minecraft using the Godot Game Engine.
+</br>
 [Minecraft](https://www.minecraft.net/en-us) is a 2011 sandbox game developed by Mojang Studios and originally released in 2009.
 </br>
 [Godot](https://godotengine.org/) is a cross-platform, free and open-source game engine released under the permissive MIT license.
@@ -28,11 +29,21 @@ Note: This only needs to be done once.
 1. Select "Use your GitHub Pages website", then select "Save changes"
 
 ## Building for Web Using Godot GUI
+
+### Prerequisites
+1. Download and install [NodeJS LTS](https://nodejs.org/en/)
+
+### Setting Up Godot
+The following in needed to work with GitHub Pages.
 1. Select "Project" > "Export..."
     - If you see errors, click the link for "Manage Export Templates" and then click "Download and Install"
 1. Select the preset "Web (Runnable)"
-1. (One Time Setup) Download [coi.js](https://github.com/gzuidhof/coi-serviceworker/raw/master/coi-serviceworker.js) and add it to the `/docs` directory
-1. (One Time Setup) Enter "Head Include" `<script src="coi-serviceworker.js"></script>`
+1. For "Head Include", enter `<script src="coi-serviceworker.js"></script>`
+1. Download [coi.js](https://github.com/gzuidhof/coi-serviceworker/raw/master/coi-serviceworker.js) and add it to the `/docs` directory
+
+### Exporting to Web
+1. Select "Project" > "Export..."
+1. Select the preset "Web (Runnable)"
 1. Select "Export Project..."
 1. Select the "docs" folder
     - The GitHub Pages config points to the `main` branch and `/docs` directory
@@ -49,3 +60,63 @@ Note: This only needs to be done once.
 1. In your browser navigate to [https://127.0.0.1:8000/](https://127.0.0.1:8000/)
 1. In terminal press [Ctrl]+[C] to stop the web process
     1. Enter `y` if prompted
+
+## Building for Android Using Godot GUI
+
+### Prerequisites
+1. Download and install [OpenJDK 17](https://adoptium.net/temurin/releases/?variant=openjdk17).
+    - Run `java --version` to confirm
+1. Download and install [Android Studio](https://developer.android.com/studio/).
+    1. Start Android Studio
+    1. Select "Customize"
+    1. Select "All settings..."
+    1. Select "Languages & Frameworks" > "Android SDK"
+    1. Next to "Android SDK Location", select "Edit"
+    1. For "SDK Components Setup", select "Next"
+    1. For "Verify Settings", select "Next"
+    1. Select "Finish"
+    1. Select the "SDK Tools" tab
+    1. Select the following:
+        - Android SDK Build-Tools
+        - NDK
+        - Android SDK Command-line Tools
+        - CMake
+        - (Optionally) Android Emulator
+        - Android SDK Platform-Tools
+    1. Select "Apply"
+    1. To confrim, select "OK"
+        - Accept the License Agreement if prompted
+    1. Select "Finish"
+    1. Select "OK"
+    1. Close Android Studio
+
+### Create a debug keystore
+If there isn't already a `debug.keystore` in the repo's root directory (or it expired), then you'll need to generate a new one.
+1. Open the root folder using [VS Code](https://code.visualstudio.com/)
+   * If you use [GitHub Desktop](https://desktop.github.com/), select the "Open in Visual Studio" button
+1. Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
+1. Run `keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12`
+
+### Setting Up Godot
+1. Open the project in Godot
+1. Select "Editor" > "Editor Settings"
+1. Select "Export" > "Android"
+1. Double-check "Android SDK Location"
+    - It should match [ Android Studio] > "Customize" > "All Settings..." > "Languages & Frameworks" > "Android SDK" > "Android SDK Location"
+1. Select the folder icon next to "Debug Keystore"
+1. Navigate to the path of the debug keystore (above)
+1. Select "Project" > "Export..."
+    - If you see errors, click the link for "Manage Export Templates" and then click "Download and Install"
+1. Select "Add..."
+1. Select "Android"
+    - Select "Fix Import" when prompted
+1. For "Package" > "Unique Name", enter `com.{domain}.{repo}`
+    - I would use `timothycope` for "domain"
+    - I would use this repo's name for "repo", replacing spaces and hypens with dots (ex., `repo-name` -> `repo.name` )
+
+### Exporting to Android
+1. Select "Project" > "Export..."
+1. Select the preset "Android (Runnable)"
+1. Select "Export Project..."
+1. For "File", enter `{repo}.apk`
+1. Select "Save"
